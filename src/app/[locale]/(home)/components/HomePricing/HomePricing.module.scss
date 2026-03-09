@@ -1,0 +1,300 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$accent: #d2ff37;
+$grey-bg: #f5f5f5;
+$text-dark: #0c0c0c;
+$text-muted: rgba(12, 12, 12, 0.6);
+
+.home_pricing {
+  background: #fff;
+  padding: 80px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;
+
+  @include tablet {
+    padding: 60px 10px;
+    gap: 30px;
+  }
+}
+
+// ─── CONTAINER ────────────────────────────────────────────────────────────────
+
+.home_pricing__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include tablet {
+    gap: 30px;
+  }
+}
+
+// ─── HEADING ─────────────────────────────────────────────────────────────────
+
+.home_pricing__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+
+  @include tablet {
+    gap: 20px;
+  }
+}
+
+.home_pricing__title {
+  font-size: 112px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -7.84px;
+  color: $text-dark;
+  margin: 0;
+
+  @include desktop {
+    font-size: 80px;
+    letter-spacing: -5px;
+  }
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -5px;
+    line-height: 1.1;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    letter-spacing: -3px;
+  }
+}
+
+.home_pricing__subtitle_block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.home_pricing__approach {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.home_pricing__desc {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+  max-width: 510px;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+// ─── BODY (tabs + cards) ──────────────────────────────────────────────────────
+
+.home_pricing__body {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  align-items: center;
+}
+
+// ─── TABS ─────────────────────────────────────────────────────────────────────
+
+.home_pricing__tabs {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.home_pricing__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 21px 40px;
+  border-radius: 50px;
+  border: none;
+  background: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  color: #060606;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  min-width: 309px;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  @include tablet {
+    min-width: 0;
+    flex: 1;
+    padding: 16px 20px;
+    font-size: 18px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+}
+
+.home_pricing__tab--active {
+  background: $accent;
+}
+
+.home_pricing__tab_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+// ─── PRICE ROWS ──────────────────────────────────────────────────────────────
+
+.home_pricing__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.home_pricing__row {
+  background: $grey-bg;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  padding: 50px;
+
+  @include tablet {
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+// ─── PRICE CARD ───────────────────────────────────────────────────────────────
+
+.home_pricing__card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px;
+  border-radius: 5px;
+  background: linear-gradient(to left, $grey-bg, rgba(255, 255, 255, 0.4));
+  min-width: 0;
+
+  @include tablet {
+    padding: 24px;
+  }
+}
+
+.home_pricing__card--accent {
+  background: linear-gradient(to left, $grey-bg, rgba(210, 255, 55, 0.4));
+}
+
+.home_pricing__card_from {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.64px;
+  color: #060606;
+}
+
+.home_pricing__card_price {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.home_pricing__card_amount {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -2.94px;
+  color: $text-dark;
+
+  @include mobile {
+    font-size: 32px;
+    letter-spacing: -2px;
+  }
+}
+
+.home_pricing__card_unit {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.76px;
+  color: $text-dark;
+  opacity: 0.5;
+
+  @include mobile {
+    font-size: 15px;
+  }
+}
+
+// ─── LINK ROW ────────────────────────────────────────────────────────────────
+
+.home_pricing__link_row {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home_pricing__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: #060606;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.home_pricing__link_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}

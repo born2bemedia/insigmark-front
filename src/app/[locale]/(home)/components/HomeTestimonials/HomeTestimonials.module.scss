@@ -1,0 +1,342 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$text-dark: #0c0c0c;
+$text-muted: rgba(12, 12, 12, 0.6);
+$navy: #023d65;
+$grey-bg: #f5f5f5;
+
+.home_testimonials {
+  background: #fff;
+  padding: 160px 36px 0;
+
+  @include desktop {
+    padding: 120px 36px 0;
+  }
+
+  @include tablet {
+    padding: 80px 10px 0;
+  }
+}
+
+// ─── CONTAINER ────────────────────────────────────────────────────────────────
+
+.home_testimonials__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  min-height: 648px;
+  overflow: hidden;
+
+  @include desktop {
+    min-height: 560px;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    gap: 0;
+    min-height: unset;
+  }
+}
+
+// ─── COLUMN 1 (white, title + desc) ──────────────────────────────────────────
+
+.home_testimonials__col1 {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+
+  @include tablet {
+    min-height: 300px;
+    padding: 30px 20px;
+  }
+}
+
+.home_testimonials__col1_border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  pointer-events: none;
+}
+
+.home_testimonials__col1_corner {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 9px;
+  height: 9px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: $navy;
+  }
+
+  &::before {
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 9px;
+  }
+
+  &::after {
+    bottom: 0;
+    left: 0;
+    width: 9px;
+    height: 2px;
+  }
+}
+
+.home_testimonials__col1_top {
+  display: flex;
+  flex-direction: column;
+}
+
+.home_testimonials__col1_title {
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -3.22px;
+  color: #060606;
+  margin: 0;
+  white-space: pre-line;
+
+  @include desktop {
+    font-size: 36px;
+    letter-spacing: -2.5px;
+  }
+
+  @include tablet {
+    font-size: 32px;
+    letter-spacing: -2px;
+  }
+
+  @include mobile {
+    font-size: 28px;
+  }
+}
+
+.home_testimonials__col1_desc {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+  text-align: right;
+
+  @include tablet {
+    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+  }
+}
+
+// ─── COLUMN 2 (dark bg, photo) ────────────────────────────────────────────────
+
+.home_testimonials__col2 {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 50px;
+  background: #0c0c0c;
+  overflow: hidden;
+
+  @include tablet {
+    min-height: 400px;
+    padding: 30px 20px;
+  }
+}
+
+.home_testimonials__col2_photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.87;
+  pointer-events: none;
+}
+
+.home_testimonials__col2_gradient {
+  position: absolute;
+  inset: 20px;
+  background: $navy;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home_testimonials__col2_content {
+  position: relative;
+  z-index: 2;
+}
+
+.home_testimonials__col2_name {
+  position: relative;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home_testimonials__col2_border {
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+// ─── COLUMN 3 (dark bg, dots) ────────────────────────────────────────────────
+
+.home_testimonials__col3 {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px;
+  background: #0c0c0c;
+  overflow: hidden;
+
+  @include tablet {
+    min-height: 350px;
+    padding: 30px 20px;
+  }
+}
+
+.home_testimonials__col3_content {
+  position: relative;
+  padding-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.home_testimonials__col3_border {
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+// ─── COLUMN 4 (grey bg, robot) ────────────────────────────────────────────────
+
+.home_testimonials__col4 {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  background: $grey-bg;
+  overflow: hidden;
+
+  @include tablet {
+    min-height: 400px;
+    padding: 30px 20px;
+  }
+}
+
+.home_testimonials__col4_image {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 262px;
+  height: 394px;
+  object-fit: contain;
+  object-position: center top;
+  pointer-events: none;
+
+  @include desktop {
+    width: 200px;
+    height: 300px;
+  }
+
+  @include tablet {
+    width: 160px;
+    height: 240px;
+  }
+}
+
+.home_testimonials__col4_content {
+  position: relative;
+  padding-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home_testimonials__col4_border {
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+// ─── SHARED TEXT STYLES ────────────────────────────────────────────────────────
+
+.home_testimonials__item_title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #fff;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.home_testimonials__item_desc {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.56px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+
+  @include mobile {
+    font-size: 13px;
+  }
+}
+
+.home_testimonials__item_title_dark {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #060606;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.home_testimonials__item_desc_dark {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.56px;
+  color: rgba(12, 12, 12, 0.6);
+  margin: 0;
+
+  @include mobile {
+    font-size: 13px;
+  }
+}

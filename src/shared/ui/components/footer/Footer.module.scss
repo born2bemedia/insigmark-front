@@ -1,0 +1,346 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$navy: #023d65;
+$grey-bg: #f5f5f5;
+$text-dark: #060606;
+
+.footer {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 30px;
+    background: $grey-bg;
+    border-radius: 2px;
+
+    @include tablet {
+      inset: 10px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 90px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+
+    @include desktop {
+      padding: 60px 36px 48px;
+      gap: 60px;
+    }
+
+    @include tablet {
+      padding: 40px 20px 32px;
+      gap: 40px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include desktop {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  &__wordmark {
+    font-family: var(--font-bebas-neue), sans-serif;
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -5px;
+    color: $text-dark;
+    text-decoration: none;
+    white-space: nowrap;
+
+    @include tablet {
+      font-size: 60px;
+      letter-spacing: -3px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    gap: 95px;
+    align-items: flex-start;
+
+    @include desktop {
+      gap: 40px;
+      width: 100%;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      gap: 32px;
+      width: 100%;
+    }
+  }
+
+  // ─── NEWSLETTER ──────────────────────────────────────────────────────────────
+
+  &__newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 284px;
+    flex-shrink: 0;
+
+    @include desktop {
+      width: 260px;
+    }
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__newsletter_heading {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__newsletter_title {
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -3.22px;
+    color: $text-dark;
+
+    @include tablet {
+      font-size: 36px;
+      letter-spacing: -2px;
+    }
+  }
+
+  &__newsletter_desc {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.64px;
+    color: rgba($text-dark, 0.6);
+  }
+
+  &__newsletter_form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__newsletter_input_wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 2px;
+  }
+
+  &__newsletter_input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.8px;
+    color: $text-dark;
+    padding: 2px 36px 18px 0;
+
+    &::placeholder {
+      color: rgba($text-dark, 0.4);
+    }
+  }
+
+  &__newsletter_btn {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    width: 27px;
+    height: 27px;
+    background: $navy;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  // ─── NAV ─────────────────────────────────────────────────────────────────────
+
+  &__nav {
+    display: flex;
+    gap: 20px;
+
+    @include tablet {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__nav_col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 132px;
+
+    @include tablet {
+      width: auto;
+      flex: 1;
+    }
+  }
+
+  &__nav_link {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.72px;
+    color: $text-dark;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    @include tablet {
+      font-size: 15px;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  // ─── BOTTOM ──────────────────────────────────────────────────────────────────
+
+  &__bottom {
+    display: flex;
+    gap: 200px;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  &__contact {
+    width: 320px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      width: 100%;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: -0.72px;
+      color: $text-dark;
+    }
+  }
+
+  &__bottom_right {
+    flex: 1;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+  }
+
+  &__company_info {
+    opacity: 0.6;
+    max-width: 340px;
+  }
+
+  &__company_name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.64px;
+    color: $text-dark;
+  }
+
+  &__company_desc {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.64px;
+    color: $text-dark;
+  }
+
+  &__copyright {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.52px;
+    color: $text-dark;
+    max-width: 270px;
+
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+
+  // ─── LEGAL ───────────────────────────────────────────────────────────────────
+
+  &__legal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+
+    @include tablet {
+      gap: 8px;
+    }
+
+    a {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.25px;
+      text-transform: uppercase;
+      color: rgba($text-dark, 0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $text-dark;
+      }
+    }
+  }
+
+  &__legal_sep {
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

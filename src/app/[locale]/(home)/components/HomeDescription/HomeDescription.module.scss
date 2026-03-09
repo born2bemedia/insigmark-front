@@ -1,0 +1,130 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$accent: #d2ff37;
+$text-muted: rgba(12, 12, 12, 0.6);
+$border: #e4e4e4;
+
+.home_description {
+  background: #fff;
+}
+
+.home_description__img {
+  position: relative;
+  height: 617px;
+  overflow: hidden;
+
+  @include tablet {
+    height: auto;
+    
+  }
+
+  @include mobile {
+    height: auto;
+  }
+}
+
+.home_description__img_inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 80px));
+  width: 720px;
+  max-width: 100%;
+  aspect-ratio: 720 / 516;
+  background-color: #0c0c0c;
+  background-image: url('/images/home/description-bg.png');
+  background-size: cover;
+  background-position: center;
+
+  @include tablet {
+    width: 90%;
+    transform: translate(-50%, -50%);
+    height: 300px;position: relative;
+    width: 100%;
+    top: unset!important;
+    left: unset!important;
+    transform: unset!important;
+  }
+
+  @include mobile {
+    width: 100%;
+    aspect-ratio: 390 / 280;
+  }
+}
+
+.home_description__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  will-change: transform;
+
+  @include tablet {
+    transform: unset!important;
+    mix-blend-mode: unset!important;
+  }
+
+}
+
+.home_description__line1,
+.home_description__line2 {
+  display: block;
+  font-size: 340px;
+  font-weight: 600;
+  letter-spacing: -21px;
+  color: $accent;
+  line-height: 300px;
+  text-align: center;
+  white-space: nowrap;
+
+  @include tablet {
+    font-size: 180px;
+    letter-spacing: -12px;
+    line-height: 160px;
+    color: #fff;
+  }
+
+  @include mobile {
+    font-size: 80px;
+    letter-spacing: -5px;
+    line-height: 100px;
+  }
+}
+
+.home_description__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid $border;
+}
+
+.home_description__text_inner {
+  max-width: 720px;
+  padding: 40px 36px;
+  text-align: center;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
+  border-bottom: 1px solid $border;
+
+  @include mobile {
+    padding: 40px 15px;
+    margin: 0 15px;
+  }
+}
+
+.home_description__slogan {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+
+  @include mobile {
+    font-size: 18px;
+  }
+}

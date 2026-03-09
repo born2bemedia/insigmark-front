@@ -1,0 +1,265 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$accent: #d2ff37;
+$text-white: #fff;
+$line: #323232;
+
+.home_services {
+  background: #0c0c0c;
+  padding: 80px 36px;
+
+  @include tablet {
+    padding: 40px 10px;
+  }
+}
+
+.home_services__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+
+  @include tablet {
+    gap: 40px;
+  }
+}
+
+// ─── TOP BAR ─────────────────────────────────────────────────────────────────
+
+.home_services__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home_services__wordmark {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: -3px;
+  color: $text-white;
+  line-height: 1;
+}
+
+.home_services__category {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.52px;
+  text-transform: uppercase;
+  color: $text-white;
+}
+
+.home_services__corner {
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid $accent;
+  border-bottom: 2px solid $accent;
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+}
+
+// ─── CONTENT ─────────────────────────────────────────────────────────────────
+
+.home_services__content {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+
+  @include tablet {
+    gap: 0;
+  }
+}
+
+// ─── MAIN (desktop: panel left + tabs right) ──────────────────────────────────
+
+.home_services__main {
+  display: flex;
+  gap: 200px;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+// ─── LEFT PANEL (desktop only) ───────────────────────────────────────────────
+
+.home_services__panel {
+  flex: 0 0 354px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.home_services__panel_img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 225 / 163;
+  overflow: hidden;
+}
+
+.home_services__img {
+  object-fit: cover;
+}
+
+.home_services__panel_text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home_services__panel_label {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.64px;
+  color: rgba($text-white, 0.6);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.home_services__panel_desc {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: $text-white;
+  margin: 0;
+  line-height: 1.3;
+}
+
+// ─── TABS (large service names) ───────────────────────────────────────────────
+
+.home_services__tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.home_services__tab {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 16px 20px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid $line;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s;
+
+  @include tablet {
+    padding: 10px 0 20px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.home_services__tab_text {
+  font-size: 80px;
+  font-weight: 500;
+  letter-spacing: -5px;
+  color: $text-white;
+  line-height: 1.4;
+  opacity: 0.15;
+  transition: all 0.3s;
+  left: 0;
+  position: relative;
+
+  @include tablet {
+    font-size: 48px;
+    letter-spacing: -3px;
+  }
+
+  @include mobile {
+    font-size: 36px;
+    letter-spacing: -2px;
+  }
+
+  &:hover{
+    left: 10px;
+    opacity: 1;
+  }
+
+}
+
+.home_services__tab--active .home_services__tab_text {
+  opacity: 1;
+  left: 10px;
+}
+
+// ─── MOBILE PANEL (below tabs on mobile) ─────────────────────────────────────
+
+.home_services__mobile_panel {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 40px;
+
+  @include tablet {
+    display: flex;
+  }
+
+  .home_services__panel_img {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+  }
+}
+
+// ─── LINK ROW ────────────────────────────────────────────────────────────────
+
+.home_services__link_row {
+  display: flex;
+  padding-left: 449px;
+
+  @include desktop {
+    padding-left: 200px;
+  }
+
+  @include tablet {
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+
+.home_services__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: $text-white;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.home_services__link_icon {
+  display: flex;
+  width: 23px;
+  height: 23px;
+  color: $accent;
+  flex-shrink: 0;
+}

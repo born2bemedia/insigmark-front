@@ -1,0 +1,232 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$text-dark: #0c0c0c;
+$text-muted: rgba(12, 12, 12, 0.6);
+$border: #dedede;
+$navy: #023d65;
+
+.home_process {
+  background: #fff;
+  padding: 160px 36px 100px;
+
+  @include desktop {
+    padding: 120px 36px 80px;
+  }
+
+  @include tablet {
+    padding: 80px 10px 60px;
+  }
+}
+
+// ─── CONTAINER ────────────────────────────────────────────────────────────────
+
+.home_process__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+// ─── LEFT ─────────────────────────────────────────────────────────────────────
+
+.home_process__left {
+  width: 674px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  overflow: hidden;
+
+  @include desktop {
+    width: 480px;
+    gap: 50px;
+  }
+
+  @include tablet {
+    width: 100%;
+    gap: 30px;
+  }
+}
+
+.home_process__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include tablet {
+    gap: 20px;
+  }
+}
+
+.home_process__title {
+  font-size: 112px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -7.84px;
+  color: $text-dark;
+  margin: 0;
+
+  @include desktop {
+    font-size: 80px;
+    letter-spacing: -5px;
+  }
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+    line-height: 1.1;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    letter-spacing: -3px;
+  }
+}
+
+.home_process__subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+  max-width: 510px;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.home_process__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: #060606;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.home_process__link_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+// ─── STEPS ────────────────────────────────────────────────────────────────────
+
+.home_process__steps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.home_process__step {
+  position: relative;
+  background: #fff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  overflow: hidden;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.home_process__step_border {
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid $border;
+  pointer-events: none;
+}
+
+.home_process__step_content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.home_process__step_number {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  border: 1px solid $border;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+    color: $text-dark;
+    line-height: 1;
+  }
+}
+
+.home_process__step_text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  min-width: 0;
+}
+
+.home_process__step_title {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -1.04px;
+  color: #060606;
+  margin: 0;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.home_process__step_desc {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.64px;
+  color: $text-muted;
+  margin: 0;
+}
+
+.home_process__step_corner {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 9px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-90deg);
+}

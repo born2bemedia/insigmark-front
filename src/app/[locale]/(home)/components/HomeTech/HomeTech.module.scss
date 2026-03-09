@@ -1,0 +1,75 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.home_tech {
+  background: #fff;
+  overflow: hidden;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+// ─── SCROLLING TRACK ──────────────────────────────────────────────────────────
+
+.home_tech__track {
+  display: flex;
+  width:max-content;
+  animation: marquee 20s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    // Move exactly half (one set of logos)
+    transform: translateX(-50%);
+  }
+}
+
+// ─── ITEM ─────────────────────────────────────────────────────────────────────
+
+.home_tech__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 290px;
+  height: 160px;
+  flex-shrink: 0;
+  border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+
+  @include tablet {
+    width: 20vw;
+    height: 100px;
+    min-width: 80px;
+  }
+
+  @include mobile {
+    width: 25vw;
+    height: 80px;
+    min-width: 70px;
+  }
+}
+
+// ─── LOGO ─────────────────────────────────────────────────────────────────────
+
+.home_tech__logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  opacity: 0.5;
+
+  @include tablet {
+    width: 50px;
+    height: 50px;
+  }
+
+  @include mobile {
+    width: 36px;
+    height: 36px;
+  }
+}

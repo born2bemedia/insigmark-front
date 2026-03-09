@@ -1,0 +1,171 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$navy: #023d65;
+$text-dark: #060606;
+$text-muted: rgba(12, 12, 12, 0.6);
+$border: #d6d6d6;
+
+.home_numbers {
+  background: #fff;
+  padding: 160px 36px 220px;
+
+  @include desktop {
+    padding: 120px 36px 160px;
+  }
+
+  @include tablet {
+    padding: 80px 10px 100px;
+  }
+}
+
+.home_numbers__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  @include tablet {
+    gap: 60px;
+  }
+}
+
+.home_numbers__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.home_numbers__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: $text-dark;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+  width: 24%;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include tablet {
+    font-size: 18px;
+    width: 100%;
+  }
+}
+
+.home_numbers__link_icon {
+  display: flex;
+  width: 23px;
+  height: 23px;
+  color: $navy;
+}
+
+.home_numbers__heading {
+  flex: 1;
+  min-width: 0;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -3.22px;
+  color: $text-dark;
+  margin: 0;
+
+  @include tablet {
+    font-size: 36px;
+    letter-spacing: -2px;
+  }
+
+  @include mobile {
+    font-size: 28px;
+  }
+}
+
+.home_numbers__grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--item-spacing-20, 20px);
+  align-self: stretch;
+
+  @include tablet {
+    flex-wrap: wrap;
+  }
+
+}
+
+.home_numbers__card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 25%;
+  @include tablet {
+    width: calc(50% - 10px);
+  }
+}
+
+.home_numbers__value {
+  font-size: 90px;
+  font-weight: 600;
+  letter-spacing: -6.3px;
+  color: $navy;
+  line-height: 1;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $border;
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
+
+  @include mobile {
+    font-size: 48px;
+  }
+}
+
+.home_numbers__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home_numbers__title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -1.04px;
+  color: $text-dark;
+  margin: 0;
+  line-height: 1.3;
+
+  @include tablet {
+    font-size: 22px;
+  }
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.home_numbers__desc {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.64px;
+  color: $text-muted;
+  margin: 0;
+  line-height: 1.3;
+
+  @include mobile {
+    font-size: 14px;
+  }
+}

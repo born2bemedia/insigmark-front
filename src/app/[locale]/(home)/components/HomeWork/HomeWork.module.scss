@@ -1,0 +1,291 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$navy: #023d65;
+$accent: #d2ff37;
+$text-dark: #060606;
+$text-muted: rgba(12, 12, 12, 0.6);
+
+.home_work {
+  background: #fff;
+  padding: 0 36px 160px;
+
+  @include desktop {
+    padding: 0 36px 100px;
+  }
+
+  @include tablet {
+    padding: 0 10px 60px;
+  }
+}
+
+.home_work__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+// ─── HEADING (sticky) ─────────────────────────────────────────────────────────
+
+.home_work__heading {
+  
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 40px;
+  background: #fff;
+}
+
+.home_work__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+}
+
+.home_work__category {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.52px;
+  text-transform: uppercase;
+  color: $text-dark;
+}
+
+.home_work__corner {
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid $navy;
+  border-bottom: 2px solid $navy;
+  transform: rotate(-90deg);
+  flex-shrink: 0;
+}
+
+.home_work__title {
+  font-size: 112px;
+  font-weight: 600;
+  letter-spacing: -7.84px;
+  color: $text-dark;
+  margin: 0;
+  text-align: center;
+  line-height: 1;
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
+
+  @include mobile {
+    font-size: 36px;
+    letter-spacing: -2px;
+  }
+}
+
+.home_work__year {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: -2px;
+  color: $navy;
+  line-height: 1;
+  text-align: center;
+}
+
+// ─── LARGE CARD (card 1) ──────────────────────────────────────────────────────
+
+.home_work__main {
+  display: flex;
+  justify-content: center;
+}
+
+.home_work__card_large {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 684px;
+  max-width: 100%;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+// ─── GRID (cards 2 + 3) ───────────────────────────────────────────────────────
+
+.home_work__grid {
+  display: grid;
+  grid-template-columns: 1fr 393px;
+  gap: 300px;
+  align-items: start;
+
+  @include desktop {
+    gap: 40px;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.home_work__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+// ─── IMAGES ───────────────────────────────────────────────────────────────────
+
+.home_work__img_wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  // Large card: 684×416
+  .home_work__card_large & {
+    aspect-ratio: 684 / 416;
+  }
+
+  // Card 2 (first in grid): 675×410
+  .home_work__grid .home_work__card:first-child & {
+    aspect-ratio: 675 / 410;
+  }
+
+  // Card 3 (second in grid): 393×239
+  .home_work__grid .home_work__card:last-child & {
+    aspect-ratio: 393 / 239;
+  }
+
+  @include tablet {
+    aspect-ratio: 16 / 10 !important;
+  }
+}
+
+.home_work__img {
+  object-fit: cover;
+}
+
+// ─── CARD TEXT ────────────────────────────────────────────────────────────────
+
+.home_work__card_text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home_work__card_title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -1.04px;
+  color: $text-dark;
+  margin: 0;
+  line-height: 1.3;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.home_work__card_desc {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+  line-height: 1.4;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+// Corner indicator on cards (absolute, top-right)
+.home_work__card_large .home_work__corner,
+.home_work__card .home_work__corner {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 1;
+}
+
+// ─── FOOTER ───────────────────────────────────────────────────────────────────
+
+.home_work__footer {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.home_work__fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 1)
+  );
+  pointer-events: none;
+}
+
+.home_work__link {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  text-decoration: none;
+  color: $text-dark;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.home_work__link_icon {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  background: $accent;
+  align-items: center;
+  justify-content: center;
+  color: $text-dark;
+  flex-shrink: 0;
+}
+
+.home_work__link_text {
+  font-size: 55px;
+  font-weight: 500;
+  letter-spacing: -3.85px;
+  line-height: 1.2;
+
+  @include tablet {
+    font-size: 36px;
+    letter-spacing: -2px;
+  }
+
+  @include mobile {
+    font-size: 28px;
+  }
+}

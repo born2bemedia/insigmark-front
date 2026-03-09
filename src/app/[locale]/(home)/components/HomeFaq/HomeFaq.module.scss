@@ -1,0 +1,211 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$text-dark: #0c0c0c;
+$text-muted: rgba(12, 12, 12, 0.6);
+$border: #e0e0e0;
+$navy: #023d65;
+
+.home_faq {
+  background: #fff;
+  padding: 160px 36px 0;
+
+  @include desktop {
+    padding: 120px 36px 0;
+  }
+
+  @include tablet {
+    padding: 80px 10px 0;
+  }
+}
+
+// ─── CONTAINER ────────────────────────────────────────────────────────────────
+
+.home_faq__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+// ─── LEFT ─────────────────────────────────────────────────────────────────────
+
+.home_faq__left {
+  width: 337px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: hidden;
+  position: sticky;
+  top: 40px;
+
+  @include desktop {
+    width: 280px;
+    gap: 40px;
+  }
+
+  @include tablet {
+    width: 100%;
+    position: static;
+    gap: 24px;
+  }
+}
+
+.home_faq__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include tablet {
+    gap: 20px;
+  }
+}
+
+.home_faq__title {
+  font-size: 112px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -7.84px;
+  color: $text-dark;
+  margin: 0;
+
+  @include desktop {
+    font-size: 80px;
+    letter-spacing: -5px;
+  }
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+    line-height: 1.1;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    letter-spacing: -3px;
+  }
+}
+
+.home_faq__subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.home_faq__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: #060606;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.home_faq__link_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+// ─── ITEMS (accordion) ────────────────────────────────────────────────────────
+
+.home_faq__items {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.home_faq__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.home_faq__item_border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid $border;
+  pointer-events: none;
+}
+
+.home_faq__item_header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 34px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  @include tablet {
+    padding: 24px 0;
+  }
+}
+
+.home_faq__item_question {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: #060606;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.home_faq__item_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.home_faq__item_answer {
+  padding-bottom: 28px;
+
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+    color: $text-muted;
+    margin: 0;
+  }
+}

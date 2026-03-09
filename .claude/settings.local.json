@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma__get_design_context",
+      "mcp__figma__get_screenshot",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/7e003822-174a-42e1-ba52-df938e5e20d2\" -o \"d:/Born2beDev/Insigmark/insigmark-front/public/images/home/quote.png\")",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/277e3c77-33f7-41bf-9ff4-3e95d4c7473b\" -o \"d:/Born2beDev/Insigmark/insigmark-front/public/images/home/quote-icon.svg\")",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/0fc14815-9aaf-49f3-9d81-5ca3c3533f4a\" -o \"d:/Born2beDev/Insigmark/insigmark-front/public/images/home/quote-arrow.svg\")",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/3c276704-c229-4b35-90a1-0ae583fc7ec6\" -o \"d:/Born2beDev/Insigmark/insigmark-front/public/images/home/request-bg.png\")",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/cab5ee4c-d1ca-4858-aaff-e17b114d707e\" -o \"d:/Born2beDev/Insigmark/insigmark-front/public/images/home/team-bg-mobile.png\")",
+      "Bash(ls \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/\")",
+      "Bash(mkdir -p \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeTech\")",
+      "Bash(mkdir -p \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeTeam\")",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/aaab1977-5f7e-4601-abde-6038f28153d0\" -o \"d:/Born2beDev/Insigmark/insigmark-front/public/images/home/testimonials-photo.jpg\")",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/813ef299-15a0-48f9-97ce-37277504da03\" -o \"d:/Born2beDev/Insigmark/insigmark-front/public/images/home/testimonials-robot.png\")",
+      "Bash(mkdir -p \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeProcess\")",
+      "Bash(mkdir -p \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeTestimonials\")",
+      "Bash(ls \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeProcess/\")",
+      "Bash(ls \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeTestimonials/\")",
+      "Bash(mkdir -p \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeFaq\")",
+      "Bash(mkdir -p \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeNews\")",
+      "Bash(ls \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeFaq/\")",
+      "Bash(ls \"d:/Born2beDev/Insigmark/insigmark-front/src/app/[locale]/\\(home\\)/components/HomeNews/\")"
+    ]
+  }
+}

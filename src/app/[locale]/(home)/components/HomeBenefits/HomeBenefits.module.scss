@@ -1,0 +1,337 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$navy: #023d65;
+$accent: #d2ff37;
+$text-dark: #060606;
+$text-muted: rgba(12, 12, 12, 0.6);
+$grey-bg: #f5f5f5;
+$border: rgba(0, 0, 0, 0.13);
+$line: #323232;
+
+.home_benefits {
+  background: #fff;
+  padding: 199px 36px 160px;
+
+  @include desktop {
+    padding: 120px 36px 100px;
+  }
+
+  @include tablet {
+    padding: 80px 10px 60px;
+  }
+}
+
+.home_benefits__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+
+  @include tablet {
+    gap: 60px;
+  }
+}
+
+.home_benefits__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.home_benefits__title {
+  font-size: 112px;
+  font-weight: 600;
+  letter-spacing: -7.84px;
+  color: $text-dark;
+  margin: 0;
+  line-height: 1;
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
+
+  @include mobile {
+    font-size: 36px;
+    letter-spacing: -2px;
+  }
+}
+
+.home_benefits__subtitle {
+  max-width: 506px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+  text-align: center;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+// ─── GRID ─────────────────────────────────────────────────────────────────────
+
+.home_benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── BASE CARD ────────────────────────────────────────────────────────────────
+
+.home_benefits__card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  &:first-child {
+    img {
+      @include tablet {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// ─── CARD VARIANTS ────────────────────────────────────────────────────────────
+
+.home_benefits__card--white {
+  background: #fff;
+  border: 1px solid $border;
+  padding-bottom: 40px;
+
+  .home_benefits__content {
+    padding: 0 40px;
+  }
+}
+
+.home_benefits__card--grey {
+  background: $grey-bg;
+  border: 1px solid $border;
+  padding: 40px 40px 40px;
+  @include tablet {
+    height: 500px;
+  }
+}
+
+.home_benefits__card--dark {
+  background: #0c0c0c;
+  padding: 80px 40px 60px;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  @include tablet {
+    height: 500px;
+  }
+
+  .home_benefits__content {
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-end;
+  }
+}
+
+.home_benefits__card--yellow {
+  background: $accent;
+  border: 1px solid $border;
+  padding-top: 40px;
+
+  .home_benefits__content {
+    padding: 0 40px 40px;
+  }
+}
+
+// ─── IMAGE WRAPPERS ───────────────────────────────────────────────────────────
+
+// Card 1 — image top (overflows card padding)
+.home_benefits__img_wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 327 / 260;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-bottom: 0;
+
+  .home_benefits__img {
+    object-fit: cover;
+  }
+}
+
+// Card 3 — full bleed background image
+.home_benefits__img_bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .home_benefits__img {
+    object-fit: cover;
+  }
+}
+
+// Card 4 — image bottom
+.home_benefits__img_bottom {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-top: auto;
+
+  .home_benefits__img {
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+// ─── DECORATIVE ELEMENTS ──────────────────────────────────────────────────────
+
+// Corner indicator (card grey)
+.home_benefits__corner {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid $navy;
+  border-bottom: 2px solid $navy;
+  transform: rotate(-90deg);
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+// Dot pattern (cards grey + yellow)
+.home_benefits__dots {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-image: radial-gradient(circle, #0c0c0c 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+// Lines around card 3 (dark)
+.home_benefits__line_top,
+.home_benefits__line_bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: $line;
+  z-index: 3;
+}
+
+.home_benefits__line_top {
+  top: 40px;
+}
+
+.home_benefits__line_bottom {
+  bottom: 40px;
+}
+
+.home_benefits__line_left,
+.home_benefits__line_right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: $line;
+  z-index: 3;
+}
+
+.home_benefits__line_left {
+  left: 40px;
+}
+
+.home_benefits__line_right {
+  right: 40px;
+}
+
+// ─── CONTENT ──────────────────────────────────────────────────────────────────
+
+.home_benefits__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  flex: 1;
+
+  // Card 1: content gets top padding after image
+  .home_benefits__card--white & {
+    padding-top: 40px;
+  }
+}
+
+.home_benefits__card_title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -1.04px;
+  margin: 0;
+  line-height: 1.3;
+
+  .home_benefits__card--white &,
+  .home_benefits__card--grey &,
+  .home_benefits__card--yellow & {
+    color: $text-dark;
+  }
+
+  .home_benefits__card--dark & {
+    color: #fff;
+  }
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.home_benefits__card_desc {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.64px;
+  margin: 0;
+  line-height: 1.3;
+
+  .home_benefits__card--white &,
+  .home_benefits__card--grey &,
+  .home_benefits__card--yellow & {
+    color: $text-muted;
+  }
+
+  .home_benefits__card--dark & {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @include mobile {
+    font-size: 14px;
+  }
+}
