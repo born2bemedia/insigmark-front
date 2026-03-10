@@ -1,4 +1,4 @@
-export const WEBSITE_EMAIL = 'info@insigmark.com';
+export const WEBSITE_EMAIL = 'info@theinsigmark.com';
 export const WEBSITE_PHONE = '-';
 
 export const LINKEDIN_URL = '#';
