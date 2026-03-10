@@ -36,6 +36,7 @@ export const FormPopup = ({
       <div
         className={panelClassName ?? styles.panel}
         onClick={(e) => e.stopPropagation()}
+        data-lenis-prevent
       >
         {children}
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCartStore } from "@/features/cart/store/cart";
+//import { useCartStore } from "@/features/cart/store/cart";
 import { useFormsPopupStore } from "@/features/forms";
 
 const ArrowIcon = ({ color = "#023D65" }: { color?: string }) => (
@@ -39,11 +39,14 @@ export const OrderButton = ({
   iconClassName,
   arrowColor = "#023D65",
 }: OrderButtonProps) => {
-  const addToCart = useCartStore((state) => state.addToCart);
-  const openRequest = useFormsPopupStore((state) => state.openRequest);
+  //const addToCart = useCartStore((state) => state.addToCart);
+  const openServiceOrder = useFormsPopupStore(
+    (state) => state.openServiceOrder,
+  );
 
   const handleClick = () => {
-    if (service.price < 5000) {
+    openServiceOrder(service);
+    /*if (service.price < 5000) {
       addToCart({
         id: service.id,
         title: service.title,
@@ -51,8 +54,8 @@ export const OrderButton = ({
         quantity: 1,
       });
     } else {
-      openRequest(service.title);
-    }
+      openServiceOrder(service);
+    }*/
   };
 
   return (

@@ -5,7 +5,11 @@ import { usePathname } from "next/navigation";
 
 import Lenis from "lenis";
 
-import { LENIS_REFRESH_EVENT } from "./lenis-refresh";
+import {
+  LENIS_REFRESH_EVENT,
+  LENIS_START_EVENT,
+  LENIS_STOP_EVENT,
+} from "./lenis-refresh";
 
 export const SmoothScroll = () => {
   const pathname = usePathname();
@@ -16,6 +20,7 @@ export const SmoothScroll = () => {
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 2,
+      prevent: (node) => node.hasAttribute?.("data-lenis-prevent") === true,
     });
 
     lenisRef.current = lenis;
@@ -31,10 +36,17 @@ export const SmoothScroll = () => {
       setTimeout(() => lenis.resize(), 50);
     };
 
+    const handleStop = () => lenis.stop();
+    const handleStart = () => lenis.start();
+
     window.addEventListener(LENIS_REFRESH_EVENT, handleRefresh);
+    window.addEventListener(LENIS_STOP_EVENT, handleStop);
+    window.addEventListener(LENIS_START_EVENT, handleStart);
 
     return () => {
       window.removeEventListener(LENIS_REFRESH_EVENT, handleRefresh);
+      window.removeEventListener(LENIS_STOP_EVENT, handleStop);
+      window.removeEventListener(LENIS_START_EVENT, handleStart);
       lenis.destroy();
       lenisRef.current = null;
     };

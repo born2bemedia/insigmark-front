@@ -448,6 +448,10 @@
       "successTitle": "Thank you!",
       "successMessage1": "Your request for our service has been successfully submitted. Our team will review the information provided and get in touch with you shortly to discuss the next steps and how we can assist you."
     },
+    "serviceOrder": {
+      "successMessage": "Your order has been submitted. Our team will review your request and contact you shortly. Please check your inbox for confirmation and updates."
+    },
+    "orderNow": "Order now!",
     "returnHome": "Return to home page",
     "fullName": "Full name",
     "fullNamePlaceholder": "Enter your full name",

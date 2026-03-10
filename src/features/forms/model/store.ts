@@ -3,20 +3,33 @@
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-export type FormsPopupType = "market-research" | "property-consultation" | "request";
+export type FormsPopupType =
+  | "market-research"
+  | "property-consultation"
+  | "request"
+  | "service-order";
+
+export type ServiceOrderData = {
+  id: string;
+  title: string;
+  price: number;
+};
 
 type FormsPopupStore = {
   popupType: FormsPopupType | null;
   requestName: string;
+  serviceOrder: ServiceOrderData | null;
   openMarketResearch: () => void;
   openPropertyConsultation: () => void;
   openRequest: (name: string) => void;
+  openServiceOrder: (service: ServiceOrderData) => void;
   closePopup: () => void;
 };
 
 export const useFormsPopupStore = create<FormsPopupStore>((set) => ({
   popupType: null,
   requestName: "",
+  serviceOrder: null,
 
   openMarketResearch: () => set({ popupType: "market-research" }),
 
@@ -24,7 +37,11 @@ export const useFormsPopupStore = create<FormsPopupStore>((set) => ({
 
   openRequest: (name: string) => set({ requestName: name, popupType: "request" }),
 
-  closePopup: () => set({ popupType: null, requestName: "" }),
+  openServiceOrder: (service: ServiceOrderData) =>
+    set({ serviceOrder: service, popupType: "service-order" }),
+
+  closePopup: () =>
+    set({ popupType: null, requestName: "", serviceOrder: null }),
 }));
 
 /** Hook with only actions (for components that only open/close popups). */
@@ -34,6 +51,7 @@ export function useFormsPopup() {
       openMarketResearch: state.openMarketResearch,
       openPropertyConsultation: state.openPropertyConsultation,
       openRequest: state.openRequest,
+      openServiceOrder: state.openServiceOrder,
       closePopup: state.closePopup,
     }))
   );

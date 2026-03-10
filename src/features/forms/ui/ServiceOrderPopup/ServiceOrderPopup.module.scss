@@ -1,0 +1,268 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+
+$grey-5: #0c0c0c;
+$grey-5-40: rgba(12, 12, 12, 0.4);
+$yellow-61: #d2ff37;
+$error-red: #f74c4c;
+$bg: #d6d6d6;
+
+.panel {
+  width: 100%;
+  max-width: 948px;
+  max-height: 95vh;
+  background: $bg;
+  padding: 40px;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  @include mobile {
+    padding: 24px;
+    gap: 32px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  color: $grey-5;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    top: 12px;
+    right: 12px;
+  }
+
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 0.97;
+  color: $grey-5;
+  margin: 0;
+
+  @include desktop {
+    font-size: 72px;
+  }
+
+  @include mobile {
+    font-size: 48px;
+    letter-spacing: -3px;
+  }
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 786px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  width: 100%;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.label {
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  color: $grey-5;
+  margin-bottom: 2px;
+}
+
+.labelOptional {
+  font-weight: 400;
+  color: $grey-5-40;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $grey-5-40;
+  padding: 2px 0 18px;
+  color: $grey-5;
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  outline: none;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: $grey-5-40;
+  }
+
+  &:focus {
+    border-bottom-color: $grey-5;
+  }
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+  padding-bottom: 18px;
+}
+
+.inputError {
+  border-bottom-color: $error-red !important;
+}
+
+.error {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  line-height: 1.575;
+  color: $error-red;
+  margin-top: 4px;
+}
+
+.phoneContainer {
+  width: 100%;
+
+  :global(.form-control) {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid $grey-5-40 !important;
+    border-radius: 0 !important;
+    padding: 2px 0 18px 52px !important;
+    color: $grey-5 !important;
+    font-family: var(--font-inter, Inter), sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.8px !important;
+
+    &::placeholder {
+      color: $grey-5-40 !important;
+    }
+  }
+
+  :global(.flag-dropdown) {
+    background: transparent !important;
+    border: none !important;
+    border-right: 1px solid $grey-5-40 !important;
+  }
+}
+
+.phoneError :global(.form-control) {
+  border-bottom-color: $error-red !important;
+}
+
+.recaptcha {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.submitError {
+  color: $error-red;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 21px 24px;
+  background: $yellow-61;
+  color: #060606;
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* ── Success state ──────────────────────────── */
+
+.successWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.successTitle {
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 0.97;
+  color: $grey-5;
+  margin: 0;
+
+  @include mobile {
+    font-size: 48px;
+  }
+}
+
+.successDesc {
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #060606;
+  margin: 0;
+  max-width: 686px;
+}
