@@ -1,0 +1,280 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$text-dark: #060606;
+$text-muted: rgba(6, 6, 6, 0.6);
+$white: #fff;
+$yellow-1: linear-gradient(
+    0deg,
+    rgba(210, 255, 55, 0.4) 0%,
+    rgba(210, 255, 55, 0.4) 100%
+  ),
+  #fff;
+$yellow-2: linear-gradient(
+    0deg,
+    rgba(210, 255, 55, 0.6) 0%,
+    rgba(210, 255, 55, 0.6) 100%
+  ),
+  #fff;
+$yellow-3: linear-gradient(
+    0deg,
+    rgba(210, 255, 55, 0.8) 0%,
+    rgba(210, 255, 55, 0.8) 100%
+  ),
+  #fff;
+$yellow-4: #d2ff37;
+$card-border: rgba(0, 0, 0, 0.13);
+
+.plan_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  padding: 40px;
+  min-height: 500px;
+  overflow: hidden;
+  gap: 40px;
+
+  @include desktop {
+    min-height: 440px;
+    padding: 30px;
+  }
+
+  @include mobile {
+    min-height: 380px;
+    padding: 24px;
+  }
+}
+
+.plan_card__border {
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #0c0c0c 1px, #0000 1px);
+  background-size: 30px 30px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.plan_card--grey-2 {
+  background: #878787;
+}
+
+.plan_card--grey-3 {
+  background: #323232;
+}
+
+.plan_card--grey-4 {
+  background: #222;
+}
+
+.plan_card--black {
+  background: #111112;
+}
+
+.plan_card--gradient-yellow {
+  background: linear-gradient(-79deg, rgba(210, 255, 55, 0.7) 23%, #f5f5f5 94%);
+}
+
+.plan_card--yellow-1 {
+  background: $yellow-1;
+}
+
+.plan_card--yellow-2 {
+  background: $yellow-2;
+}
+
+.plan_card--yellow-3 {
+  background: $yellow-3;
+}
+
+.plan_card--yellow-4 {
+  background: $yellow-4;
+}
+
+.plan_card--yellow-1,
+.plan_card--yellow-2,
+.plan_card--yellow-3,
+.plan_card--yellow-4 {
+  .plan_card__for {
+    background: $white;
+  }
+}
+
+.plan_card--solid-yellow {
+  background: $yellow-4;
+}
+
+.plan_card--grey-2,
+.plan_card--grey-3,
+.plan_card--grey-4,
+.plan_card--black {
+  .plan_card__title,
+  .plan_card__feature,
+  .plan_card__price,
+  .plan_card__order {
+    color: $white;
+  }
+
+  .plan_card__feature_icon svg path {
+    stroke: $yellow-4;
+  }
+
+  .plan_card__for_label {
+    color: $text-muted;
+  }
+
+  .plan_card__for_text {
+    color: $text-dark;
+  }
+
+  .plan_card__for {
+    background: $white;
+  }
+
+  .plan_card__feature_icon {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .plan_card__border {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.plan_card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plan_card__title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: $text-dark;
+  margin: 0;
+
+  @include desktop {
+    font-size: 26px;
+  }
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.plan_card__for {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--color-yellow-61, #d2ff37);
+  border-radius: 0;
+  padding: 9px 14px;
+}
+
+.plan_card__for_label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+  color: $text-muted;
+  line-height: 1.2;
+}
+
+.plan_card__for_text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.45px;
+  color: $text-dark;
+}
+
+.plan_card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.plan_card__feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.64px;
+  color: $text-dark;
+}
+
+.plan_card__feature_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid $card-border;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.plan_card__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.plan_card__price {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -2.94px;
+  color: $text-dark;
+
+  @include desktop {
+    font-size: 36px;
+  }
+
+  @include mobile {
+    font-size: 30px;
+  }
+}
+
+.plan_card__order {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: $text-dark;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.plan_card__order_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}

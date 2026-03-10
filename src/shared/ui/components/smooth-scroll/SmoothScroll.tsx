@@ -1,10 +1,14 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
-import Lenis from 'lenis';
+import Lenis from "lenis";
+
+import { LENIS_REFRESH_EVENT } from "./lenis-refresh";
 
 export const SmoothScroll = () => {
+  const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
@@ -23,11 +27,23 @@ export const SmoothScroll = () => {
 
     requestAnimationFrame(raf);
 
+    const handleRefresh = () => {
+      setTimeout(() => lenis.resize(), 50);
+    };
+
+    window.addEventListener(LENIS_REFRESH_EVENT, handleRefresh);
+
     return () => {
+      window.removeEventListener(LENIS_REFRESH_EVENT, handleRefresh);
       lenis.destroy();
       lenisRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => lenisRef.current?.resize(), 100);
+    return () => clearTimeout(timeout);
+  }, [pathname]);
 
   return null;
 };

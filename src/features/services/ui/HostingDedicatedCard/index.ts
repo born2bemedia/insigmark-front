@@ -1,0 +1,1 @@
+export { HostingDedicatedCard } from "./HostingDedicatedCard";

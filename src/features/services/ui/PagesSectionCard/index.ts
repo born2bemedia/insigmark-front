@@ -1,0 +1,1 @@
+export { PagesSectionCard } from "./PagesSectionCard";

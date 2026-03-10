@@ -1,0 +1,85 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$yellow: #d2ff37;
+
+.section_title {
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -3.22px;
+  color: $yellow;
+  margin: 0 0 20px;
+
+  @include desktop {
+    font-size: 36px;
+    letter-spacing: -2.5px;
+  }
+
+  @include tablet {
+    font-size: 28px;
+    letter-spacing: -1.5px;
+  }
+
+  @include mobile {
+    font-size: 24px;
+  }
+}
+
+.section_title_spaced {
+  margin-top: 80px;
+
+  @include tablet {
+    margin-top: 50px;
+  }
+}
+
+.fw_container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  overflow: hidden;
+
+  @include tablet {
+    padding: 30px;
+  }
+
+  @include mobile {
+    padding: 20px;
+  }
+}
+
+.fw_row {
+  display: flex;
+  gap: 20px;
+
+  @include desktop {
+    flex-wrap: wrap;
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.ps_container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  overflow: hidden;
+
+  @include tablet {
+    padding: 30px;
+  }
+
+  @include mobile {
+    padding: 20px;
+  }
+}
+
+.ps_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}

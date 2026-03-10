@@ -3,4 +3,5 @@ export * from './footer/Footer';
 export * from './header/Header';
 export * from './language-switcher/LangSelector';
 export * from './preloader/Preloader';
-export * from './smooth-scroll/SmoothScroll';
+export { refreshLenis } from "./smooth-scroll/lenis-refresh";
+export * from "./smooth-scroll/SmoothScroll";

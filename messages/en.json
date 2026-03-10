@@ -735,7 +735,24 @@
       "description3": "Correcting crawl errors, implementing schema, robots.txt, HTTPS migration for search engine visibility.",
       "title4": "Accessibility Optimization",
       "description4": "Ensuring WCAG compliance with alt texts, keyboard navigation, and other accessibility standards."
-    },
+    }
+  },
+  "webDevelopmentFullWebsite": {
+    "title1": "Basic",
+    "subtitle1": "Landing / Portfolio / Blog",
+    "description1": "A 3–5 page site including Home, About, Contact, Blog; ready to go live.",
+    "from": "From",
+    "title2": "Standard",
+    "subtitle2": "6–10 pages",
+    "description2": "Includes forms, galleries, and basic integrations; ideal for more detailed portfolios or personal sites.",
+    "title3": "Premium",
+    "subtitle3": "10+ pages",
+    "description3": "Full-featured website with e-commerce cart, user accounts, custom animations, and interactive elements.",
+    "title4": "Advanced",
+    "subtitle4": "Custom App-Like Site",
+    "description4": "Complex sites with API integrations, payments, memberships, and advanced UX; fully functional online solution."
+  },
+  "webDevelopmentPagesSections": {
     "title1": "Standard Page",
     "subtitle1": "Home/About",
     "description1": "Responsive design, SEO-friendly, essential content pages.",
@@ -783,9 +800,10 @@
     "footer-company-desc": "Complex web development, hosting and maintenance solutions.",
     "footer-all-rights": "All rights reserved.",
     "footer-web-development-hosting-and-digital-infrastructure-solutions": "Web development, hosting, and digital infrastructure solutions.",
-    "privacy-policy-full": "Privacy Policy",
-    "cookie-policy-full": "Cookie Policy",
-    "refund-policy-full": "Refund Policy"
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "refundPolicy": "Refund Policy"
   },
   "header": {
     "company": "Company",

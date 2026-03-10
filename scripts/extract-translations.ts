@@ -31,28 +31,39 @@ function walk(dirPath: string): void {
 function extractFromFile(filePath: string): void {
   const content = fs.readFileSync(filePath, 'utf-8');
 
-  const namespaceMatch = content.match(
-    /(?:useTranslations|getTranslations)\(\s*["'`]([\w.-]+)["'`]\s*\)/
-  );
-  if (!namespaceMatch) return;
-
-  const namespace = namespaceMatch[1];
-  const namespaceParts = namespace.split('.');
+  // Find all useTranslations/getTranslations with their positions (for multi-namespace files)
+  const namespaceRegex =
+    /(?:useTranslations|getTranslations)\(\s*["'`]([\w.-]+)["'`]\s*\)/g;
+  const namespaces: { name: string; index: number }[] = [];
+  let nsMatch;
+  while ((nsMatch = namespaceRegex.exec(content))) {
+    namespaces.push({ name: nsMatch[1], index: nsMatch.index });
+  }
+  if (namespaces.length === 0) return;
 
   // Match t("key", { fallback: "value" }) pattern
   // This regex properly handles quotes inside strings by:
   // 1. Capturing the quote type used for the key
   // 2. Capturing the quote type used for the fallback value
   // 3. Matching content until the matching closing quote (handling escaped quotes)
-  // The pattern matches: anything that's not the closing quote and not a backslash, OR an escaped sequence
-  const regex =
-    /t\(\s*(['"`])([\w.-]+)\1\s*,\s*\{[\s\S]*?fallback:\s*(['"`])((?:(?!\3)[^\\]|\\.)*?)\3[\s\S]*?\}\s*\)/g;
+  // 4. \}[\s,]*\) allows trailing comma in object (e.g. { fallback: "x", })
+  const tRegex =
+    /t\(\s*(['"`])([\w.-]+)\1\s*,\s*\{[\s\S]*?fallback:\s*(['"`])((?:(?!\3)[^\\]|\\.)*?)\3[\s\S]*?\}[\s,]*\)/g;
 
   let match;
-  while ((match = regex.exec(content))) {
+  while ((match = tRegex.exec(content))) {
     const key = match[2];
     const fallback = match[4];
+    const tIndex = match.index;
     if (!key || !fallback) continue;
+
+    // Find the namespace that applies to this t() call (most recent useTranslations before it)
+    const applicableNs =
+      namespaces
+        .filter((ns) => ns.index < tIndex)
+        .pop() || namespaces[0];
+
+    const namespaceParts = applicableNs.name.split('.');
 
     // Unescape the fallback string
     const unescapedFallback = fallback

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -12,11 +12,12 @@ import {
   TechnicalOptimization,
 } from "@/features/services/lib/web-development";
 import { ServiceCard } from "@/features/services/ui/ServiceCard";
+import { WebDevelopmentCards } from "@/features/services/ui/WebDevelopmentCards";
 
 import { fadeInUpLyniq } from "@/shared/lib/helpers/animations";
+import { refreshLenis } from "@/shared/ui/components";
 
 import styles from "./WdServices.module.scss";
-import { WdWebsiteCards } from "./WdWebsiteCards";
 
 const TAB_KEYS = [
   "preDevelopment",
@@ -50,6 +51,14 @@ export const WdServices = () => {
     }),
   };
 
+  const tabClickHandler = (key: TabKey) => {
+    setActiveTab(key);
+  };
+
+  useEffect(() => {
+    refreshLenis();
+  }, [activeTab]);
+
   const orderLabel = t("orderNow", { fallback: "Order now!" });
 
   return (
@@ -65,7 +74,7 @@ export const WdServices = () => {
                 className={`${styles.wd_services__tab} ${
                   activeTab === key ? styles["wd_services__tab--active"] : ""
                 }`}
-                onClick={() => setActiveTab(key)}
+                onClick={() => tabClickHandler(key)}
               >
                 {tabLabels[key]}
               </button>
@@ -79,7 +88,7 @@ export const WdServices = () => {
           {activeTab === "preDevelopment" && (
             <PreDevelopmentContent orderLabel={orderLabel} />
           )}
-          {activeTab === "websiteDevelopment" && <WdWebsiteCards />}
+          {activeTab === "websiteDevelopment" && <WebDevelopmentCards />}
           {activeTab === "technicalOptimization" && (
             <TechnicalOptimizationContent orderLabel={orderLabel} />
           )}

@@ -188,19 +188,19 @@ export const Footer = () => {
 
         <div className={styles.footer__legal}>
           <Link href="/legal/terms-of-use">
-            {t("terms-of-use", { fallback: "Terms of Use" })}
+            {t("termsOfUse", { fallback: "Terms of Use" })}
           </Link>
           <span className={styles.footer__legal_sep} aria-hidden="true" />
           <Link href="/legal/privacy-policy">
-            {t("privacy-policy-full", { fallback: "Privacy Policy" })}
+            {t("privacyPolicy", { fallback: "Privacy Policy" })}
           </Link>
           <span className={styles.footer__legal_sep} aria-hidden="true" />
           <Link href="/legal/cookie-policy">
-            {t("cookie-policy-full", { fallback: "Cookie Policy" })}
+            {t("cookiePolicy", { fallback: "Cookie Policy" })}
           </Link>
           <span className={styles.footer__legal_sep} aria-hidden="true" />
           <Link href="/legal/refund-policy">
-            {t("refund-policy-full", { fallback: "Refund Policy" })}
+            {t("refundPolicy", { fallback: "Refund Policy" })}
           </Link>
         </div>
       </div>
