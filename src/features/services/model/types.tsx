@@ -11,8 +11,6 @@ export type Service = {
 export type CardVariant =
   | "white"
   | "grey-1"
-  | "grey-4"
-  | "yellow-4"
   | "grey-2"
   | "grey-3"
   | "grey-4"
@@ -20,7 +18,9 @@ export type CardVariant =
   | "yellow-1"
   | "yellow-2"
   | "yellow-3"
-  | "yellow-4";
+  | "yellow-4"
+  | "gradient-yellow"
+  | "solid-yellow";
 
 // Web Development service item types
 export type PreDevelopmentItem = {
@@ -77,6 +77,16 @@ export type ComplementaryServicesItem = {
   description: string;
   price: number;
   prefix?: string;
+  variant?: CardVariant;
+};
+
+// Hosting Solutions service item types
+export type HostingPlanItem = {
+  id: string;
+  title: string;
+  forLabel: string;
+  features: string[];
+  price: number;
   variant?: CardVariant;
 };
 

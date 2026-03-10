@@ -57,9 +57,15 @@ $yellow-4: #d2ff37;
 }
 
 .service_card__border {
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #0c0c0c 1px, #0000 1px);
+  background-size: 30px 30px;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  inset: 0;
-  border: 1px solid $border;
+  top: 0;
+  left: 0;
   pointer-events: none;
 }
 
