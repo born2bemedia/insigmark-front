@@ -1251,5 +1251,23 @@
       "desc4": "Inizia con chiarezza. Inizia con Insigmark.",
       "heading": "PERCHÉ QUESTA FILOSOFIA FUNZIONA"
     }
+  },
+  "webDev": {
+    "heroTitle": "Sviluppo Web",
+    "heroSubtitle": "Trasformiamo le idee in siti web pienamente funzionali pronti per il mondo.",
+    "tabPreDevelopment": "Ricerca pre-sviluppo",
+    "tabWebsiteDevelopment": "Sviluppo sito web",
+    "tabTechnicalOptimization": "Ottimizzazione tecnica",
+    "tabDocumentationSupport": "Documentazione e supporto",
+    "tabComplementaryServices": "Servizi complementari",
+    "orderNow": "Ordina ora!",
+    "preDevelopmentTitle": "Ricerca pre-sviluppo",
+    "fullWebsiteTitle": "Siti web completi",
+    "pagesSectionsTitle": "Pagine / Sezioni",
+    "technicalOptimizationTitle": "Ottimizzazione tecnica",
+    "documentationSupportTitle": "Documentazione e supporto",
+    "complementaryServicesTitle": "Servizi complementari",
+    "pricingCtaTitle": "Hai bisogno di un listino prezzi completo?",
+    "pricingCtaBtn": "Ottienilo!"
   }
 }

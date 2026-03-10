@@ -1,0 +1,321 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$text-dark: #060606;
+$text-muted: rgba(12, 12, 12, 0.6);
+$border: rgba(0, 0, 0, 0.13);
+$navy: #023d65;
+$white: #fff;
+$grey-1: #f5f5f5;
+$grey-2: #878787;
+$grey-3: #323232;
+$grey-4: #222;
+$black: rgba(12, 12, 12, 0.6);
+$yellow-1: linear-gradient(
+    0deg,
+    rgba(210, 255, 55, 0.4) 0%,
+    rgba(210, 255, 55, 0.4) 100%
+  ),
+  #fff;
+$yellow-2: linear-gradient(
+    0deg,
+    rgba(210, 255, 55, 0.6) 0%,
+    rgba(210, 255, 55, 0.6) 100%
+  ),
+  #fff;
+$yellow-3: linear-gradient(
+    0deg,
+    rgba(210, 255, 55, 0.8) 0%,
+    rgba(210, 255, 55, 0.8) 100%
+  ),
+  #fff;
+$yellow-4: #d2ff37;
+
+.service_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  padding: 40px;
+  min-height: 600px;
+  overflow: hidden;
+
+  @include desktop {
+    min-height: 500px;
+    padding: 30px;
+  }
+
+  @include tablet {
+    min-height: 400px;
+    padding: 24px;
+  }
+
+  @include mobile {
+    min-height: 360px;
+    padding: 20px;
+  }
+}
+
+.service_card__border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid $border;
+  pointer-events: none;
+}
+
+// ─── VARIANTS ─────────────────────────────────────────────────────────────────
+
+.service_card--grey {
+  background: #f5f5f5;
+}
+
+.service_card--grey-1 {
+  background: $grey-1;
+}
+
+.service_card--grey-2 {
+  background: $grey-2;
+}
+
+.service_card--grey-3 {
+  background: $grey-3;
+}
+
+.service_card--grey-4 {
+  background: $grey-4;
+}
+
+.service_card--black {
+  background: $black;
+}
+
+.service_card--yellow-1 {
+  background: $yellow-1;
+}
+
+.service_card--yellow-2 {
+  background: $yellow-2;
+}
+
+.service_card--yellow-3 {
+  background: $yellow-3;
+}
+
+.service_card--yellow-4 {
+  background: $yellow-4;
+}
+
+.service_card--grey-2,
+.service_card--grey-3,
+.service_card--grey-4,
+.service_card--black {
+  .service_card__title {
+    color: #fff;
+  }
+
+  .service_card__subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .service_card__desc {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .service_card__prefix {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .service_card__price {
+    color: #fff;
+  }
+
+  .service_card__suffix {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .service_card__order {
+    color: #fff;
+  }
+
+  .service_card__border {
+    border-color: rgba(255, 255, 255, 0.13);
+  }
+}
+
+.service_card--yellow {
+  background: #d2ff37;
+
+  .service_card__title {
+    color: #222;
+  }
+
+  .service_card__subtitle {
+    color: #636363;
+    border-color: rgba(0, 0, 0, 0.13);
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .service_card__desc {
+    color: #636363;
+  }
+
+  .service_card__prefix {
+    color: #636363;
+  }
+
+  .service_card__price {
+    color: #222;
+  }
+
+  .service_card__suffix {
+    color: #636363;
+  }
+
+  .service_card__order {
+    color: #222;
+  }
+
+  .service_card__border {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// ─── TOP ──────────────────────────────────────────────────────────────────────
+
+.service_card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.service_card__title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: $text-dark;
+  margin: 0;
+
+  @include desktop {
+    font-size: 26px;
+  }
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+.service_card__subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.56px;
+  color: $text-muted;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  background: #f5f5f5;
+  align-self: flex-start;
+}
+
+.service_card__desc {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  color: $text-muted;
+  margin: 0;
+}
+
+// ─── BOTTOM ───────────────────────────────────────────────────────────────────
+
+.service_card__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.service_card__price_row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  width: 100%;
+  > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+}
+
+.service_card__prefix {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.64px;
+  color: $text-muted;
+}
+
+.service_card__price {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -2.94px;
+  color: $text-dark;
+
+  @include desktop {
+    font-size: 36px;
+  }
+
+  @include mobile {
+    font-size: 30px;
+  }
+}
+
+.service_card__suffix {
+  color: var(--Alto-White-White, var(--color-white-solid, #fff));
+  font-family: var(--font-family-Font-1, Inter);
+  font-size: var(--item-spacing-19, 19px);
+  font-style: normal;
+  font-weight: var(--font-weight-500, 500);
+  line-height: var(--item-spacing-19, 19px); /* 100% */
+  letter-spacing: var(--letter-spacing--0_76, -0.76px);
+}
+
+.service_card__order {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: $text-dark;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.service_card__order_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}

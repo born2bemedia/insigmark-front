@@ -1251,5 +1251,23 @@
       "desc4": "Започнете с яснота. Започнете с Insigmark.",
       "heading": "ЗАЩО ТАЗИ ФИЛОСОФИЯ РАБОТИ"
     }
+  },
+  "webDev": {
+    "heroTitle": "Уеб Разработка",
+    "heroSubtitle": "Ние трансформираме идеи в напълно функционални уебсайтове, готови за света.",
+    "tabPreDevelopment": "Предварително проучване",
+    "tabWebsiteDevelopment": "Разработка на уебсайтове",
+    "tabTechnicalOptimization": "Техническа оптимизация",
+    "tabDocumentationSupport": "Документация и поддръжка",
+    "tabComplementaryServices": "Допълнителни услуги",
+    "orderNow": "Поръчай сега!",
+    "preDevelopmentTitle": "Предварително проучване",
+    "fullWebsiteTitle": "Цялостни уебсайтове",
+    "pagesSectionsTitle": "Страници / Секции",
+    "technicalOptimizationTitle": "Техническа оптимизация",
+    "documentationSupportTitle": "Документация и поддръжка",
+    "complementaryServicesTitle": "Допълнителни услуги",
+    "pricingCtaTitle": "Нуждаете се от пълен ценоразпис?",
+    "pricingCtaBtn": "Вземете го!"
   }
 }

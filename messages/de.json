@@ -1251,5 +1251,23 @@
       "desc4": "Beginnen Sie mit Klarheit. Beginnen Sie mit Insigmark.",
       "heading": "WARUM DIESE PHILOSOPHIE FUNKTIONIERT"
     }
+  },
+  "webDev": {
+    "heroTitle": "Webentwicklung",
+    "heroSubtitle": "Wir verwandeln Ideen in voll funktionsfähige Websites, die bereit für die Welt sind.",
+    "tabPreDevelopment": "Vorrecherche",
+    "tabWebsiteDevelopment": "Website-Entwicklung",
+    "tabTechnicalOptimization": "Technische Optimierung",
+    "tabDocumentationSupport": "Dokumentation & Support",
+    "tabComplementaryServices": "Ergänzende Dienste",
+    "orderNow": "Jetzt bestellen!",
+    "preDevelopmentTitle": "Vorrecherche",
+    "fullWebsiteTitle": "Komplette Websites",
+    "pagesSectionsTitle": "Seiten / Bereiche",
+    "technicalOptimizationTitle": "Technische Optimierung",
+    "documentationSupportTitle": "Dokumentation & Support",
+    "complementaryServicesTitle": "Ergänzende Dienste",
+    "pricingCtaTitle": "Benötigen Sie eine vollständige Preisliste?",
+    "pricingCtaBtn": "Holen Sie es!"
   }
 }
