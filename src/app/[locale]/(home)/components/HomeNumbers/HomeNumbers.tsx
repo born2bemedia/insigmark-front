@@ -99,23 +99,23 @@ export const HomeNumbers = () => {
   const STATS = [
     {
       config: STAT_CONFIGS[0],
-      titleKey: "stat1Title" as const,
-      descKey: "stat1Desc" as const,
+      titleKey: t("stat1Title", { fallback: "Websites launched" }),
+      descKey: t("stat1Desc", { fallback: "Helping brands make their mark online." }),
     },
     {
       config: STAT_CONFIGS[1],
-      titleKey: "stat2Title" as const,
-      descKey: "stat2Desc" as const,
+      titleKey: t("stat2Title", { fallback: "Users reached" }),
+      descKey: t("stat2Desc", { fallback: "Our designs engage millions globally." }),
     },
     {
       config: STAT_CONFIGS[2],
-      titleKey: "stat3Title" as const,
-      descKey: "stat3Desc" as const,
+      titleKey: t("stat3Title", { fallback: "Client satisfaction rate" }),
+      descKey: t("stat3Desc", { fallback: "We build long-term partnerships through proven results." }),
     },
     {
       config: STAT_CONFIGS[3],
-      titleKey: "stat4Title" as const,
-      descKey: "stat4Desc" as const,
+      titleKey: t("stat4Title", { fallback: "Years of expertise" }),
+      descKey: t("stat4Desc", { fallback: "Decades of experience in delivering impactful digital solutions." }),
     },
   ];
 
@@ -168,9 +168,9 @@ export const HomeNumbers = () => {
               <CountUpValue config={stat.config} />
               <div className={styles.home_numbers__text}>
                 <h3 className={styles.home_numbers__title}>
-                  {t(stat.titleKey)}
+                  {stat.titleKey}
                 </h3>
-                <p className={styles.home_numbers__desc}>{t(stat.descKey)}</p>
+                <p className={styles.home_numbers__desc}>{stat.descKey}</p>
               </div>
             </motion.div>
           ))}
