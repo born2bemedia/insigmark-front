@@ -1,0 +1,78 @@
+@use "@/shared/lib/styles/mixin.scss" as *;
+
+$grey-5: #0c0c0c;
+$yellow-61: #d2ff37;
+$bg: #d6d6d6;
+
+.panel {
+  width: 100%;
+  max-width: 948px;
+  max-height: 95vh;
+  background: $bg;
+  padding: 40px;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  @include mobile {
+    padding: 24px;
+    gap: 32px;
+  }
+}
+
+.successWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.successTitle {
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 0.97;
+  color: $grey-5;
+  margin: 0;
+
+  @include mobile {
+    font-size: 48px;
+  }
+}
+
+.successDesc {
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #060606;
+  margin: 0;
+  max-width: 686px;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 21px 24px;
+  background: $yellow-61;
+  color: #060606;
+  font-family: var(--font-inter, Inter), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

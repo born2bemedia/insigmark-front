@@ -144,7 +144,7 @@ export const HomeFaq = () => {
               })}
             </p>
           </div>
-          <Link href="/connect" className={styles.home_faq__link}>
+          <Link href="/faq" className={styles.home_faq__link}>
             <span className={styles.home_faq__link_icon}>{ARROW_ICON}</span>
             <span>{t("exploreAll", { fallback: "Explore all FAQ" })}</span>
           </Link>

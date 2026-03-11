@@ -1,14 +1,21 @@
-import type { RequestFormSchema } from '../model/schemas';
+import type {
+  AssistanceRequestFormSchema,
+  CallRequestFormSchema,
+  RequestFormSchema,
+} from '../model/schemas';
 
 export async function submitForm(
-  formType: 'request',
-  data: RequestFormSchema & { name?: string }
+  formType: 'request' | 'assistance' | 'call',
+  data:
+    | (RequestFormSchema & { name?: string })
+    | AssistanceRequestFormSchema
+    | CallRequestFormSchema
 ): Promise<void> {
-  const { name: serviceName, ...formData } = data;
-  const body: Record<string, unknown> = {
-    formType,
-    data: { ...formData, service: serviceName ?? formData.service ?? '' },
-  };
+  const payload =
+    formType === 'request'
+      ? { ...data, service: (data as RequestFormSchema & { name?: string }).name ?? (data as RequestFormSchema).service ?? '' }
+      : data;
+  const body = { formType, data: payload };
 
   const res = await fetch('/api/forms', {
     method: 'POST',
@@ -24,4 +31,14 @@ export async function submitForm(
 
 export async function submitRequestForm(data: RequestFormSchema, name: string): Promise<void> {
   return submitForm('request', { ...data, name });
+}
+
+export async function submitAssistanceRequestForm(
+  data: AssistanceRequestFormSchema
+): Promise<void> {
+  return submitForm('assistance', data);
+}
+
+export async function submitCallRequestForm(data: CallRequestFormSchema): Promise<void> {
+  return submitForm('call', data);
 }

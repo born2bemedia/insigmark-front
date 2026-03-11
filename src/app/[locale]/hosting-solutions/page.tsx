@@ -1,11 +1,13 @@
-import { HsHero, HsPricingCta, HsServices } from "./components";
+import { PriceList } from "@/shared/ui/components/price-list/PriceList";
+
+import { HsHero, HsServices } from "./components";
 
 export default async function HostingSolutionsPage() {
   return (
     <>
       <HsHero />
       <HsServices />
-      <HsPricingCta />
+      <PriceList image="/images/hosting-solutions/pricing-cta-bg.png" />
     </>
   );
 }

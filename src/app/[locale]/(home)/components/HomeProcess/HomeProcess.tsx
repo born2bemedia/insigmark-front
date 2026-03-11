@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+import { useFormsPopup } from "@/features/forms";
+
 import { staggerContainer, staggerItem } from "@/shared/lib/helpers/animations";
 
 import styles from "./HomeProcess.module.scss";
-
-import { Link } from "@/i18n/navigation";
 
 const ARROW_ICON = (
   <svg
@@ -38,7 +38,7 @@ const CORNER_ICON = (
 
 export const HomeProcess = () => {
   const t = useTranslations("homeProcess");
-
+  const { openCallRequest } = useFormsPopup();
   const STEPS = [
     {
       num: "01",
@@ -99,10 +99,15 @@ export const HomeProcess = () => {
               })}
             </p>
           </div>
-          <Link href="/connect" className={styles.home_process__link}>
+          <button
+            className={styles.home_process__link}
+            onClick={() => {
+              openCallRequest();
+            }}
+          >
             <span className={styles.home_process__link_icon}>{ARROW_ICON}</span>
             <span>{t("scheduleCall", { fallback: "Schedule a call" })}</span>
-          </Link>
+          </button>
         </motion.div>
 
         {/* Right column: steps */}
@@ -125,9 +130,7 @@ export const HomeProcess = () => {
                   <h3 className={styles.home_process__step_title}>
                     {step.title}
                   </h3>
-                  <p className={styles.home_process__step_desc}>
-                    {step.desc}
-                  </p>
+                  <p className={styles.home_process__step_desc}>{step.desc}</p>
                 </div>
               </div>
               <div className={styles.home_process__step_corner}>

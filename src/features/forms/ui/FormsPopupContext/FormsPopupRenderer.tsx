@@ -2,6 +2,8 @@
 
 import { useFormsPopupStore } from "@/features/forms/model/store";
 
+import { AssistanceRequestPopup } from "../AssistanceRequestPopup/AssistanceRequestPopup";
+import { CallRequestPopup } from "../CallRequestPopup/CallRequestPopup";
 import { RequestPopup } from "../RequestPopup/RequestPopup";
 import { ServiceOrderPopup } from "../ServiceOrderPopup/ServiceOrderPopup";
 
@@ -34,6 +36,12 @@ export function FormsPopupRenderer() {
           isOpen
           onClose={closePopup}
         />
+      )}
+      {popupType === "assistance-request" && (
+        <AssistanceRequestPopup isOpen onClose={closePopup} />
+      )}
+      {popupType === "call-request" && (
+        <CallRequestPopup isOpen onClose={closePopup} />
       )}
     </>
   );

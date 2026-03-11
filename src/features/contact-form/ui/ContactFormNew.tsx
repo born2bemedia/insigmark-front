@@ -178,7 +178,10 @@ export const ContactFormNew = () => {
 
         </form>
       </div>
-      {isSuccess && <ContactFormSuccess onClose={() => setIsSuccess(false)} />}
+      <ContactFormSuccess
+        isOpen={isSuccess}
+        onClose={() => setIsSuccess(false)}
+      />
     </>
   );
 };

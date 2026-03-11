@@ -151,14 +151,14 @@ export const ServiceOrderPopup = ({
                 "Your order has been submitted. Our team will review your request and contact you shortly. Please check your inbox for confirmation and updates.",
             })}
           </p>
-          {/**<button
+          <button
             type="button"
             className={styles.submitBtn}
             onClick={handleClose}
           >
             <ArrowIcon />
-            {t("orderNow", { fallback: "Order now!" })}
-          </button> */}
+            {t("gotIt", { fallback: "Got it" })}
+          </button>
         </div>
       ) : (
         <>

@@ -45,6 +45,7 @@ $border: #d6d6d6;
 .home_numbers__link {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 12px;
   font-size: 22px;
   font-weight: 500;

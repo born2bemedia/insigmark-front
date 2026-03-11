@@ -69,6 +69,95 @@ $navy: #023d65;
   }
 }
 
+// ─── PHONE INPUT (react-phone-input-2) ────────────────────────────────────────
+
+.phoneContainer {
+  width: 100%;
+
+  :global(.form-control) {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 0 !important;
+    padding: 2px 0 18px 52px !important;
+    color: #fff !important;
+    font-family: var(--font-inter), sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.8px !important;
+    outline: none !important;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    &:focus {
+      border-bottom-color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    @include mobile {
+      font-size: 18px !important;
+    }
+  }
+
+  :global(.flag-dropdown) {
+    background: none !important;
+    border: none !important;
+    border-right: none !important;
+    padding-bottom: 18px!important;
+
+    .selected-flag {
+      background: none !important;
+    }
+
+    .arrow {
+      border-top-color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    .country-list {
+      background: #0c0c0c !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+      .country {
+        color: #fff !important;
+
+        .dial-code {
+          color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        &.highlight {
+          background: rgba(255, 255, 255, 0.15) !important;
+        }
+      }
+
+      .search {
+        background: rgba(255, 255, 255, 0.05) !important;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.5) !important;
+        }
+      }
+    }
+  }
+}
+
+.phoneInput {
+  // Used for inputClass - styling is in phoneContainer :global
+}
+
+.field_error .phoneContainer :global(.form-control) {
+  border-bottom-color: #ff4d4f !important;
+}
+
 .error {
   font-size: 13px;
   font-weight: 500;
@@ -93,7 +182,7 @@ $navy: #023d65;
   color: #fff;
   font-family: var(--font-inter), sans-serif;
   transition: opacity 0.2s;
-
+justify-content: flex-start;
   &:hover {
     opacity: 0.7;
   }

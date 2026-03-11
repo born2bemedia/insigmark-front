@@ -1,0 +1,85 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.pricing_approach {
+  background: #fff;
+  padding: 100px 36px;
+
+  @include desktop {
+    padding: 80px 36px;
+  }
+
+  @include tablet {
+    padding: 60px 10px;
+  }
+}
+
+.pricing_approach__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  gap: 230px;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.pricing_approach__left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pricing_approach__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+.pricing_approach__label {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.52px;
+  text-transform: uppercase;
+  color: #0c0c0c;
+}
+
+.pricing_approach__right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px;
+}
+
+.pricing_approach__title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  color: #0c0c0c;
+  margin: 0;
+
+
+  @include tablet {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+}
+
+.pricing_approach__desc {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  color: rgba(12, 12, 12, 0.6);
+  margin: 0;
+}

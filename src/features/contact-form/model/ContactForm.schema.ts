@@ -47,6 +47,14 @@ export const homeRequestSimpleSchema = z.object({
 
 export type HomeRequestSimpleSchema = z.infer<typeof homeRequestSimpleSchema>;
 
+export const homeFaqRequestFormSchema = homeRequestSimpleSchema.extend({
+  recaptcha: ENABLE_RECAPTCHA
+    ? z.string().min(1, 'Please complete the reCAPTCHA verification')
+    : z.string().optional(),
+});
+
+export type HomeFaqRequestFormSchema = z.infer<typeof homeFaqRequestFormSchema>;
+
 export const createHomeRequestFormSchema = () =>
   z.object({
     fullName: z.string().min(1, 'This field is required'),

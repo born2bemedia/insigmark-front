@@ -7,7 +7,9 @@ export type FormsPopupType =
   | "market-research"
   | "property-consultation"
   | "request"
-  | "service-order";
+  | "service-order"
+  | "assistance-request"
+  | "call-request";
 
 export type ServiceOrderData = {
   id: string;
@@ -23,6 +25,8 @@ type FormsPopupStore = {
   openPropertyConsultation: () => void;
   openRequest: (name: string) => void;
   openServiceOrder: (service: ServiceOrderData) => void;
+  openAssistanceRequest: () => void;
+  openCallRequest: () => void;
   closePopup: () => void;
 };
 
@@ -40,6 +44,10 @@ export const useFormsPopupStore = create<FormsPopupStore>((set) => ({
   openServiceOrder: (service: ServiceOrderData) =>
     set({ serviceOrder: service, popupType: "service-order" }),
 
+  openAssistanceRequest: () => set({ popupType: "assistance-request" }),
+
+  openCallRequest: () => set({ popupType: "call-request" }),
+
   closePopup: () =>
     set({ popupType: null, requestName: "", serviceOrder: null }),
 }));
@@ -52,6 +60,8 @@ export function useFormsPopup() {
       openPropertyConsultation: state.openPropertyConsultation,
       openRequest: state.openRequest,
       openServiceOrder: state.openServiceOrder,
+      openAssistanceRequest: state.openAssistanceRequest,
+      openCallRequest: state.openCallRequest,
       closePopup: state.closePopup,
     }))
   );

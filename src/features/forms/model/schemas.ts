@@ -39,3 +39,24 @@ export const requestFormSchema = z.object({
 });
 
 export type RequestFormSchema = z.infer<typeof requestFormSchema>;
+
+// 2. Assistance Request (Simple request form: Name, E-mail, Phone, Message)
+export const assistanceRequestFormSchema = z.object({
+  fullName: fullNameSchema,
+  email: emailSchema,
+  phone: phoneSchema,
+  message: messageSchema,
+  recaptcha: recaptchaSchema,
+});
+
+export type AssistanceRequestFormSchema = z.infer<typeof assistanceRequestFormSchema>;
+
+// 3. Call Request (Name, Phone, Message - no E-mail)
+export const callRequestFormSchema = z.object({
+  fullName: fullNameSchema,
+  phone: phoneSchema,
+  message: messageSchema,
+  recaptcha: recaptchaSchema,
+});
+
+export type CallRequestFormSchema = z.infer<typeof callRequestFormSchema>;

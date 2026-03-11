@@ -5,11 +5,12 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+import { useFormsPopup } from "@/features/forms";
+
 import { fadeInUpLyniq, staggerContainer, staggerItem } from "@/shared/lib/helpers/animations";
 
 import styles from "./HomeNumbers.module.scss";
 
-import { Link } from "@/i18n/navigation";
 
 const DURATION = 1000;
 const EASING = (t: number) => 1 - Math.pow(1 - t, 3); // easeOutCubic
@@ -95,6 +96,7 @@ function CountUpValue({ config }: { config: StatConfig }) {
 
 export const HomeNumbers = () => {
   const t = useTranslations("homeNumbers");
+  const { openCallRequest } = useFormsPopup();
 
   const STATS = [
     {
@@ -132,7 +134,9 @@ export const HomeNumbers = () => {
           className={styles.home_numbers__header}
           variants={staggerItem}
         >
-          <Link href="/connect" className={styles.home_numbers__link}>
+          <button className={styles.home_numbers__link} onClick={() => {
+            openCallRequest();
+          }}>
             <span className={styles.home_numbers__link_icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +152,7 @@ export const HomeNumbers = () => {
               </svg>
             </span>
             <span>{t("letsTalk", { fallback: "Let's talk" })}</span>
-          </Link>
+          </button>
           <h2 className={styles.home_numbers__heading}>
             {t("heading1", { fallback: "Our impact is measurable." })} <br />
             {t("heading2", { fallback: "Discover the results we've created." })}

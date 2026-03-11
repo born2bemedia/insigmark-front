@@ -1,0 +1,125 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$border: rgba(0, 0, 0, 0.13);
+
+.pricing_payment {
+  background: #fff;
+  padding: 100px 36px;
+
+  @include desktop {
+    padding: 80px 36px;
+  }
+
+  @include tablet {
+    padding: 60px 10px;
+  }
+}
+
+.pricing_payment__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.pricing_payment__title {
+  font-size: 112px;
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -7.84px;
+  color: #0c0c0c;
+  margin: 0;
+
+  @include desktop {
+    font-size: 80px;
+    letter-spacing: -5px;
+  }
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
+
+  @include tablet {
+    font-size: 40px;
+    letter-spacing: -3px;
+  }
+}
+
+.pricing_payment__cards {
+  display: flex;
+  gap: 50px;
+
+  > * {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @include tablet {
+    flex-direction: column;
+  }
+}
+
+.pricing_payment__card {
+  position: relative;
+  padding: 40px 0 0 0;
+  gap: 16px;
+  border-top: 1px solid $border;
+  display: flex;
+  align-items: flex-start;
+}
+
+.pricing_payment__card_corner {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 9px;
+  height: 9px;
+  border-right: var(--stroke-weight-2, 2px) solid var(--color-navy-58, #023d65);
+  border-top: var(--stroke-weight-2, 2px) solid var(--color-navy-58, #023d65);
+}
+
+.pricing_payment__card_number {
+  color: var(--Alto-Woodsmoke-Woodsmoke, var(--color-grey-5, #0c0c0c));
+  text-align: center;
+  font-family: var(--font-family-Font-1, Inter);
+  font-size: var(--font-size-14, 14px);
+  font-style: normal;
+  font-weight: var(--font-weight-600, 600);
+  line-height: var(--line-height-19_6, 19.6px); /* 140% */
+  letter-spacing: var(--letter-spacing--0_56, -0.56px);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid $border;
+}
+
+.pricing_payment__card_content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: calc(100% - 56px);
+}
+
+.pricing_payment__card_label {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.52px;
+  text-transform: uppercase;
+  color: #0c0c0c;
+  margin: 0;
+}
+
+.pricing_payment__card_desc {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  color: rgba(12, 12, 12, 0.6);
+  margin: 0;
+}

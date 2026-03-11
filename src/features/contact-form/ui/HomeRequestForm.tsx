@@ -1,62 +1,107 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { useForm } from "react-hook-form";
+import ReCAPTCHA from "react-google-recaptcha";
+import { Controller, useForm } from "react-hook-form";
+import PhoneInput from "react-phone-input-2";
+
+import { excludedCountries } from "@/shared/lib/helpers/excludedCountries";
 
 import {
-  type HomeRequestSimpleSchema,
-  homeRequestSimpleSchema,
+  type HomeFaqRequestFormSchema,
+  homeFaqRequestFormSchema,
 } from "../model/ContactForm.schema";
 import { ContactFormSuccess } from "./ContactFormSuccess";
 import styles from "./HomeRequestForm.module.scss";
 
+import "react-phone-input-2/lib/style.css";
+
+const ENABLE_RECAPTCHA = true;
+
 export const HomeRequestForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [recaptchaKey, setRecaptchaKey] = useState(0);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const phoneContainerRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("HomeRequestForm");
 
   const {
     register,
+    control,
+    setValue,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<HomeRequestSimpleSchema>({
-    resolver: zodResolver(homeRequestSimpleSchema),
+  } = useForm<HomeFaqRequestFormSchema>({
+    resolver: zodResolver(homeFaqRequestFormSchema),
     defaultValues: {
       fullName: "",
       email: "",
       phone: "",
       message: "",
+      recaptcha: "",
     },
   });
 
-  const onSubmit = useCallback(async (data: HomeRequestSimpleSchema) => {
-    try {
-      setIsLoading(true);
-      const formData = new FormData();
-      formData.append("fullName", data.fullName);
-      formData.append("email", data.email);
-      formData.append("phone", data.phone);
-      formData.append("message", data.message ?? "");
-      formData.append("recaptcha", "disabled");
-      const res = await fetch("/api/contact-new", {
-        method: "POST",
-        body: formData,
-      });
-      if (!res.ok) throw new Error("Submission failed");
-      setTimeout(() => {
-        setIsSuccess(true);
-        reset();
-        setIsLoading(false);
-      }, 1000);
-    } catch (error) {
-      console.error(error);
-      setIsLoading(false);
+  const handleRecaptchaChange = useCallback((token: string | null) => {
+    if (ENABLE_RECAPTCHA) {
+      setValue("recaptcha", token ?? "", { shouldValidate: true });
+    } else {
+      setValue("recaptcha", "disabled", { shouldValidate: false });
     }
-  }, [reset]);
+  }, [setValue]);
+
+  // Allow Lenis to ignore scroll inside PhoneInput country dropdown
+  useEffect(() => {
+    const container = phoneContainerRef.current;
+    if (!container) return;
+    const observer = new MutationObserver(() => {
+      const list = container.querySelector(".country-list");
+      if (list && !list.hasAttribute("data-lenis-prevent")) {
+        list.setAttribute("data-lenis-prevent", "");
+      }
+    });
+    observer.observe(container, { childList: true, subtree: true });
+    const list = container.querySelector(".country-list");
+    if (list) list.setAttribute("data-lenis-prevent", "");
+    return () => observer.disconnect();
+  }, []);
+
+  const onSubmit = useCallback(
+    async (data: HomeFaqRequestFormSchema) => {
+      try {
+        setIsLoading(true);
+        const formData = new FormData();
+        formData.append("fullName", data.fullName);
+        formData.append("email", data.email);
+        formData.append("phone", data.phone);
+        formData.append("message", data.message ?? "");
+        formData.append("recaptcha", data.recaptcha ?? "disabled");
+        const res = await fetch("/api/contact-new", {
+          method: "POST",
+          body: formData,
+        });
+        if (!res.ok) throw new Error("Submission failed");
+        setTimeout(() => {
+          setIsSuccess(true);
+          reset();
+          recaptchaRef.current?.reset();
+          setRecaptchaKey((k) => k + 1);
+          setIsLoading(false);
+        }, 1000);
+      } catch (error) {
+        console.error(error);
+        recaptchaRef.current?.reset();
+        setRecaptchaKey((k) => k + 1);
+        setIsLoading(false);
+      }
+    },
+    [reset]
+  );
 
   return (
     <>
@@ -94,12 +139,27 @@ export const HomeRequestForm = () => {
           </div>
           <div
             className={`${styles.field} ${errors.phone ? styles.field_error : ""}`}
+            ref={phoneContainerRef}
           >
-            <input
-              type="tel"
-              placeholder={t("phonePlaceholder", { fallback: "Phone *" })}
-              {...register("phone")}
-              aria-invalid={!!errors.phone}
+            <Controller
+              name="phone"
+              control={control}
+              render={({ field }) => (
+                <PhoneInput
+                  country="gb"
+                  value={field.value}
+                  onChange={(value) => field.onChange(value)}
+                  excludeCountries={[...new Set(excludedCountries)]}
+                  inputProps={{
+                    id: "home-phone",
+                    "aria-invalid": !!errors.phone,
+                  }}
+                  containerClass={styles.phoneContainer}
+                  inputClass={styles.phoneInput}
+                  enableSearch
+                  preferredCountries={["gb"]}
+                />
+              )}
             />
             {errors.phone && (
               <span className={styles.error}>{errors.phone.message}</span>
@@ -114,6 +174,20 @@ export const HomeRequestForm = () => {
               rows={3}
             />
           </div>
+          {ENABLE_RECAPTCHA && (
+            <div className={styles.field}>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                key={recaptchaKey}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
+                onChange={handleRecaptchaChange}
+                theme="dark"
+              />
+              {errors.recaptcha && (
+                <span className={styles.error}>{errors.recaptcha.message}</span>
+              )}
+            </div>
+          )}
         </div>
 
         <button type="submit" className={styles.submit} disabled={isLoading}>
@@ -138,7 +212,10 @@ export const HomeRequestForm = () => {
           </span>
         </button>
       </form>
-      {isSuccess && <ContactFormSuccess onClose={() => setIsSuccess(false)} />}
+      <ContactFormSuccess
+        isOpen={isSuccess}
+        onClose={() => setIsSuccess(false)}
+      />
     </>
   );
 };

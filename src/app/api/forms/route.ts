@@ -19,12 +19,12 @@ type RequestPayload = {
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const body = (await request.json()) as {
-      formType: 'request';
-      data: RequestPayload & { recaptcha?: string };
+      formType: 'request' | 'assistance' | 'call';
+      data: (RequestPayload & { recaptcha?: string }) | Record<string, unknown>;
     };
 
     const { formType } = body;
-    const rawData = body.data as RequestPayload & { recaptcha?: string };
+    const rawData = body.data as Record<string, unknown> & { recaptcha?: string };
 
     const recaptcha = rawData.recaptcha;
 
@@ -174,6 +174,61 @@ export async function POST(request: Request): Promise<NextResponse> {
       await sgMail.send(userMsg);
 
       console.log(`Request confirmation email sent to ${userEmail}`);
+    } else if (formType === 'assistance') {
+      const d = data as { fullName: string; email: string; phone: string; message?: string };
+      subject = 'Assistance Request';
+      userEmail = d.email;
+      html = `
+        <h2>Assistance Request</h2>
+        <p><strong>Full name:</strong> ${escapeHtml(d.fullName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(d.email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(d.phone)}</p>
+        <p><strong>Message:</strong> ${escapeHtml(d.message ?? '')}</p>
+      `;
+
+      const msg = { to: adminEmail, from: fromEmail, subject, html };
+      const safeFirstName = escapeHtml(d.fullName.split(' ')[0] || d.fullName);
+      const userMsg = {
+        to: d.email,
+        from: fromEmail,
+        subject: "We've Received Your Assistance Request",
+        html: `
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Assistance Request - Insigmark</title></head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#333;">
+  <table role="presentation" style="width:100%;border-collapse:collapse;">
+    <tr><td align="center" style="padding:40px 20px;">
+      <table role="presentation" style="max-width:640px;width:100%;border-collapse:collapse;">
+        <tr><td style="padding:0;height:100px;"><img style="width:100%;height:auto;" src="https://insigmark.com/images/email-header.png" alt="Insigmark"></td></tr>
+        <tr><td style="padding:32px;">
+          <p style="margin:0 0 32px;font-size:24px;">Dear ${safeFirstName},</p>
+          <p style="margin:0 0 24px;font-size:16px;">Your assistance request has been received! Our team will contact you soon. Please check your inbox for details.</p>
+          <p style="margin:0;font-size:16px;">Best regards,<br><strong>The Insigmark Team</strong></p>
+        </td></tr>
+        <tr><td style="padding:0;height:100px;"><img style="width:100%;height:auto;" src="https://insigmark.com/images/email-footer.png" alt="Insigmark"></td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`,
+      };
+      await sgMail.send(msg);
+      await sgMail.send(userMsg);
+      console.log(`Assistance request sent to ${userEmail}`);
+    } else if (formType === 'call') {
+      const d = data as { fullName: string; phone: string; message?: string };
+      subject = 'Call Request';
+      html = `
+        <h2>Call Request</h2>
+        <p><strong>Full name:</strong> ${escapeHtml(d.fullName)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(d.phone)}</p>
+        <p><strong>Message:</strong> ${escapeHtml(d.message ?? '')}</p>
+      `;
+
+      const msg = { to: adminEmail, from: fromEmail, subject, html };
+      await sgMail.send(msg);
+      console.log('Call request sent');
     }
   } catch (error) {
     console.error('Error submitting request:', error);

@@ -1,0 +1,89 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$text-dark: #0c0c0c;
+$text-muted: rgba(12, 12, 12, 0.6);
+
+.faq_hero {
+  background: #fff;
+  padding: 112px 36px 100px;
+
+  @include desktop {
+    padding: 80px 36px 80px;
+  }
+
+  @include tablet {
+    padding: 60px 10px 60px;
+  }
+}
+
+.faq_hero__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.faq_hero__title {
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -7.84px;
+  color: $text-dark;
+  margin: 0;
+  max-width: 1000px;
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
+}
+
+.faq_hero__subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: $text-muted;
+  margin: 0;
+  max-width: 800px;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.faq_hero__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: #060606;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  margin-top: 16px;
+  width: 1000px;
+  max-width: 100%;
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include tablet {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+.faq_hero__link_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}

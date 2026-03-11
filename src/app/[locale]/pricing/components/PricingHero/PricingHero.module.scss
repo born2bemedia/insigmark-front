@@ -1,0 +1,77 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.pricing_hero {
+  background: #0c0c0c;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  background-image: url("/images/pricing/hero.png");
+  background-size: cover;
+  background-position: center;
+
+  @include tablet {
+    padding: 134px 0;
+  }
+}
+
+.pricing_hero__container {
+  max-width: 1368px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.pricing_hero__title {
+  font-size: 112px;
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -7.84px;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+
+  @include desktop {
+    font-size: 80px;
+    letter-spacing: -5px;
+  }
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    letter-spacing: -3px;
+  }
+}
+
+.pricing_hero__image_wrap {
+  width: 100%;
+  max-width: 1368px;
+  margin: 60px auto 0;
+  height: 200px;
+  overflow: hidden;
+
+  @include tablet {
+    height: 150px;
+    margin-top: 40px;
+  }
+
+  @include mobile {
+    height: 100px;
+  }
+}
+
+.pricing_hero__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+}
