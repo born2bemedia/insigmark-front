@@ -80,6 +80,19 @@ export type ComplementaryServicesItem = {
   variant?: CardVariant;
 };
 
+// Security, Audit & Maintenance service item types
+export type SecurityServiceItem = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  prefix?: string;
+  suffix?: string;
+  additionalPrice?: number;
+  additionalPriceSuffix?: string;
+  variant?: CardVariant;
+};
+
 // Hosting Solutions service item types
 export type HostingPlanItem = {
   id: string;

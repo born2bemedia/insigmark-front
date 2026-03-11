@@ -18,6 +18,8 @@ interface ServiceCardProps {
   price: number;
   prefix?: string;
   suffix?: string;
+  additionalPrice?: number;
+  additionalPriceSuffix?: string;
   variant?: CardVariant;
   orderLabel?: string;
 }
@@ -30,6 +32,8 @@ export const ServiceCard = ({
   price,
   prefix,
   suffix,
+  additionalPrice,
+  additionalPriceSuffix,
   variant = "white",
   orderLabel,
 }: ServiceCardProps) => {
@@ -59,6 +63,21 @@ export const ServiceCard = ({
               <span className={styles.service_card__suffix}>/{suffix}</span>
             )}
           </div>
+          {additionalPrice != null && (
+            <>
+              <span className={styles.service_card__price_plus}>+</span>
+              <div>
+                <span className={styles.service_card__price}>
+                  €{additionalPrice.toLocaleString("en-IE")}
+                </span>
+                {additionalPriceSuffix && (
+                  <span className={styles.service_card__suffix}>
+                    /{additionalPriceSuffix}
+                  </span>
+                )}
+              </div>
+            </>
+          )}
         </div>
         {orderLabel && (
           <OrderButton

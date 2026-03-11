@@ -188,6 +188,25 @@
   "common": {
     "back-to-ideas": "Back"
   },
+  "sam": {
+    "heroTitle": "Security, Audit & Maintenance",
+    "heroSubtitle": "Keeping your website secure, reliable, and performing at its best.",
+    "pricingCtaTitle": "Need a full pricing list?",
+    "pricingCtaBtn": "Get it!",
+    "tabServerSetup": "Server Setup & Optimization",
+    "tabBackupRecovery": "Backup & Recovery",
+    "tabBugDetection": "Bug Detection & Fixes",
+    "tabMigrationServices": "Migration Services",
+    "tabAuditSecurity": "Audit & Security",
+    "tabAdditionalServices": "Additional Services",
+    "orderNow": "Order now!",
+    "serverSetupTitle": "Server Setup & Optimization",
+    "backupRecoveryTitle": "Backup & Recovery",
+    "bugDetectionTitle": "Bug Detection & Fixes",
+    "migrationServicesTitle": "Migration Services",
+    "auditSecurityTitle": "Audit & Security",
+    "additionalServicesTitle": "Additional Services"
+  },
   "SignUpHero": {
     "title": "Join Insigmark Today",
     "subtitle": "Register to manage your engagements and unlock exclusive strategic insights. Partner with Insigmark to scale your impact today."
@@ -448,16 +467,12 @@
       "successTitle": "Thank you!",
       "successMessage1": "Your request for our service has been successfully submitted. Our team will review the information provided and get in touch with you shortly to discuss the next steps and how we can assist you."
     },
-    "serviceOrder": {
-      "successMessage": "Your order has been submitted. Our team will review your request and contact you shortly. Please check your inbox for confirmation and updates."
-    },
-    "orderNow": "Order now!",
     "returnHome": "Return to home page",
-    "fullName": "Full name",
+    "fullName": "Name",
     "fullNamePlaceholder": "Enter your full name",
-    "email": "Email address",
+    "email": "E-mail",
     "emailPlaceholder": "Enter your email address",
-    "phone": "Phone number",
+    "phone": "Phone",
     "companyName": "Company name",
     "optional": "(optional)",
     "companyNamePlaceholder": "Enter your company name",
@@ -466,7 +481,11 @@
     "message": "Message",
     "messagePlaceholder": "Enter your message",
     "loading": "Sending…",
-    "submit": "Submit"
+    "submit": "Submit",
+    "serviceOrder": {
+      "successMessage": "Your order has been submitted. Our team will review your request and contact you shortly. Please check your inbox for confirmation and updates."
+    },
+    "orderNow": "Order now!"
   },
   "ideasLoop": {
     "button": "Read Article",
@@ -692,6 +711,66 @@
       "item8Desc": "With continuous feedback loops to track key metrics, optimize processes, and drive results.",
       "item9Title": "10 Strategy Sessions",
       "item9Desc": "In-depth collaboration with our leadership team, including quarterly reviews, to ensure long-term success."
+    }
+  },
+  "securityAuditMaintenance": {
+    "additionalServices": {
+      "title1": "Monitoring & Alerts",
+      "description1": "24/7 uptime monitoring with instant alerts for downtime, security threats, and performance issues.",
+      "from": "From",
+      "annually": "billed annually",
+      "title2": "Staging Environment",
+      "description2": "Dedicated testing environment mirroring your live site for safe updates and feature testing.",
+      "setup": "setup",
+      "monthly": "monthly",
+      "title3": "Custom Integrations",
+      "description3": "Connecting third-party tools, APIs, and services to streamline your website operations and workflows."
+    },
+    "auditSecurity": {
+      "title1": "Security Audit",
+      "description1": "Comprehensive security assessment covering vulnerabilities, access controls, and compliance gaps.",
+      "from": "From",
+      "title2": "Performance Audit",
+      "description2": "In-depth analysis of website speed, Core Web Vitals, and server response times with optimization recommendations.",
+      "title3": "Full Compliance Audit",
+      "description3": "Complete review of GDPR, accessibility (WCAG), and industry-standard compliance with actionable remediation plan."
+    },
+    "backupRecovery": {
+      "title1": "Forced/On-Demand Backup",
+      "description1": "Immediate full-site backup triggered manually or on schedule, stored securely off-site.",
+      "title2": "Custom Backup Plan",
+      "description2": "Tailored backup strategy with custom frequency, retention policies, and multi-location storage.",
+      "from": "From",
+      "monthly": "monthly",
+      "title3": "Disaster Recovery",
+      "description3": "Complete recovery plan including data restoration, failover setup, and business continuity measures.",
+      "incident": "incident"
+    },
+    "bugDetection": {
+      "title1": "Bug Audit & Report",
+      "description1": "Thorough inspection of your website to identify bugs, errors, and performance issues with a detailed report.",
+      "title2": "Bug Fixes",
+      "description2": "Targeted resolution of specific bugs and errors to restore full website functionality.",
+      "from": "From",
+      "hourly": "hourly",
+      "title3": "Comprehensive Fix Package",
+      "description3": "End-to-end bug resolution including audit, fixes, testing, and post-fix monitoring."
+    },
+    "migrationServices": {
+      "title1": "Basic Site Migration",
+      "description1": "Simple transfer of your website files, database, and DNS settings to a new hosting provider.",
+      "title2": "Full Hosting Migration",
+      "description2": "Complete migration including email accounts, SSL certificates, and server configuration.",
+      "title3": "Complex Migration",
+      "description3": "Multi-site or enterprise migration with zero-downtime strategy, data validation, and post-migration support."
+    },
+    "serverSetup": {
+      "title1": "Shared/WP Server Setup",
+      "description1": "Configuration of shared or WordPress servers with security, caching, and GDPR-ready settings.",
+      "title2": "VPS/Cloud Setup",
+      "description2": "Preparation of virtual or cloud servers including OS installation, firewall, and control panel setup.",
+      "title3": "Advanced Optimization",
+      "description3": "Fine-tuning of servers for speed, scalability, and reliability, including load management and CDN integration."
     }
   },
   "webDevelopment": {
