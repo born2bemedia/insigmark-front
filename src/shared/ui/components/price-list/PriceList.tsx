@@ -40,7 +40,7 @@ export const PriceList = ({ image }: { image: string }) => {
         <h2 className={styles.price_list__title}>
           {t("title", { fallback: "Need a full pricing list?" })}
         </h2>
-        <Link href="/connect" className={styles.price_list__link}>
+        <Link href="/contact" className={styles.price_list__link}>
           <span className={styles.price_list__link_icon}>{ARROW_ICON}</span>
           <span>{t("btn", { fallback: "Get it!" })}</span>
         </Link>

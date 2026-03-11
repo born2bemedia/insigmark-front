@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 import { motion } from 'framer-motion';
 
 import { ForgotPasswordForm } from '@/features/account/ui/ForgotPasswordForm/ForgotPasswordForm';
@@ -19,21 +17,8 @@ export const ForgotPasswordHero = () => {
       viewport={{ once: true }}
       variants={fadeInUp}
     >
-      <div className="container">
+      <div className={styles.forgot_password_form__inner}>
         <ForgotPasswordForm />
-
-        <div className={styles.forgot_password_form__image_desktop}>
-          <Image
-            src="/images/logIn/log-in-image-desktop.png"
-            alt="Hero"
-            width={1312}
-            height={373}
-          />
-        </div>
-
-        <div className={styles.forgot_password_form__image_mobile}>
-          <Image src="/images/logIn/log-in-image-mobile.png" alt="Hero" width={740} height={678} />
-        </div>
       </div>
     </motion.section>
   );

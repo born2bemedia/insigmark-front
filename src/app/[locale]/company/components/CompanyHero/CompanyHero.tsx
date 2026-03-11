@@ -71,7 +71,7 @@ export const CompanyHero = () => {
               {t("heroServicesBtn", { fallback: "More about services" })}
             </span>
           </Link>
-          <Link href="/connect" className={styles.company_hero__btn_secondary}>
+          <Link href="/contact" className={styles.company_hero__btn_secondary}>
             <span className={styles.company_hero__btn_icon}>{ARROW_ICON}</span>
             <span>
               {t("heroProposalBtn", { fallback: "Request a proposal" })}

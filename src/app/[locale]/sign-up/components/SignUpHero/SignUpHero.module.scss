@@ -1,28 +1,43 @@
 @use '@/shared/lib/styles/mixin.scss' as *;
 
 .sign_up_hero {
-  padding-top: 80px;
-  background-color: #f1f6fd;
+  position: relative;
+  padding: 40px 0;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 
-  &__top {
-    margin-bottom: 40px;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background  : url("/images/logIn/log-in-image-desktop.png");
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    @include tablet {
+      background-size: cover;
+    }
+    z-index: 0;
   }
 
-  &__title {
-    margin-bottom: 20px;
-  }
-
-  &__image_desktop {
-    @include mobile {
-      display: none;
+  @include mobile {
+    &::before {
+      background: url("/images/logIn/log-in-image-desktop.png");
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
     }
   }
+}
 
-  &__image_mobile {
-    display: none;
+.sign_up_hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 36px;
 
-    @include mobile {
-      display: block;
-    }
+  @include mobile {
+    padding: 0 10px;
   }
 }

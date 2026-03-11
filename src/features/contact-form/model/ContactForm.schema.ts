@@ -74,3 +74,24 @@ export const createHomeRequestFormSchema = () =>
   });
 
 export type HomeRequestFormSchema = z.infer<ReturnType<typeof createHomeRequestFormSchema>>;
+
+export const createContactProjectFormSchema = () =>
+  z.object({
+    projectType: z.array(z.string()).min(1, 'This checkbox is required.'),
+    fullName: z.string().trim().min(1, 'This field is required.'),
+    email: z
+      .string()
+      .trim()
+      .min(1, 'This field is required.')
+      .email('Please check this field and provide the correct email address.'),
+    phone: z
+      .string()
+      .trim()
+      .optional()
+      .refine((value) => !value || /^[+]?[\d\s\-()]{7,}$/.test(value), 'Please provide a valid phone number.'),
+    companyName: z.string().trim().optional(),
+    projectScope: z.array(z.string()).min(1, 'This checkbox is required.'),
+    message: z.string().trim().min(1, 'This field is required.'),
+  });
+
+export type ContactProjectFormSchema = z.infer<ReturnType<typeof createContactProjectFormSchema>>;

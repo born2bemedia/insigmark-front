@@ -1,0 +1,247 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+$text-muted: rgba(255, 255, 255, 0.6);
+$border: rgba(255, 255, 255, 0.13);
+$navy: #023d65;
+
+.review {
+  background: #0c0c0c;
+  padding: 80px 36px;
+
+  @include tablet {
+    padding: 60px 10px;
+  }
+}
+
+.review__container {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+
+  @include tablet {
+    flex-direction: column;
+  }
+}
+
+// ─── LEFT ─────────────────────────────────────────────────────────────────────
+
+.review__left {
+ width: 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include tablet {
+    gap: 30px;
+    width: 100%;
+  }
+}
+
+.review__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include tablet {
+    gap: 20px;
+  }
+}
+
+.review__title {
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -7.84px;
+  color: #fff;
+  margin: 0;
+
+  @include desktop {
+    font-size: 80px;
+    letter-spacing: -5px;
+  }
+
+  @include tablet {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
+
+  @include mobile {
+    font-size: 40px;
+    letter-spacing: -3px;
+  }
+}
+
+.review__desc_block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.review__subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: #f5f5f5;
+  margin: 0;
+}
+
+.review__desc {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+  color: #878787;
+  margin: 0;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.review__link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1.1px;
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.review__link_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+// ─── RIGHT (grey panel) ─────────────────────────────────────────────────────
+
+.review__right {
+  width: 50%;
+  flex-shrink: 0;
+  background: #d6d6d6;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include mobile {
+    padding: 24px;
+  }
+}
+
+.review__right_label {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  color: #0c0c0c;
+  margin: 0;
+}
+
+.review__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.review__card {
+  position: relative;
+  padding: 20px 0 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: calc(50% - 20px);
+  min-height: 80px;
+  flex-direction: row;
+
+  @include mobile {
+    width: 100%;
+    padding: 20px 0 0;
+  }
+}
+
+.review__card_number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #dedede;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.56px;
+  color: #0c0c0c;
+  flex-shrink: 0;
+}
+
+.review__card_text {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #060606;
+  margin: 0;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.review__card_corner {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid $navy;
+  border-top: 2px solid $navy;
+}
+
+.review__card_border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #060606;
+}
+
+.review__note {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  color: #0c0c0c;
+  margin: 0;
+}

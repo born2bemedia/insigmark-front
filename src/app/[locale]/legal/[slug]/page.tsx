@@ -36,17 +36,10 @@ export default async function PostPage({
 
   return (
     <>
-      <section className={st.postTitle}>
-        <div className="container">
-          <div className={st.postTitle__content}>
-            <h1>{policy.title}</h1>
-          </div>
-        </div>
-      </section>
       {policy.content && (
         <section className={st.postContent}>
           <div className="container">
-            <PolicyArticle content={policy.content.root.children} />
+            <PolicyArticle title={policy.title} content={policy.content.root.children} />
           </div>
         </section>
       )}

@@ -54,10 +54,11 @@ function groupIntoSections(content: Children[]): Section[] {
 }
 
 type PolicyArticleProps = {
+  title: string;
   content: Children[];
 };
 
-export const PolicyArticle = ({ content }: PolicyArticleProps) => {
+export const PolicyArticle = ({ title, content }: PolicyArticleProps) => {
   const sections = useMemo(() => groupIntoSections(content), [content]);
   const headings = useMemo(() => sections.filter((s) => s.title), [sections]);
 
@@ -102,19 +103,20 @@ export const PolicyArticle = ({ content }: PolicyArticleProps) => {
   return (
     <div className={st.article}>
       <nav className={st.toc}>
-        {headings.map((h, i) => (
+        {headings.map((h) => (
           <button
             key={h.id}
             type="button"
             className={`${st.toc__item} ${activeId === h.id ? st['toc__item--active'] : ''}`}
             onClick={() => scrollTo(h.id)}
           >
-            {i + 1}. {h.title}
+            {h.title}
           </button>
         ))}
       </nav>
 
       <div className={st.content}>
+        <h1 className={st.title}>{title}</h1>
         {sections.map((section) => (
           <div
             key={section.id}

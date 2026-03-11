@@ -1,0 +1,112 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.auth_success {
+  position: relative;
+  width: 100%;
+  max-width: 786px;
+  margin: 0 auto;
+  background: #f5f5f5;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  @include mobile {
+    padding: 40px 24px;
+  }
+}
+
+.auth_success__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c0c0c;
+  font-size: 36px;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.auth_success__title {
+  margin: 0;
+  color: #0c0c0c;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 0.97;
+  letter-spacing: -3px;
+
+  @include mobile {
+    font-size: 40px;
+    letter-spacing: -3px;
+  }
+}
+
+.auth_success__description {
+  max-width: 576px;
+  margin: 0;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+
+  @include mobile {
+    font-size: 16px;
+    letter-spacing: -0.5px;
+  }
+}
+
+.auth_success__button {
+  width: 309px;
+  max-width: 100%;
+  border: none;
+  border-radius: 50px;
+  background: #d2ff37;
+  padding: 21px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #060606;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -1px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.auth_success__button_icon {
+  width: 23px;
+  height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth_success__secondary {
+  color: #023d65;
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}

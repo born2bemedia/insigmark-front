@@ -111,7 +111,8 @@
     "category": "Contact us",
     "title": "Let’s bring your vision to life",
     "description": "We’re here to make sure you can confidently trust us with your website development, hosting, and support. Reach out! Our team will respond as soon as possible.",
-    "team": "Insigmark Team"
+    "team": "Insigmark Team",
+    "titleNeedAssistance": "Need Assistance?"
   },
   "homeServices": {
     "service1Title": "Website Development",
@@ -213,6 +214,39 @@
     "techSubtitleBold": "Tools we build with",
     "techSubtitleDesc": "We use modern frameworks and infrastructure tools selected for stability, scalability, and performance."
   },
+  "contactPage": {
+    "directTitle": "Prefer Direct Contact?",
+    "directDescription": "If you would like to contact us directly instead of submitting the form, you can reach our team using the details below.",
+    "phoneLabel": "Phone:",
+    "emailLabel": "Email",
+    "directNote": "Our team monitors incoming messages regularly and will respond as soon as possible.",
+    "companyInfoTitle": "Company Information",
+    "companyInfoDescription": "If you're ready to launch a website or improve an existing one, tell us what you're building. We'll review your request and reply with the next steps.",
+    "registeredAddressLabel": "Registered address:",
+    "officeAddressLabel": "Office address:",
+    "companyCardText": "We provide complete web development, hosting, and digital infrastructure solutions designed to support websites from the first idea to long-term operation.",
+    "finalTitle": "Let's Build Something Reliable!",
+    "finalDescription": "If you're ready to start your project or explore the best technical solution for your website, our team will be happy to assist you.",
+    "heroTitle": "Let's Discuss Your Project",
+    "heroDescription": "Building a website involves more than design. Development architecture, hosting infrastructure, performance optimization, and long-term maintenance all play an important role. Tell us about your project, and we will review your request and guide you through the next steps.",
+    "heroCta": "Request a proposal",
+    "planningItem1": "The purpose of the website and its target audience",
+    "planningItem2": "The number of pages or sections required",
+    "planningItem3": "Any advanced features such as forms, dashboards, or integrations",
+    "planningItem4": "Hosting requirements and performance expectations",
+    "planningTitle": "Planning Your Website",
+    "planningDescription": "Every project begins with understanding your goals. Before development begins, it is important to define the website's purpose, required functionality, and expected infrastructure.",
+    "planningLead": "During the initial discussion, we usually evaluate:",
+    "planningNote": "This helps ensure that development decisions align with the project's long-term goals.",
+    "reviewItem1": "Reviewing your project idea and technical requirements",
+    "reviewItem2": "Identifying the most suitable development approach",
+    "reviewItem3": "Evaluating hosting and infrastructure needs",
+    "reviewItem4": "Preparing an initial proposal or consultation response",
+    "reviewTitle": "What Happens After You Send a Request",
+    "reviewDescription": "After receiving your message, our team reviews the information to understand the scope of your project.",
+    "reviewLabel": "Our review typically includes:",
+    "reviewNote": "Once this evaluation is complete, we will contact you to discuss the next stage of the project."
+  },
   "faq": {
     "contactTitle": "Still Have Questions?",
     "contactDesc": "If you didn't find the answer you were looking for, send us your request. Our team will review it and get back to you shortly.",
@@ -275,6 +309,11 @@
     "priceA4": "Yes. Payment can be structured either as a single payment or stage-by-stage, depending on the project.",
     "priceQ5": "Is hosting included in the price?",
     "priceA5": "Hosting may be included in certain packages or selected separately depending on your needs."
+  },
+  "forgotPasswordSuccessPage": {
+    "title": "Success!",
+    "description": "Check your inbox – we just sent a password reset link. Can’t find the email? Make sure to check your spam or promotions folder.",
+    "primaryCtaLabel": "Got it"
   },
   "hosting": {
     "heroTitle": "Hosting Solutions",
@@ -364,9 +403,10 @@
     "auditSecurityTitle": "Audit & Security",
     "additionalServicesTitle": "Additional Services"
   },
-  "SignUpHero": {
-    "title": "Join Insigmark Today",
-    "subtitle": "Register to manage your engagements and unlock exclusive strategic insights. Partner with Insigmark to scale your impact today."
+  "setPasswordSuccessPage": {
+    "title": "Password updated",
+    "description": "Your password has been changed successfully. You can now log in with your new password.",
+    "primaryCtaLabel": "Got it"
   },
   "webDev": {
     "heroTitle": "Web Development",
@@ -390,20 +430,39 @@
     "account-settings": "Account Setting",
     "hi": "Hi"
   },
-  "accountPage": {
-    "tabTwoTitle": "Account Management",
-    "tabOneTitle": "Project History",
+  "account": {
+    "dataUpdated": "Data updated successfully!",
+    "passwordUpdated": "Password updated successfully!",
     "loading": "Loading...",
-    "mainTitle": "Welcome",
-    "logOutLinkTitle": "Log Out",
-    "contentTitle": "This is your strategic hub for managing engagements, refining your profile, and downloading strategic documents.",
-    "itemOneTitle": "Project History:",
-    "itemOneDescription": "Review past engagements, download invoices, and deliverables.",
-    "itemTwoTitle": "Account Management:",
-    "itemTwoDescription": "Update your professional details and preferences.",
-    "title": "My orders",
-    "noServices": "You have no orders yet.",
-    "allOrders": "Check all orders"
+    "heroGreeting": "Hello",
+    "heroDescription": "Welcome back to your account. Manage your personal details, review order status, and download your invoices.",
+    "personalDataTitle": "Your personal data",
+    "ordersTitle": "Your orders",
+    "logOutLinkTitle": "Log out",
+    "fieldYourName": "Your name",
+    "editField": "Edit",
+    "fieldYourEmail": "Your email",
+    "fieldCountry": "Your country",
+    "fieldPhone": "Your phone",
+    "fieldAddress1": "Address line 1",
+    "fieldAddress2": "Address line 2",
+    "fieldCity": "City",
+    "fieldPostalCode": "Postal code",
+    "updateData": "Save changes",
+    "passwordChangeTitle": "Change password",
+    "fieldCurrentPassword": "Your current password",
+    "fieldNewPassword": "Your new password",
+    "updatePassword": "Update password",
+    "title": "Welcome back to Insigmark",
+    "email": "Email",
+    "emailLabel": "Email:",
+    "password": "Password",
+    "passwordLabel": "Password:",
+    "loggingIn": "Logging in...",
+    "forgotSomething": "Forgot something?",
+    "noWorries": "No worries! ",
+    "resetYourPassword": "Reset your password",
+    "andYouWillBeBackInActionInNoTime": "and you&apos;ll be back in action in no time."
   },
   "accountSettingsPage": {
     "loading": "Loading...",
@@ -440,75 +499,50 @@
     "close": "Close"
   },
   "forgotPasswordPage": {
-    "title": "Forgot Password?",
-    "subtitle": "Enter your email to reset your password.",
-    "email": "USERNAME OR EMAIL",
-    "placeHolderEmail": "Enter your username",
+    "titleLong": "Forgot your password? ",
+    "titleLong2": "Let's fix that!",
+    "email": "Email",
+    "emailLabel": "Email:",
     "resettingPassword": "Resetting password...",
-    "resetPassword": "Reset Password"
+    "resetPasswordCta": "Send reset link"
   },
   "formsCta": {
     "button": "Contact Estanora support"
   },
-  "account": {
-    "title": "Welcome Back to Insigmark",
-    "subtitle": "Enter your credentials to log in. If you’ve forgotten your password, click “Forgot Password?” for assistance.",
-    "email": "USERNAME OR EMAIL",
-    "placeHolderEmail": "Enter your username",
-    "password": "PASSWORD",
-    "placeHolderPassword": "Enter your password",
-    "keepSigned": "Keep me signed in on this device",
-    "loggingIn": "Logging in...",
-    "login": "Log in",
-    "signupLink": "Forgot Password?"
-  },
   "myOrdersPage": {
-    "serviceOrdered": "Service Ordered",
     "orderId": "Order ID",
-    "total": "Total Price",
-    "paymentMethod": "Payment Method",
+    "serviceOrdered": "Service",
+    "total": "Price",
+    "date": "Order Date",
     "status": "Order Status",
     "invoice": "Invoice",
-    "deliverablesBold": "Deliverables",
     "download": "Download",
     "loading": "Loading orders...",
-    "title": "Project History",
-    "noOrders": "You have no orders yet.",
-    "date": "Purchase Date"
+    "noOrders": "You have no orders yet."
   },
   "registration": {
-    "successTitle": "Your account has been created successfully!",
-    "successMessage": "You can now log in with your email and password.",
-    "goToLogin": "Go to Login",
-    "firstName": "FIRST NAME",
-    "firstNamePlaceholder": "Enter your name",
-    "lastName": "LAST NAME",
-    "lastNamePlaceholder": "Enter your last name",
-    "username": "USERNAME",
-    "usernamePlaceholder": "Enter your username",
-    "email": "EMAIL",
-    "emailPlaceholder": "Enter your email",
-    "phone": "PHONE NUMBER",
-    "password": "PASSWORD",
-    "passwordPlaceholder": "Enter your password",
-    "repeatPassword": "REPEAT PASSWORD",
-    "repeatPasswordPlaceholder": "Repeat your password",
-    "agreementPartOne": "By signing up, you confirm that you are over 18 years old and agree to our",
-    "agreementBoldOne": "Terms of Use",
-    "agreementPartTwo": "and",
-    "agreementBoldTwo": "Privacy Policy.",
+    "titleSignUp": "Join Insigmark",
+    "firstName": "First name",
+    "firstNameLabel": "First name:",
+    "lastName": "Last name",
+    "lastNameLabel": "Last name:",
+    "email": "Email",
+    "emailLabel": "Email:",
+    "password": "Password",
+    "passwordLabel": "Password:",
+    "repeatPassword": "Confirm password",
+    "repeatPasswordLabel": "Confirm password:",
     "registering": "Registering...",
-    "register": "Join Now"
+    "registerCta": "Register"
   },
   "setPasswordPage": {
-    "title": "Set New Password",
-    "subtitle": "Enter your new password and repeat it to confirm.",
-    "newPassword": "NEW PASSWORD",
-    "newPasswordPlaceholder": "Enter new password",
-    "repeatNewPassword": "REPEAT NEW PASSWORD",
-    "repeatNewPasswordPlaceholder": "Repeat new password",
+    "titleLong": "Set a new password",
+    "newPassword": "New password",
+    "newPasswordLabel": "New password:",
+    "repeatNewPassword": "Repeat new password",
+    "repeatNewPasswordLabel": "Repeat new password:",
     "savingPassword": "Saving password...",
-    "savePassword": "Save Password"
+    "savePasswordCta": "Save password"
   },
   "checkoutForm": {
     "checkoutTitle": "Checkout",
@@ -642,6 +676,35 @@
       "successMessage": "Your order has been submitted. Our team will review your request and contact you shortly. Please check your inbox for confirmation and updates."
     },
     "orderNow": "Order now!"
+  },
+  "contactProjectForm": {
+    "projectTypeOptionswebsiteDevelopment": "Website Development",
+    "projectTypeOptionshostingSolutions": "Hosting Solutions",
+    "projectTypeOptionssecurityAudit": "Security / Audit",
+    "projectTypeOptionswebsiteMaintenance": "Website Maintenance",
+    "projectTypeOptionswebsiteMigration": "Website Migration",
+    "projectTypeOptionsgeneralConsultation": "General Consultation",
+    "projectScopeOptionssmallWebsite": "Small website (3-5 pages)",
+    "projectScopeOptionsmediumWebsite": "Medium website (6-10 pages)",
+    "projectScopeOptionslargeWebsite": "Large website (10+ pages)",
+    "projectScopeOptionscustomPlatform": "Custom platform or application",
+    "title": "Tell Us About Your Project",
+    "description": "Provide a short description of your project so we can understand your goals and recommend the most suitable development and hosting solution.",
+    "projectTypeTitle": "Project type",
+    "projectTypeDescription": "Select the option that best describes your request:",
+    "projectDetailsTitle": "Project details",
+    "nameLabel": "Name:",
+    "emailLabel": "Email:",
+    "phoneLabel": "Phone:",
+    "companyLabel": "Company / Organization (optional):",
+    "projectScopeTitle": "Estimated project scope",
+    "messageTitle": "Message",
+    "messagePlaceholder": "Type your message here...",
+    "sending": "Sending...",
+    "submit": "Send request",
+    "successTitle": "Thank you!",
+    "successDescription": "Your request has been submitted successfully. Our team will review your message and get back to you shortly.",
+    "gotIt": "Got it"
   },
   "HomeRequestForm": {
     "namePlaceholder": "Name *",

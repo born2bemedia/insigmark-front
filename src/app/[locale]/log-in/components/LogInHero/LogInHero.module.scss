@@ -1,24 +1,154 @@
 @use '@/shared/lib/styles/mixin.scss' as *;
 
 .log_in_form {
-  padding-top: 80px;
-  background-color: #f1f6fd;
+  position: relative;
+  padding: 40px 0;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 
-  &__top {
-    margin-bottom: 40px;
-  }
-
-  &__image_desktop {
-    @include mobile {
-      display: none;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/images/logIn/log-in-image-desktop.png");
+    background-size: 110%;
+    background-position: center;
+    z-index: 0;
+    @include tablet {
+      background-size:cover;
     }
   }
 
-  &__image_mobile {
-    display: none;
-
-    @include mobile {
-      display: block;
+  @include mobile {
+    &::before {
+      background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.2) 100%
+        ),
+        url("/images/logIn/log-in-image-mobile.png") center / cover no-repeat;
     }
   }
+}
+
+.log_in_form__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 36px;
+
+  @include mobile {
+    padding: 0 10px;
+  }
+}
+
+.log_in_assistance {
+  position: relative;
+  background: #0c0c0c;
+  overflow: hidden;
+  padding: 110px 36px;
+
+  @include tablet {
+    padding: 80px 36px;
+  }
+
+  @include mobile {
+    padding: 40px 10px;
+  }
+}
+
+.log_in_assistance__bg {
+  position: absolute;
+  inset: -100px 0;
+  width: 100%;
+  height: calc(100% + 200px);
+  object-fit: cover;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.log_in_assistance__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1368px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  @include mobile {
+    gap: 36px;
+  }
+}
+
+.log_in_assistance__title {
+  margin: 0;
+  color: #fff;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.79;
+  letter-spacing: -3px;
+
+  @include mobile {
+    font-size: 40px;
+    line-height: 1.5;
+  }
+}
+
+.log_in_assistance__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.log_in_assistance__left {
+  flex: 0 0 562px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include desktop {
+    flex: 0 0 420px;
+  }
+
+  @include tablet {
+    flex: none;
+    width: 100%;
+    gap: 24px;
+  }
+}
+
+.log_in_assistance__desc {
+  margin: 0;
+  max-width: 492px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+
+  @include mobile {
+    max-width: none;
+  }
+}
+
+.log_in_assistance__team {
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+}
+
+.log_in_assistance__right {
+  flex: 1;
+  min-width: 0;
 }

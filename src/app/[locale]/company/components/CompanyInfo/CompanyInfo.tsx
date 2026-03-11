@@ -95,7 +95,7 @@ export const CompanyInfo = () => {
                 </div>
               </div>
 
-              <Link href="/connect" className={styles.company_info__card_link}>
+              <Link href="/contact" className={styles.company_info__card_link}>
                 <span className={styles.company_info__card_link_icon}>{ARROW_ICON_WHITE}</span>
                 <span>{t("infoContactLink", { fallback: "Request a proposal" })}</span>
               </Link>

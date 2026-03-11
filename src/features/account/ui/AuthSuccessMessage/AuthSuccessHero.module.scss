@@ -1,0 +1,43 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.auth_success_hero {
+  position: relative;
+  padding: 40px 0;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("/images/logIn/log-in-image-desktop.png");
+    background-size: 110%;
+    background-position: center;
+    z-index: 0;
+    @include tablet {
+      background-size: cover;
+    }
+  }
+
+  @include mobile {
+    &::before {
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%),
+        url("/images/logIn/log-in-image-desktop.png");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}
+
+.auth_success_hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 36px;
+
+  @include mobile {
+    padding: 0 10px;
+  }
+}

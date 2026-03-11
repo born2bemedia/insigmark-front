@@ -5,25 +5,32 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { isOrderCompleted, type Order } from '@/features/account/model/orders.types';
-import { useAuthStore } from '@/features/account/store/auth';
-
-import { Button } from '@/shared/ui/kit/button/Button';
 
 import styles from './MyOrdersPage.module.scss';
-
-import { useRouter } from '@/i18n/navigation';
 
 type OrderRow = {
   orderId: string;
   orderNumber: string;
   date: string;
   service: string;
-  quantity: number;
   total: number;
   status: string;
-  order: Order;
-  paymentMethod: string;
-  deliverables: string;
+  invoiceDownloadUrl?: string | null;
+};
+
+const DownloadIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+  <g clipPath="url(#clip0_261_2144)">
+    <path d="M6 1V8M3 5.5L6 8.5L9 5.5M1 9.5V10.5C1 10.6326 1.05268 10.7598 1.14645 10.8536C1.24021 10.9473 1.36739 11 1.5 11H10.5C10.6326 11 10.7598 10.9473 10.8536 10.8536C10.9473 10.7598 11 10.6326 11 10.5V9.5" stroke="#374151" strokeLinecap="round" strokeLinejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_261_2144">
+      <rect width="12" height="12" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+  );
 };
 
 function formatDate(createdAt: string): string {
@@ -34,7 +41,7 @@ function formatDate(createdAt: string): string {
     const day = String(d.getDate()).padStart(2, '0');
     const month = String(d.getMonth() + 1).padStart(2, '0');
 
-    return `${year}-${day}-${month}`;
+    return `${day}-${month}-${year}`;
   } catch {
     return createdAt;
   }
@@ -44,28 +51,22 @@ function formatNumber(value: number): string {
   return value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+function getStatusClass(status: string): string {
+  const normalized = status.toLowerCase();
+
+  if (normalized === 'completed') return styles.statusPill_completed;
+  if (normalized === 'cancelled') return styles.statusPill_cancelled;
+  return styles.statusPill_pending;
+}
+
 export const MyOrdersPage = () => {
   const t = useTranslations('myOrdersPage');
-  const router = useRouter();
-  const user = useAuthStore((s) => s.user);
-  const isInitialized = useAuthStore((s) => s.isInitialized);
-  const fetchUser = useAuthStore((s) => s.fetchUser);
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchUser();
-  }, [fetchUser]);
-
-  useEffect(() => {
-    if (!isInitialized) return;
-    if (!user) {
-      router.replace('/log-in');
-    }
-  }, [isInitialized, user, router]);
-
-  useEffect(() => {
     let cancelled = false;
+
     (async () => {
       try {
         const res = await fetch('/api/account/orders', { credentials: 'include' });
@@ -77,6 +78,7 @@ export const MyOrdersPage = () => {
         if (!cancelled) setLoading(false);
       }
     })();
+
     return () => {
       cancelled = true;
     };
@@ -91,160 +93,135 @@ export const MyOrdersPage = () => {
         order.items?.map((item) => {
           return item.product ?? '—';
         }) ?? []
-      ).join('\n') || '—';
-    const quantity = order.items?.reduce((sum, item) => sum + (item.quantity ?? 0), 0) ?? 0;
+      ).join(', ') || '—';
     const total = order.total ?? 0;
+
     return {
       orderId: order.id,
       orderNumber,
       date,
       service,
-      quantity,
       total,
       status,
-      order,
-      paymentMethod: order.paymentMethod,
-      deliverables: order.deliverables,
+      invoiceDownloadUrl: order.invoiceDownloadUrl,
     };
   });
 
   const labels = {
-    serviceOrdered: t('serviceOrdered', { fallback: 'Service Ordered' }),
     orderId: t('orderId', { fallback: 'Order ID' }),
-    total: t('total', { fallback: 'Total Price' }),
-    paymentMethod: t('paymentMethod', { fallback: 'Payment Method' }),
+    serviceOrdered: t('serviceOrdered', { fallback: 'Service' }),
+    total: t('total', { fallback: 'Price' }),
+    orderDate: t('date', { fallback: 'Order Date' }),
     status: t('status', { fallback: 'Order Status' }),
     invoice: t('invoice', { fallback: 'Invoice' }),
-    deliverables: t('deliverablesBold', { fallback: 'Deliverables' }),
     download: t('download', { fallback: 'Download' }),
   };
 
-  if (!isInitialized || !user) {
-    return (
-      <section className={styles.section}>
-        <div className="container">
-          <p className={styles.loadingText}>{t('loading', { fallback: 'Loading...' })}</p>
-        </div>
-      </section>
-    );
+  if (loading) {
+    return <p className={styles.loadingText}>{t('loading', { fallback: 'Loading orders...' })}</p>;
+  }
+
+  if (rows.length === 0) {
+    return <p className={styles.empty}>{t('noOrders', { fallback: 'You have no orders yet.' })}</p>;
   }
 
   return (
-    <div className={styles.section}>
-      <h2 className={styles.title}>{t('title', { fallback: 'Project History' })}</h2>
-      {loading ? (
-        <p className={styles.loadingText}>{t('loading', { fallback: 'Loading orders...' })}</p>
-      ) : rows.length === 0 ? (
-        <p className={styles.empty}>{t('noOrders', { fallback: 'You have no orders yet.' })}</p>
-      ) : (
-        <>
-          <div className={styles.tableWrap}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>{labels.orderId}</th>
-                  <th>{labels.serviceOrdered}</th>
-                  <th>{t('date', { fallback: 'Purchase Date' })}</th>
-                  <th>{labels.total}</th>
-                  <th>{labels.paymentMethod}</th>
-                  <th>{labels.status}</th>
-                  <th>{labels.invoice}</th>
-                  <th>
-                    {t('deliverablesBold', { fallback: 'Deliverables' })}
-                    <br />
-                    <span>{labels.deliverables}</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row.orderId}>
-                    <td className={styles.date}>{row.orderNumber}</td>
-                    <td className={styles.serviceCell}>{row.service}</td>
-                    <td className={styles.orderNumber}>{row.date}</td>
-                    <td className={styles.total}>€{formatNumber(row.total)}</td>
-                    <td className={styles.paymentMethod}>{row.paymentMethod}</td>
-                    <td className={styles.status}>{row.status}</td>
-                    <td className={styles.invoice}>
-                      {isOrderCompleted(row.status) && row.order.invoiceDownloadUrl ? (
-                        <Button url={row.order.invoiceDownloadUrl} variant="white" type="link">
-                          {labels.download}
-                        </Button>
-                      ) : (
-                        <span className={styles.downloadBtnDisabled}>{labels.download}</span>
-                      )}
-                    </td>
-                    <td className={styles.deliverables}>
-                      {row.deliverables ? (
-                        <Button url={row.deliverables} variant="white" type="link">
-                          {labels.download}
-                        </Button>
-                      ) : (
-                        <span className={styles.downloadBtnDisabled}>{labels.download}</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className={styles.tableWrap_mobile}>
+    <div className={styles.orders}>
+      <div className={styles.desktopWrap}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>{labels.orderId}</th>
+              <th>{labels.serviceOrdered}</th>
+              <th>{labels.total}</th>
+              <th>{labels.orderDate}</th>
+              <th>{labels.status}</th>
+              <th>{labels.invoice}</th>
+            </tr>
+          </thead>
+          <tbody>
             {rows.map((row) => (
-              <div key={row.orderId} className={styles.tableWrap_mobile__item}>
-                <p className={styles.tableWrap_mobile__item_date}>{row.date}</p>
-                <p className={styles.tableWrap_mobile__item_title}>{labels.serviceOrdered}</p>
-                <p className={styles.tableWrap_mobile__item_service}>{row.service}</p>
-                <div className={styles.tableWrap_mobile__item_row}>
-                  <div>
-                    <p className={styles.tableWrap_mobile__item_title}>{labels.orderId}</p>
-                    <p className={styles.tableWrap_mobile__item_value}>{row.orderNumber}</p>
-                  </div>
-
-                  <div>
-                    <p className={styles.tableWrap_mobile__item_title}>{labels.total}</p>
-                    <p className={styles.tableWrap_mobile__item_value}>{row.total}</p>
-                  </div>
-
-                  <div>
-                    <p className={styles.tableWrap_mobile__item_title}>{labels.paymentMethod}</p>
-                    <p className={styles.tableWrap_mobile__item_value}>{row.paymentMethod}</p>
-                  </div>
-
-                  <div>
-                    <p className={styles.tableWrap_mobile__item_title}>{labels.status}</p>
-                    <p className={styles.tableWrap_mobile__item_value}>{row.status}</p>
-                  </div>
-
-                  <div>
-                    <p className={styles.tableWrap_mobile__item_title}>{labels.invoice}</p>
-                    {isOrderCompleted(row.status) && row.order.invoiceDownloadUrl ? (
-                      <Button url={row.order.invoiceDownloadUrl} variant="white" type="link">
-                        {labels.download}
-                      </Button>
-                    ) : (
-                      <span className={styles.downloadBtnDisabled}>{labels.download}</span>
-                    )}
-                  </div>
-
-                  <div>
-                    <p className={styles.tableWrap_mobile__item_title}>{labels.deliverables}</p>
-                    <p>
-                      {row.deliverables ? (
-                        <Button url={row.deliverables} variant="white" type="link">
-                          {labels.download}
-                        </Button>
-                      ) : (
-                        <span className={styles.downloadBtnDisabled}>{labels.download}</span>
-                      )}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <tr key={row.orderId}>
+                <td>{row.orderNumber}</td>
+                <td>{row.service}</td>
+                <td className={styles.price}>€{formatNumber(row.total)}</td>
+                <td className={styles.date}>{row.date}</td>
+                <td>
+                  <span className={`${styles.statusPill} ${getStatusClass(row.status)}`}>
+                    {row.status}
+                  </span>
+                </td>
+                <td>
+                  {isOrderCompleted(row.status) && row.invoiceDownloadUrl ? (
+                    <a
+                      href={row.invoiceDownloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.downloadBtn}
+                    >
+                      <DownloadIcon />
+                      <span>{labels.download}</span>
+                    </a>
+                  ) : (
+                    <span className={styles.downloadBtnDisabled}>
+                      <DownloadIcon />
+                      <span>{labels.download}</span>
+                    </span>
+                  )}
+                </td>
+              </tr>
             ))}
-          </div>
-        </>
-      )}
+          </tbody>
+        </table>
+      </div>
+
+      <div className={styles.mobileCards}>
+        {rows.map((row) => (
+          <article key={row.orderId} className={styles.card}>
+            <div className={styles.cardRow}>
+              <span className={styles.cardLabel}>{labels.orderId}</span>
+              <span className={styles.cardValue}>{row.orderNumber}</span>
+            </div>
+            <div className={styles.cardRow}>
+              <span className={styles.cardLabel}>{labels.serviceOrdered}</span>
+              <span className={styles.cardValue}>{row.service}</span>
+            </div>
+            <div className={styles.cardRow}>
+              <span className={styles.cardLabel}>{labels.total}</span>
+              <span className={styles.cardValue}>€{formatNumber(row.total)}</span>
+            </div>
+            <div className={styles.cardRow}>
+              <span className={styles.cardLabel}>{labels.orderDate}</span>
+              <span className={styles.cardValue}>{row.date}</span>
+            </div>
+            <div className={styles.cardRow}>
+              <span className={styles.cardLabel}>{labels.status}</span>
+              <span className={`${styles.statusPill} ${getStatusClass(row.status)}`}>
+                {row.status}
+              </span>
+            </div>
+            <div className={styles.cardRow}>
+              <span className={styles.cardLabel}>{labels.invoice}</span>
+              {isOrderCompleted(row.status) && row.invoiceDownloadUrl ? (
+                <a
+                  href={row.invoiceDownloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.downloadBtn}
+                >
+                  <DownloadIcon />
+                  <span>{labels.download}</span>
+                </a>
+              ) : (
+                <span className={styles.downloadBtnDisabled}>
+                  <DownloadIcon />
+                  <span>{labels.download}</span>
+                </span>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 };

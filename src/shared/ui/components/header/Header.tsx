@@ -27,6 +27,11 @@ export const Header = () => {
 
   const t = useTranslations('header');
 
+  let color = 'black';
+  if (pathname === '/') {
+    color = 'navy';
+  }
+
   const NAV_ITEMS = [
     { text: t('company', { fallback: 'Company' }), href: '/company' },
     { text: t('pricing', { fallback: 'Pricing' }), href: '/pricing' },
@@ -62,7 +67,7 @@ export const Header = () => {
     <header
       className={`${styles.header} ${isMobileMenuOpen ? styles.open : ''} ${
         isScrolled ? styles.scrolled : ''
-      }`}
+      } ${color === 'navy' ? styles.navy : ''}`}
     >
       <div className={styles.header__inner}>
         <Link href="/" className={styles.header__logo}>

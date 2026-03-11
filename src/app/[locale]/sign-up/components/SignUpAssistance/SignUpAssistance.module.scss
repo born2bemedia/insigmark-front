@@ -1,0 +1,111 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.sign_up_assistance {
+  position: relative;
+  background: #0c0c0c;
+  overflow: hidden;
+  padding: 110px 36px;
+
+  @include tablet {
+    padding: 80px 36px;
+  }
+
+  @include mobile {
+    padding: 40px 10px;
+  }
+}
+
+.sign_up_assistance__bg {
+  position: absolute;
+  inset: -100px 0;
+  width: 100%;
+  height: calc(100% + 200px);
+  object-fit: cover;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sign_up_assistance__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1368px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+
+  @include mobile {
+    gap: 36px;
+  }
+}
+
+.sign_up_assistance__title {
+  margin: 0;
+  color: #fff;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.79;
+  letter-spacing: -3px;
+
+  @include mobile {
+    font-size: 40px;
+    line-height: 1.5;
+  }
+}
+
+.sign_up_assistance__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.sign_up_assistance__left {
+  flex: 0 0 562px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include desktop {
+    flex: 0 0 420px;
+  }
+
+  @include tablet {
+    flex: none;
+    width: 100%;
+    gap: 24px;
+  }
+}
+
+.sign_up_assistance__desc {
+  margin: 0;
+  max-width: 492px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+
+  @include mobile {
+    max-width: none;
+  }
+}
+
+.sign_up_assistance__team {
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.72px;
+}
+
+.sign_up_assistance__right {
+  flex: 1;
+  min-width: 0;
+}

@@ -1,0 +1,192 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.registration_form {
+  position: relative;
+  width: 100%;
+  max-width: 968px;
+  margin: 0 auto;
+  background: #f5f5f5;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  @include mobile {
+    padding: 40px 24px;
+  }
+}
+
+.registration_form__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c0c0c;
+  font-size: 36px;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mobile {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+.registration_form__title {
+  max-width: 888px;
+  margin: 0;
+  text-align: center;
+  color: #0c0c0c;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 0.97;
+  letter-spacing: -3px;
+
+  @include mobile {
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+}
+
+.registration_form__inputs {
+  width: 100%;
+  max-width: 786px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.registration_form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(12, 12, 12, 0.4);
+    background: transparent;
+    padding: 2px 0 18px;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    color: #0c0c0c;
+
+    &::placeholder {
+      color: #0c0c0c;
+    }
+  }
+}
+
+.registration_form__field_error {
+  input {
+    border-bottom-color: #d63030;
+  }
+}
+
+.registration_form__error,
+.registration_form__root_error {
+  color: #d63030;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.registration_form__root_error {
+  text-align: center;
+}
+
+.registration_form__submit {
+  width: 309px;
+  max-width: 100%;
+  border: none;
+  border-radius: 50px;
+  background: #d2ff37;
+  padding: 21px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #060606;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -1px;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.registration_form__submit_icon {
+  width: 23px;
+  height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration_form__forgot {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.registration_form__forgot_title {
+  margin: 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -1px;
+}
+
+.registration_form__forgot_text {
+  margin: 0;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -1px;
+}
+
+.registration_form__forgot_link {
+  color: #023d65;
+  text-decoration: underline;
+}
+
+.registration_form__sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

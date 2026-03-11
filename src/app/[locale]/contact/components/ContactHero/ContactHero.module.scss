@@ -1,0 +1,69 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+@use '../contact-shared' as *;
+
+.hero {
+  background: #fff;
+  padding: 60px 0 80px;
+}
+
+.heroTitle {
+  margin: 0;
+  text-align: center;
+  color: #060606;
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 0.97;
+  letter-spacing: -5px;
+
+  @include tablet {
+    font-size: 60px;
+  }
+}
+
+.heroDescription {
+  margin: 16px auto 0;
+  max-width: 1217px;
+  text-align: center;
+  color: rgba(12, 12, 12, 0.6);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1px;
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: -0.72px;
+  }
+}
+
+.heroLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  color: #000;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -1.1px;
+}
+
+.heroImageWrap {
+  display: block;
+  width: 1088px;
+  max-width: 100%;
+  margin:34px auto 0;
+  height: 100px;
+  background: #e4e4e4;
+  
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

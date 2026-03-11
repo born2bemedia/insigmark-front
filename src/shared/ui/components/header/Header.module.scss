@@ -1,6 +1,7 @@
 @use '@/shared/lib/styles/mixin.scss' as *;
 
 $navy: #023d65;
+$black: #000;
 
 .header {
   position: sticky;
@@ -8,8 +9,12 @@ $navy: #023d65;
   left: 0;
   z-index: 100;
   width: 100%;
-  background: $navy;
+  background: $black;
   transition: box-shadow 0.3s ease-in-out;
+
+  &.navy {
+    background: $navy;
+  }
 
   &.scrolled {
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);

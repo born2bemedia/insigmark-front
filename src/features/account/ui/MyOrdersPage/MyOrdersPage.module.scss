@@ -1,277 +1,189 @@
 @use '@/shared/lib/styles/mixin.scss' as *;
 
-.title {
-  color: #fff;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 120%;
-  letter-spacing: -0.25px;
-  margin-bottom: 24px;
+.orders {
+  width: 100%;
 }
 
-.empty,
-.loadingText {
-  margin-bottom: 1rem;
-  color: rgba(204, 204, 204, 0.8);
-  font-size: 14px;
-  font-weight: 300;
+.loadingText,
+.empty {
+  margin: 0;
+  color: rgba(12, 12, 12, 0.7);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
-.tableWrap {
+.desktopWrap {
+  width: 100%;
   overflow-x: auto;
-  padding-bottom: 10px;
-
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #fff;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #384ce3;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #6b87ff;
-  }
-
-  @include tablet {
-    display: none;
-  }
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
-  @include tablet {
-    min-width: unset;
-  }
+  min-width: 760px;
+  border: 1px solid #e5e7eb;
 
-  thead tr {
-    margin-bottom: 10px;
-  }
-
-  tr {
-    display: grid;
-    grid-template-columns: 103px 190px 122px 107px 102px 121px 132px 205px;
-    gap: 10px;
-
-    @include tablet {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 16px;
-      td {
-        border-right: none;
-      }
-      .orderNumber {
-        width: 50%;
-        order: 1;
-      }
-      .date {
-        width: 50%;
-        order: 2;
-        text-align: right;
-      }
-      .serviceCell {
-        width: 100%;
-        order: 3;
-        font-size: 20px;
-      }
-      .status {
-        width: 50%;
-        order: 4;
-        font-size: 20px;
-      }
-      .total {
-        width: 50%;
-        order: 5;
-        text-align: right;
-        font-size: 20px;
-      }
-      .invoice {
-        width: 100%;
-        order: 5;
-      }
-    }
+  th,
+  td {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 18px 20px;
+    text-align: left;
+    color: #0c0c0c;
+    font-size: 16px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
   }
 
   th {
-    color: #fff;
-    font-size: 18px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 140%;
-    letter-spacing: -0.5px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    text-align: left;
-    padding: 8px 12px;
-    height: 66px;
-
-    span {
-      font-weight: 400;
-    }
+    background: #fff;
+    white-space: nowrap;
   }
 
   td {
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    letter-spacing: -0.25px;
-    padding: 8px 12px;
-    height: 66px;
+    font-weight: 500;
   }
 
-  tbody {
-    & > :not(:last-child) {
-      margin-bottom: 10px;
-    }
+  tr:last-child td {
+    border-bottom: 0;
   }
 }
 
-.serviceCell {
-  white-space: pre-line;
+.price {
+  font-weight: 700;
+}
+
+.date {
+  color: #6b7280;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 10px 4px 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+}
+
+.statusPill_completed {
+  background: #f0fbf4;
+  color: #1a7f4b;
+
+  &::before {
+    background: #22c55e;
+  }
+}
+
+.statusPill_cancelled {
+  background: #fff1f1;
+  color: #d93025;
+
+  &::before {
+    background: #d93025;
+  }
+}
+
+.statusPill_pending {
+  background: #f3f4f6;
+  color: #4b5563;
+
+  &::before {
+    background: #9ca3af;
+  }
+}
+
+.downloadBtn,
+.downloadBtnDisabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 112px;
+  border: 1px solid #d1d5db;
+  padding: 7px 14px;
+  color: #0c0c0c;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .downloadBtn {
-  display: inline-block;
-  padding: 10px 16px;
-  height: 38px;
-  font-size: 14px;
-  font-weight: 300;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  border-radius: 0;
-  cursor: pointer;
-  text-decoration: none;
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease;
-  box-sizing: border-box;
+  transition: opacity 0.2s ease;
 
   &:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.08);
-    color: #fff;
+    opacity: 0.7;
   }
 }
 
 .downloadBtnDisabled {
-  display: inline-block;
-  padding: 11px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(12, 12, 12, 0.45);
   cursor: not-allowed;
-  box-sizing: border-box;
-  border-radius: 3.12px;
-  background: #fff;
-  color: #000829;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.25px;
-
-  @include tablet {
-    width: 100%;
-  }
 }
 
-.back {
-  margin-top: 1.5rem;
-  display: flex;
-}
-
-.backLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 16px;
-  height: 38px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 300;
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease;
-  box-sizing: border-box;
-
-  &:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.08);
-    color: #fff;
-  }
-}
-
-.tableWrap_mobile {
-  color: #fff;
+.mobileCards {
   display: none;
+}
 
-  @include tablet {
-    display: block;
+@include mobile {
+  .desktopWrap {
+    display: none;
   }
 
-  & > :not(:last-child) {
-    margin-bottom: 10px;
+  .mobileCards {
+    display: grid;
+    gap: 8px;
   }
 
-  &__item {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 20px;
+  .card {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    padding: 16px;
+    display: grid;
+    gap: 12px;
   }
 
-  &__item_date {
-    color: #fff;
+  .cardRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .cardLabel {
+    color: #060606;
     font-size: 16px;
-    font-weight: 400;
-    line-height: 140%;
-    letter-spacing: -0.25px;
-    margin-bottom: 10px;
-    text-align: right;
-  }
-
-  &__item_title {
-    color: #fff;
-    font-size: 12px;
     font-weight: 700;
-    line-height: 140%;
-    letter-spacing: -0.25px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-  }
-
-  &__item_value {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 140%;
+    line-height: 1.3;
     letter-spacing: -0.5px;
   }
 
-  &__item_service {
-    color: #fff;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    letter-spacing: -0.25px;
-    margin-bottom: 20px;
+  .cardValue {
+    text-align: right;
+    color: #0c0c0c;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
   }
 
-  &__item_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 10px;
+  .statusPill {
+    font-size: 14px;
+    letter-spacing: -0.3px;
   }
 }

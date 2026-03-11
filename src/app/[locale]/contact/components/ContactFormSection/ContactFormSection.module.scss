@@ -1,0 +1,33 @@
+@use '@/shared/lib/styles/mixin.scss' as *;
+
+.formSection {
+  position: relative;
+  padding: 80px 36px 40px;
+  overflow: hidden;
+  background: #fff;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/contact/form-bg-desktop.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  @include tablet {
+    padding: 80px 10px 40px;
+
+    &::before {
+      background-image: url('/images/contact/form-bg-mobile.webp');
+    }
+  }
+}
+
+.formContainer {
+  position: relative;
+  z-index: 1;
+  max-width: 948px;
+  margin: 0 auto;
+}

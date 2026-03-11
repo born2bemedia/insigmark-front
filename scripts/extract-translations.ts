@@ -31,33 +31,42 @@ function walk(dirPath: string): void {
 function extractFromFile(filePath: string): void {
   const content = fs.readFileSync(filePath, 'utf-8');
 
-  // Find all useTranslations/getTranslations with their positions (for multi-namespace files)
+  // Find all useTranslations/getTranslations with variable name and namespace
+  // Matches: const t = useTranslations("ns") | const settingsT = useTranslations("account") | const t = await getTranslations(...)
   const namespaceRegex =
-    /(?:useTranslations|getTranslations)\(\s*["'`]([\w.-]+)["'`]\s*\)/g;
-  const namespaces: { name: string; index: number }[] = [];
+    /(?:const|let|var)\s+(\w+)\s*=\s*(?:await\s+)?(?:useTranslations|getTranslations)\(\s*["'`]([\w.-]+)["'`]\s*\)/g;
+  const namespaces: { varName: string; name: string; index: number }[] = [];
   let nsMatch;
   while ((nsMatch = namespaceRegex.exec(content))) {
-    namespaces.push({ name: nsMatch[1], index: nsMatch.index });
+    namespaces.push({
+      varName: nsMatch[1],
+      name: nsMatch[2],
+      index: nsMatch.index,
+    });
   }
   if (namespaces.length === 0) return;
 
-  // Match t("key", { fallback: "value" }) pattern
-  // This regex properly handles quotes inside strings by:
-  // 1. Capturing the quote type used for the key
-  // 2. Capturing the quote type used for the fallback value
-  // 3. Matching content until the matching closing quote (handling escaped quotes)
-  // 4. \}[\s,]*\) allows trailing comma in object (e.g. { fallback: "x", })
-  const tRegex =
-    /t\(\s*(['"`])([\w.-]+)\1\s*,\s*\{[\s\S]*?fallback:\s*(['"`])((?:(?!\3)[^\\]|\\.)*?)\3[\s\S]*?\}[\s,]*\)/g;
+  // Build regex to match any translation variable: t("key", ...) or settingsT("key", ...)
+  // Escape special regex chars in var names and join with |
+  const varNamesPattern = namespaces
+    .map((ns) => ns.varName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .filter((v, i, a) => a.indexOf(v) === i) // unique
+    .join('|');
+
+  // Match varName("key", { fallback: "value" }) pattern
+  const tRegex = new RegExp(
+    `(${varNamesPattern})\\s*\\(\\s*(['"\`])([\\w.-]+)\\2\\s*,\\s*\\{[\\s\\S]*?fallback:\\s*(['"\`])((?:(?!\\4)[^\\\\]|\\\\.)*?)\\4[\\s\\S]*?\\}[\\s,]*\\)`,
+    'g'
+  );
 
   let match;
   while ((match = tRegex.exec(content))) {
-    const key = match[2];
-    const fallback = match[4];
+    const key = match[3];
+    const fallback = match[5];
     const tIndex = match.index;
     if (!key || !fallback) continue;
 
-    // Find the namespace that applies to this t() call (most recent useTranslations before it)
+    // Find the namespace that applies (most recent useTranslations before this call)
     const applicableNs =
       namespaces
         .filter((ns) => ns.index < tIndex)

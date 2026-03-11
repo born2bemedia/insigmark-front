@@ -13,6 +13,7 @@ export const Button = ({
   onClick,
   disabled,
   target,
+  className,
 }: {
   children: React.ReactNode;
   variant: "white" | "blue" | "bordered" | "black";
@@ -22,13 +23,14 @@ export const Button = ({
   onClick?: () => void;
   disabled?: boolean;
   target?: string;
+  className?: string;
 }) => {
   const buttonUrl = service ? `/service-request-form?service=${service}` : url;
 
   return type === "link" ? (
     <Link
       href={buttonUrl ?? ""}
-      className={cn(styles.button, styles[variant], styles.link)}
+      className={cn(styles.button, styles[variant], styles.link, className)}
       target={target}
     >
       {children}
@@ -36,7 +38,7 @@ export const Button = ({
   ) : (
     <button
       type={type}
-      className={cn(styles.button, styles[variant])}
+      className={cn(styles.button, styles[variant], className)}
       onClick={onClick ? onClick : undefined}
       disabled={disabled}
     >

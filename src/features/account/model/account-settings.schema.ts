@@ -32,12 +32,10 @@ export const registrationSchema = z
       .string()
       .min(1, 'Please enter your email address.')
       .email('Please enter a valid email address.'),
-    phone: z.string().min(1, 'This field is required'),
+    phone: z.string().optional(),
     password: z.string().min(1, 'Please create a password.'),
     repeatPassword: z.string().min(1, 'Please repeat your password'),
-    agreement: z
-      .boolean()
-      .refine((val) => val === true, { message: 'You must agree to the terms.' }),
+    agreement: z.boolean().optional(),
   })
   .refine((data) => data.password === data.repeatPassword, {
     message: "Passwords don't match",
