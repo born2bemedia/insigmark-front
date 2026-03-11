@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-import { WEBSITE_EMAIL } from "@/shared/lib/constants/constants";
+import { WEBSITE_EMAIL, WEBSITE_PHONE, WEBSITE_REGISTERED_ADDRESS } from "@/shared/lib/constants/constants";
 import { staggerContainer, staggerItem } from "@/shared/lib/helpers/animations";
 
 import styles from "./CompanyInfo.module.scss";
@@ -73,14 +73,18 @@ export const CompanyInfo = () => {
                   <p className={styles.company_info__card_detail_label}>
                     {t("infoPhone", { fallback: "Phone" })}:
                   </p>
-                  <p className={styles.company_info__card_detail_value}>—</p>
+                  <p className={styles.company_info__card_detail_value}>
+                    <a href={`tel:${WEBSITE_PHONE}`} className={styles.company_info__card_detail_link}>
+                      {WEBSITE_PHONE}
+                    </a>
+                  </p>
                 </div>
                 <div className={styles.company_info__card_detail}>
                   <p className={styles.company_info__card_detail_label}>
                     {t("infoRegistered", { fallback: "Registered address" })}:
                   </p>
                   <p className={styles.company_info__card_detail_value}>
-                    ul. Juliana Smulikowskiego 4a, lok. 45a, 00-389 Warsaw, Poland
+                      {WEBSITE_REGISTERED_ADDRESS}
                   </p>
                 </div>
                 <div className={styles.company_info__card_detail}>
