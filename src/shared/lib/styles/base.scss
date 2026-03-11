@@ -73,10 +73,10 @@ img {
 .container {
   padding: 0 16px;
   width: 100%;
-  max-width: 1400px;
+  //ax-width: 1400px;
   margin: 0 auto;
   @include largeDesktop {
-    max-width: 1440px;
+    ////max-width: 1440px;
   }
   @include tablet {
   }
