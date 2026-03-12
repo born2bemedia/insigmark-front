@@ -105,10 +105,8 @@ export async function POST(request: Request): Promise<NextResponse> {
           style="width: 100%; max-width: 593px; border-collapse: collapse; background-color: #2b1018; background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.55)), url('https://theinsigmark.com/images/emails/register/bg.png'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
           <tr>
             <td style="padding: 24px 40px 22px 40px;">
-              <img src="https://theinsigmark.com/images/emails/register/logo-mark-header.svg" alt="Insigmark"
-                style="display: inline-block; width: 33px; height: 38px; vertical-align: middle; margin-right: 10px;">
-              <img src="https://theinsigmark.com/images/emails/register/logo-wordmark.svg" alt="Insigmark"
-                style="display: inline-block; width: 99px; height: 25px; vertical-align: middle;">
+              <img src="https://theinsigmark.com/images/emails/logo-mark-header.png" alt="Insigmark"
+                style="display: inline-block; width: 140px; height: 38px; vertical-align: middle; margin-right: 10px;">
             </td>
           </tr>
           <tr>
@@ -173,7 +171,7 @@ export async function POST(request: Request): Promise<NextResponse> {
                     </p>
                   </td>
                   <td align="right" style="vertical-align: middle;">
-                    <img src="https://theinsigmark.com//images/emails/register/logo-mark-footer.svg" alt=""
+                    <img src="https://theinsigmark.com/images/emails/logo-mark-footer.png" alt=""
                       style="display: block; width: 33px; height: 38px;">
                   </td>
                 </tr>
