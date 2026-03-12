@@ -12,12 +12,12 @@ import { Article } from '@/features/articles/model/types';
 import { fadeInUp } from '@/shared/lib/helpers/animations';
 import { Button } from '@/shared/ui/kit/button/Button';
 
-import styles from './articlesLoop.module.scss';
+import styles from './ArticlesLoop.module.scss';
 
 export const ArticlesLoop = ({ title }: { title?: string }) => {
   const [articles, setArticle] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
-  const t = useTranslations('articlesLoop');
+  const t = useTranslations('blog');
   const locale = useLocale();
   const isMountedRef = useRef(true);
 
