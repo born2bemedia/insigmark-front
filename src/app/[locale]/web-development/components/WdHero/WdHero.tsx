@@ -18,7 +18,7 @@ export const WdHero = () => {
         <motion.p className={styles.wd_hero__subtitle} initial="hidden" animate="visible" variants={fadeInUpLyniq}>
           {t("heroSubtitle", {
             fallback:
-              "We transform ideas into fully functional websites that are ready for the world.",
+              "We transform articles into fully functional websites that are ready for the world.",
           })}
         </motion.p>
       </div>

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
-import { IdeasHero, IdeasLoop } from './components';
+import { articlesHero, articlesLoop } from './components';
 
 export const metadata: Metadata = {
-  title: 'Ideas | Insigmark Business Insights & Articles',
+  title: 'articles | Insigmark Business Insights & Articles',
   description:
     'Insigmark shares expert insights, strategies, and thought leadership on business development, focus, scalability, and entrepreneurship. Read our latest articles and empower your business.',
   openGraph: {
-    title: 'Ideas | Insigmark Business Insights & Articles',
+    title: 'articles | Insigmark Business Insights & Articles',
     description:
       'Insigmark shares expert insights, strategies, and thought leadership on business development, focus, scalability, and entrepreneurship. Read our latest articles and empower your business.',
     images: 'https://insigmark.com/images/meta.png',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <>
-      <IdeasHero />
-      <IdeasLoop />
+      <articlesHero />
+      <articlesLoop />
     </>
   );
 }

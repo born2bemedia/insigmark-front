@@ -4,11 +4,11 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-import { getIdea } from '@/features/ideas/api/get-ideas';
-import { IdeaArticle } from '@/features/ideas/ui/article/IdeaArticle';
-import { InfoRenderer } from '@/features/ideas/ui/renderer/InfoRenderer';
+import { getIdea } from '@/features/articles/api/get-articles';
+import { IdeaArticle } from '@/features/articles/ui/article/IdeaArticle';
+import { InfoRenderer } from '@/features/articles/ui/renderer/InfoRenderer';
 
-import { IdeasCta } from '../components/IdeasCta/IdeasCta';
+import { articlesCta } from '../components/articlesCta/articlesCta';
 import st from './page.module.scss';
 
 export async function generateMetadata({
@@ -48,7 +48,7 @@ export default async function PostPage({
       <section className={st.postTitle}>
         <div className="container">
           <div className={st.postTitle__content}>
-            <Link href="/ideas">{t('back-to-ideas', { fallback: 'Back' })}</Link>
+            <Link href="/articles">{t('back-to-articles', { fallback: 'Back' })}</Link>
             <h1>{idea.title}</h1>
             <div className={st.postTitle__info}>
               <InfoRenderer content={idea.info.root.children} />
@@ -63,7 +63,7 @@ export default async function PostPage({
           </div>
         </section>
       )}
-      <IdeasCta slug={slug} />
+      <articlesCta slug={slug} />
     </>
   );
 }

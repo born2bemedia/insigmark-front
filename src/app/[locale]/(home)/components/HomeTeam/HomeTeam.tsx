@@ -84,7 +84,7 @@ export const HomeTeam = () => {
           <p className={styles.home_team__subtitle}>
             {t("subtitle", {
               fallback:
-                "A team of thinkers and builders who turn ideas into original, fully realized digital experiences.",
+                "A team of thinkers and builders who turn articles into original, fully realized digital experiences.",
             })}
           </p>
         </motion.div>

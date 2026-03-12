@@ -8,10 +8,10 @@ import { useTranslations } from 'next-intl';
 import { fadeInUp } from '@/shared/lib/helpers/animations';
 import { Button } from '@/shared/ui/kit/button/Button';
 
-import styles from './IdeasCta.module.scss';
+import styles from './articlesCta.module.scss';
 
-export const IdeasCta = ({ slug }: { slug: string }) => {
-  const t = useTranslations('ideasCta');
+export const articlesCta = ({ slug }: { slug: string }) => {
+  const t = useTranslations('articlesCta');
 
   let title1 = '';
   let title2 = '';
@@ -61,12 +61,12 @@ export const IdeasCta = ({ slug }: { slug: string }) => {
 
   return (
     <>
-      <section className={styles.ideas_cta}>
+      <section className={styles.articles_cta}>
         <Image src="/images/home/independence1.svg" alt="Independence" width={350} height={350} />
         <Image src="/images/home/independence2.svg" alt="Independence" width={350} height={350} />
-        <div className={styles.ideas_cta__wrapper}>
+        <div className={styles.articles_cta__wrapper}>
           <div className={'container'}>
-            <div className={styles.ideas_cta__content}>
+            <div className={styles.articles_cta__content}>
               <motion.h2
                 initial="hidden"
                 whileInView="visible"

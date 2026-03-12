@@ -1,7 +1,7 @@
 {
   "homeBenefits": {
-    "title": "Our Approach to Your Ideas",
-    "subtitle": "A complete process for your ideas: research, development, optimization, and hosting to make them accessible to the world.",
+    "title": "Our Approach to Your articles",
+    "subtitle": "A complete process for your articles: research, development, optimization, and hosting to make them accessible to the world.",
     "card1Title": "Research & Alignment",
     "card1Desc": "Study the market, competitors, and user expectations while working closely with you to clarify goals, priorities, and success criteria before development begins.",
     "card2Title": "Evolving Tech Stack",
@@ -14,7 +14,7 @@
   "homeDescription": {
     "line1": "From idea",
     "line2": "to impact",
-    "slogan": "Make your ideas visible, shareable, and alive online.",
+    "slogan": "Make your articles visible, shareable, and alive online.",
     "brand": "Insigmark"
   },
   "homeFaq": {
@@ -33,7 +33,7 @@
     "exploreAll": "Explore all FAQ"
   },
   "homeHero": {
-    "title_top": "Where Ideas",
+    "title_top": "Where articles",
     "subtitle": "We provide individuals with complete web solutions — from custom development to reliable hosting, everything handled for you so your website works seamlessly from start to finish.",
     "title_bottom": "Go Live",
     "list1": "Web Development",
@@ -128,7 +128,7 @@
   },
   "homeTeam": {
     "title": "Meet Our Experts",
-    "subtitle": "A team of thinkers and builders who turn ideas into original, fully realized digital experiences."
+    "subtitle": "A team of thinkers and builders who turn articles into original, fully realized digital experiences."
   },
   "homeTestimonials": {
     "col1Title": "How We Drive\nSuccess",
@@ -328,7 +328,7 @@
     "vpsCloudTitle": "VPS/Cloud Hosting",
     "dedicatedPlansTitle": "Dedicated Plans"
   },
-  "ideasCta": {
+  "articlesCta": {
     "title1": "Ready to build a scalable business",
     "title2": "with clarity and purpose?",
     "subtitle1": "Start with a conversation today.",
@@ -343,12 +343,12 @@
     "subtitle1_3": "Start with a conversation today.",
     "button": "Submit a request"
   },
-  "ideasHero": {
+  "articlesHero": {
     "title1": "Strategic insights for entrepreneurs.",
-    "description": "A modern, action-oriented title that emphasizes strategic thinking and growth. Combines insightful and sharp ideas, perfect for entrepreneurs looking to fine-tune their approach."
+    "description": "A modern, action-oriented title that emphasizes strategic thinking and growth. Combines insightful and sharp articles, perfect for entrepreneurs looking to fine-tune their approach."
   },
   "common": {
-    "back-to-ideas": "Back"
+    "back-to-articles": "Back"
   },
   "pricing": {
     "approachLabel": "APPROACH",
@@ -410,7 +410,7 @@
   },
   "webDev": {
     "heroTitle": "Web Development",
-    "heroSubtitle": "We transform ideas into fully functional websites that are ready for the world.",
+    "heroSubtitle": "We transform articles into fully functional websites that are ready for the world.",
     "tabPreDevelopment": "Pre-Development Research",
     "tabWebsiteDevelopment": "Website Development",
     "tabTechnicalOptimization": "Technical Optimization",
@@ -713,7 +713,7 @@
     "sending": "Sending...",
     "getInTouch": "Get in touch"
   },
-  "ideasLoop": {
+  "articlesLoop": {
     "button": "Read Article",
     "empty": "No guides found"
   },
@@ -1094,7 +1094,7 @@
   },
   "footer": {
     "footer-pricing": "Pricing",
-    "footer-ideas": "Blog",
+    "footer-articles": "Blog",
     "footer-who": "Company",
     "footer-connect": "Contact",
     "footer-newsletter-title": "Stay",

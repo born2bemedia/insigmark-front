@@ -64,7 +64,7 @@ export const HomeDescription = () => {
         <div className={styles.home_description__text_inner}>
           <p className={styles.home_description__slogan}>
             {t('slogan', {
-              fallback: 'Make your ideas visible, shareable, and alive online.',
+              fallback: 'Make your articles visible, shareable, and alive online.',
             })}
             <br />
             {t('brand', { fallback: 'Insigmark' })}

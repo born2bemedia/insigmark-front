@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 import { useTranslations } from "next-intl";
 
@@ -31,7 +32,7 @@ export const Footer = () => {
 
   const NAV_COL_2 = [
     { text: t("footer-pricing", { fallback: "Pricing" }), href: "/pricing" },
-    { text: t("footer-ideas", { fallback: "Blog" }), href: "/blog" },
+    { text: t("footer-articles", { fallback: "Blog" }), href: "/blog" },
     { text: "FAQ", href: "/faq" },
     { text: t("footer-who", { fallback: "Company" }), href: "/company" },
     { text: t("footer-connect", { fallback: "Contact" }), href: "/contact" },
@@ -48,7 +49,12 @@ export const Footer = () => {
       <div className={styles.footer__container}>
         <div className={styles.footer__top}>
           <Link href="/" className={styles.footer__wordmark}>
-            INSIGMARK
+            <Image
+              src="/images/logo_black.svg"
+              alt="Insigmark"
+              width={294}
+              height={57}
+            />
           </Link>
 
           <div className={styles.footer__right}>

@@ -6,73 +6,73 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 
-import { getIdeas } from '@/features/ideas/api/get-ideas';
-import { Idea } from '@/features/ideas/model/types';
+import { getarticles } from '@/features/articles/api/get-articles';
+import { Idea } from '@/features/articles/model/types';
 
 import { fadeInUp } from '@/shared/lib/helpers/animations';
 import { Button } from '@/shared/ui/kit/button/Button';
 
-import styles from './IdeasLoop.module.scss';
+import styles from './articlesLoop.module.scss';
 
-export const IdeasLoop = ({ title }: { title?: string }) => {
-  const [ideas, setIdeas] = useState<Idea[]>([]);
+export const articlesLoop = ({ title }: { title?: string }) => {
+  const [articles, setarticles] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(true);
-  const t = useTranslations('ideasLoop');
+  const t = useTranslations('articlesLoop');
   const locale = useLocale();
   const isMountedRef = useRef(true);
 
-  const fetchIdeas = useCallback(async () => {
+  const fetcharticles = useCallback(async () => {
     if (!isMountedRef.current) return;
 
     setLoading(true);
     try {
-      const fetchedIdeas = await getIdeas({ locale: locale });
+      const fetchedarticles = await getarticles({ locale: locale });
       if (isMountedRef.current) {
-        console.log(fetchedIdeas[0].image.url);
-        setIdeas(fetchedIdeas);
+        console.log(fetchedarticles[0].image.url);
+        setarticles(fetchedarticles);
         setLoading(false);
       }
     } catch (error) {
       if (isMountedRef.current) {
         setLoading(false);
       }
-      console.error('Error fetching ideas:', error);
+      console.error('Error fetching articles:', error);
     }
   }, [locale]);
 
   useEffect(() => {
     isMountedRef.current = true;
     queueMicrotask(() => {
-      void fetchIdeas();
+      void fetcharticles();
     });
 
     return () => {
       isMountedRef.current = false;
     };
-  }, [fetchIdeas]);
+  }, [fetcharticles]);
 
   const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
   return (
-    <section className={styles.ideas_loop}>
+    <section className={styles.articles_loop}>
       <div className={'container'}>
-        <div className={styles.ideas_loop__content}>
+        <div className={styles.articles_loop__content}>
           {loading ? (
             Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className={styles.ideas_loop__skeleton_item} />
+              <div key={index} className={styles.articles_loop__skeleton_item} />
             ))
-          ) : ideas.length > 0 ? (
-            ideas.map((idea) => (
+          ) : articles.length > 0 ? (
+            articles.map((idea) => (
               <motion.div
                 key={idea.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUp}
-                className={styles.ideas_loop__item}
+                className={styles.articles_loop__item}
               >
                 <div
-                  className={styles.ideas_loop__image}
+                  className={styles.articles_loop__image}
                   style={{
                     backgroundImage: `url(${SERVER_URL}${idea?.image?.url || ''})`,
                   }}
@@ -84,17 +84,17 @@ export const IdeasLoop = ({ title }: { title?: string }) => {
                     height={400}
                   />
                 </div>
-                <div className={styles.ideas_loop__details}>
+                <div className={styles.articles_loop__details}>
                   <h3>{idea.title}</h3>
                   <p>{idea.excerpt}</p>
-                  <Button variant="black" url={`/ideas/${idea.slug}`} type="link">
+                  <Button variant="black" url={`/articles/${idea.slug}`} type="link">
                     {t('button', { fallback: 'Read Article' })}
                   </Button>
                 </div>
               </motion.div>
             ))
           ) : (
-            <div className={styles.ideas_loop__empty}>
+            <div className={styles.articles_loop__empty}>
               <p>{t('empty', { fallback: 'No guides found' })}</p>
             </div>
           )}

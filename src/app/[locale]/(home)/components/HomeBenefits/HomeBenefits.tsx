@@ -27,12 +27,12 @@ export const HomeBenefits = () => {
           whileInView="visible"
         >
           <h2 className={styles.home_benefits__title}>
-            {t("title", { fallback: "Our Approach to Your Ideas" })}
+            {t("title", { fallback: "Our Approach to Your articles" })}
           </h2>
           <p className={styles.home_benefits__subtitle}>
             {t("subtitle", {
               fallback:
-                "A complete process for your ideas: research, development, optimization, and hosting to make them accessible to the world.",
+                "A complete process for your articles: research, development, optimization, and hosting to make them accessible to the world.",
             })}
           </p>
         </motion.div>

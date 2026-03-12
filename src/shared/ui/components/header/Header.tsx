@@ -1,17 +1,18 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from "next-intl";
 
-import { useAuthStore } from '@/features/account';
-import { useCartStore } from '@/features/cart';
+import { useAuthStore } from "@/features/account";
+import { useCartStore } from "@/features/cart";
 
-import { LangSelector } from '../language-switcher/LangSelector';
-import styles from './Header.module.scss';
+import { LangSelector } from "../language-switcher/LangSelector";
+import styles from "./Header.module.scss";
 
-import { Link } from '@/i18n/navigation';
+import { Link } from "@/i18n/navigation";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,18 +26,18 @@ export const Header = () => {
   });
   const locale = useLocale();
 
-  const t = useTranslations('header');
+  const t = useTranslations("header");
 
-  let color = 'black';
-  if (pathname === '/') {
-    color = 'navy';
+  let color = "black";
+  if (pathname === "/") {
+    color = "navy";
   }
 
   const NAV_ITEMS = [
-    { text: t('company', { fallback: 'Company' }), href: '/company' },
-    { text: t('pricing', { fallback: 'Pricing' }), href: '/pricing' },
-    { text: t('faq', { fallback: 'FAQ' }), href: '/faq' },
-    { text: t('signin', { fallback: 'Sign In' }), href: '/signin' },
+    { text: t("company", { fallback: "Company" }), href: "/company" },
+    { text: t("pricing", { fallback: "Pricing" }), href: "/pricing" },
+    { text: t("faq", { fallback: "FAQ" }), href: "/faq" },
+    { text: t("signin", { fallback: "Sign In" }), href: "/sign-in" },
   ] as const;
 
   useEffect(() => {
@@ -56,22 +57,27 @@ export const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const isActive = (href: string) =>
-    pathname === `${locale === 'en' ? '' : `/${locale}`}${href}`;
+    pathname === `${locale === "en" ? "" : `/${locale}`}${href}`;
 
   return (
     <header
-      className={`${styles.header} ${isMobileMenuOpen ? styles.open : ''} ${
-        isScrolled ? styles.scrolled : ''
-      } ${color === 'navy' ? styles.navy : ''}`}
+      className={`${styles.header} ${isMobileMenuOpen ? styles.open : ""} ${
+        isScrolled ? styles.scrolled : ""
+      } ${color === "navy" ? styles.navy : ""}`}
     >
       <div className={styles.header__inner}>
         <Link href="/" className={styles.header__logo}>
-          INSIGMARK
+          <Image
+            src="/images/logo.svg"
+            alt="Insigmark"
+            width={105}
+            height={20}
+          />
         </Link>
 
         <nav className={styles.header__nav}>
@@ -79,7 +85,7 @@ export const Header = () => {
             <Link
               key={index}
               href={item.href}
-              className={isActive(item.href) ? styles.active : ''}
+              className={isActive(item.href) ? styles.active : ""}
             >
               {item.text}
             </Link>
@@ -87,7 +93,9 @@ export const Header = () => {
         </nav>
 
         <button
-          className={`${styles.header__burger} ${isMobileMenuOpen ? styles.open : ''}`}
+          className={`${styles.header__burger} ${
+            isMobileMenuOpen ? styles.open : ""
+          }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -96,13 +104,17 @@ export const Header = () => {
         </button>
       </div>
 
-      <div className={`${styles.header__mobile_menu} ${isMobileMenuOpen ? styles.open : ''}`}>
+      <div
+        className={`${styles.header__mobile_menu} ${
+          isMobileMenuOpen ? styles.open : ""
+        }`}
+      >
         <nav>
           {NAV_ITEMS.map((item, index) => (
             <Link
               key={index}
               href={item.href}
-              className={isActive(item.href) ? styles.active : ''}
+              className={isActive(item.href) ? styles.active : ""}
             >
               {item.text}
             </Link>
@@ -111,21 +123,23 @@ export const Header = () => {
         <div className={styles.header__mobile_actions}>
           {user ? (
             <Link href="/account" className={styles.header__btn_login}>
-              {t('account', { fallback: 'Account' })}
+              {t("account", { fallback: "Account" })}
             </Link>
           ) : (
             <>
               <Link href="/sign-up" className={styles.header__btn_signin}>
-                {t('sign-up', { fallback: 'Sign up' })}
+                {t("sign-up", { fallback: "Sign up" })}
               </Link>
               <Link href="/log-in" className={styles.header__btn_login}>
-                {t('login', { fallback: 'Login' })}
+                {t("login", { fallback: "Login" })}
               </Link>
             </>
           )}
           <Link href="/checkout" className={styles.header__btn_cart}>
-            {t('cart', { fallback: 'Cart' })}
-            {totalItems > 0 && <span className={styles.header__cart_badge}>{totalItems}</span>}
+            {t("cart", { fallback: "Cart" })}
+            {totalItems > 0 && (
+              <span className={styles.header__cart_badge}>{totalItems}</span>
+            )}
           </Link>
         </div>
         <LangSelector />

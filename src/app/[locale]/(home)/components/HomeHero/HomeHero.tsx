@@ -21,7 +21,7 @@ export const HomeHero = () => {
             variants={fadeInUpLyniq}
           >
             <h1 className={styles.home_hero__title_top}>
-              {t("title_top", { fallback: "Where Ideas" })}
+              {t("title_top", { fallback: "Where articles" })}
             </h1>
             <p className={styles.home_hero__subtitle_top}>
               {t("subtitle", {

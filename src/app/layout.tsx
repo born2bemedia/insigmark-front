@@ -26,14 +26,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Insigmark ',
+  title: 'Insigmark – Personal Web Development, Hosting & Maintenance',
   description:
-    '',
+    'Bring your articles online with Insigmark! Get custom website development, reliable hosting, and ongoing support — start your project today.',
   openGraph: {
-    title: 'Insigmark',
+    title: 'Insigmark – Personal Web Development, Hosting & Maintenance',
     description:
-      '',
-    //images: 'https://insigmark.com/images/meta.png',
+      'Bring your articles online with Insigmark! Get custom website development, reliable hosting, and ongoing support — start your project today.',
+    //images: 'https://theinsigmark.com/images/meta.png',
   },
 };
 
