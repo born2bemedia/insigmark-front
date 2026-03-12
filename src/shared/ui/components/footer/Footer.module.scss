@@ -240,17 +240,37 @@ $text-dark: #060606;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
     @include tablet {
       width: 100%;
     }
 
-    p {
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.4;
-      letter-spacing: -0.72px;
-      color: $text-dark;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      span {
+        color: var(
+          --alto-cod-gray-cod-gray-60,
+          var(--color-grey-560, rgba(12, 12, 12, 0.6))
+        );
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%; /* 18.2px */
+        letter-spacing: -0.5px;
+      }
+      a,
+      p {
+        color: var(--Alto-Cod-Gray-Cod-Gray, var(--color-grey-5, #0c0c0c));
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%;
+        letter-spacing: -1px;
+      }
     }
   }
 

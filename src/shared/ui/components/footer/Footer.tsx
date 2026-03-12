@@ -137,32 +137,42 @@ export const Footer = () => {
         <div className={styles.footer__bottom}>
           <div className={styles.footer__contact}>
             {WEBSITE_PHONE && (
-              <p>
-                {t("footer-contact-phone", { fallback: "Phone" })}:{" "}
-                {WEBSITE_PHONE}
-              </p>
+              <div className={styles.footer__contact__item}>
+                <span>
+                  {t("footer-contact-phone", { fallback: "Phone" })}:{" "}
+                </span>
+                <a href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</a>
+              </div>
             )}
             {WEBSITE_EMAIL && (
-              <p>
-                {t("footer-contact-email", { fallback: "Email" })}:{" "}
-                {WEBSITE_EMAIL}
-              </p>
+              <div className={styles.footer__contact__item}>
+                <span>
+                  {t("footer-contact-email", { fallback: "Email" })}:{" "}
+                </span>
+                <a href={`mailto:${WEBSITE_EMAIL}`}>{WEBSITE_EMAIL}</a>
+              </div>
             )}
             {WEBSITE_REGISTERED_ADDRESS && (
-              <p>
-                {t("footer-contact-registered-address", {
-                  fallback: "Registered address",
-                })}
-                : {WEBSITE_REGISTERED_ADDRESS}
-              </p>
+              <div className={styles.footer__contact__item}>
+                <span>
+                  {t("footer-contact-registered-address", {
+                    fallback: "Registered address",
+                  })}
+                  :
+                </span>
+                <p>{WEBSITE_REGISTERED_ADDRESS}</p>
+              </div>
             )}
             {WEBSITE_OFFICE_ADDRESS && (
-              <p>
-                {t("footer-contact-office-address", {
-                  fallback: "Office address",
-                })}
-                : {WEBSITE_OFFICE_ADDRESS}
-              </p>
+              <div className={styles.footer__contact__item}>
+                <span>
+                  {t("footer-contact-office-address", {
+                    fallback: "Office address",
+                  })}
+                  :
+                </span>
+                <p>{WEBSITE_OFFICE_ADDRESS}</p>
+              </div>
             )}
           </div>
 
@@ -193,8 +203,8 @@ export const Footer = () => {
         </div>
 
         <div className={styles.footer__legal}>
-          <Link href="/legal/terms-of-use">
-            {t("termsOfUse", { fallback: "Terms of Use" })}
+          <Link href="/legal/terms-and-conditions">
+            {t("termsAndConditions", { fallback: "Terms and Conditions" })}
           </Link>
           <span className={styles.footer__legal_sep} aria-hidden="true" />
           <Link href="/legal/privacy-policy">
