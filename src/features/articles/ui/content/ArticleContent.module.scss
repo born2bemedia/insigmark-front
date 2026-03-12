@@ -1,67 +1,65 @@
 @use "@/shared/lib/styles/mixin.scss" as *;
 
 .heading {
-  color: var(--color-black-solid, #000);
-  font-family: var(--font-cabinet-grotesk, sans-serif);
+  color: #060606;
   font-size: 40px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 120%;
-  letter-spacing: var(--letter-spacing--0_25, -0.25px);
-  margin: 0 0 20px 0;
-  @include tablet {
-    font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  margin: 0 0 14px;
+
+  @include mobile {
+    font-size: 32px;
+    letter-spacing: -2px;
   }
 }
 
 .heading2 {
-  color: var(--color-black-solid, #000);
-  font-family: var(--font-cabinet-grotesk, sans-serif);
-  font-size: 24px;
-  font-style: normal;
+  color: #060606;
+  font-size: 32px;
   font-weight: 600;
-  line-height: 140%;
-  letter-spacing: var(--letter-spacing--0_25, -0.25px);
-  margin: 32px 0 12px 0;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 32px 0 12px;
+
   &:first-child {
     margin-top: 0;
   }
 }
 
-.text {
-  color: var(--color-black-solid, #000);
-  font-family: var(--font-cabinet-grotesk, sans-serif);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 140%;
-  letter-spacing: var(--letter-spacing--0_25, -0.25px);
-  margin: 5px 0;
+.heading3 {
+  margin: 32px 0 12px;
+  color: #060606;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }
 
-.link {
-  color: var(--color-black-solid, #000);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 140%;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
+.text {
+  color: #060606;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin: 0 0 14px 0;
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.64px;
+  }
 }
 
 .bold {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
+  color: #060606;
 }
 
 .list {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 18px;
-  color: var(--color-black-solid, #000);
+  margin: 0 0 14px 0;
+  padding-left: 30px;
+  color: #060606;
 }
 
 .listDisc {
@@ -81,24 +79,28 @@
 }
 
 .listItem {
-  color: var(--color-black-solid, #000);
-  font-family: var(--font-cabinet-grotesk, sans-serif);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 140%;
+  color: #060606;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1px;
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.64px;
+  }
 }
 
 .listUrl {
-  color: #2583ff;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  color: #023d65;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
   text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
+}
+
+.link {
+  color: #023d65;
+  text-decoration: underline;
 }

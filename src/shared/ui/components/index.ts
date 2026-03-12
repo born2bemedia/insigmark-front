@@ -8,4 +8,5 @@ export {
   startLenis,
   stopLenis,
 } from "./smooth-scroll/lenis-refresh";
+export * from "./smooth-scroll/LenisRefreshOnMount";
 export * from "./smooth-scroll/SmoothScroll";

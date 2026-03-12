@@ -1,1 +1,2 @@
-export * from '@/features/articles/ui/ArticlesLoop/ArticlesLoop';
+export * from './BlogHero/BlogHero';
+export * from './BlogPageContent/BlogPageContent';

@@ -10,11 +10,11 @@ import { staggerContainer, staggerItem } from "@/shared/lib/helpers/animations";
 
 import styles from "./HomeServices.module.scss";
 
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 
 export const HomeServices = () => {
   const t = useTranslations("homeServices");
-
+  const router = useRouter();
   const SERVICES = [
     {
       id: "website",
@@ -26,6 +26,7 @@ export const HomeServices = () => {
           "Design and build fully functional websites, blogs, portfolios, and landing pages with interactive elements, galleries, forms, and advanced features, ready for immediate use.",
       }),
       image: "/images/home/service1.png",
+      link: "/web-development",
     },
     {
       id: "hosting",
@@ -37,6 +38,7 @@ export const HomeServices = () => {
           "Provide secure, high-performance hosting with daily backups, monitoring, malware protection, and scalable storage to ensure websites stay online and reliable.",
       }),
       image: "/images/home/service1.png",
+      link: "/hosting-solutions",
     },
     {
       id: "maintenance",
@@ -48,6 +50,7 @@ export const HomeServices = () => {
           "Perform updates, performance tweaks, security scans, and content adjustments, keeping websites up-to-date, fast, and functioning smoothly over time.",
       }),
       image: "/images/home/service1.png",
+      link: "/security-audit-maintenance",
     },
     {
       id: "pricing",
@@ -58,6 +61,7 @@ export const HomeServices = () => {
         fallback: "Transparent pricing with clear calculations, detailed breakdowns, and customizable options so clients know exactly what they pay for and why.",
       }),
       image: "/images/home/service1.png",
+      link: "/pricing",
     },
   ] as const;
   const [activeId, setActiveId] = useState<typeof SERVICES[number]["id"]>(
@@ -128,6 +132,7 @@ export const HomeServices = () => {
                       ? styles["home_services__tab--active"]
                       : ""
                   }`}
+                  onClick={() => router.push(service.link)}
                   onMouseEnter={() => setActiveId(service.id)}
                   onMouseLeave={() => setActiveId(activeId)}
                 >

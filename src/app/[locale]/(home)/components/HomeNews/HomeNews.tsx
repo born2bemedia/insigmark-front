@@ -46,7 +46,7 @@ export const HomeNews = () => {
         fallback:
           "WordPress vs Custom Development: Which Is Right for Your Website?",
       }),
-      href: "#",
+      href: "/blog/wordpress-vs-custom-development-which-is-better-for-your-project",
       large: true,
     },
     {
@@ -54,7 +54,7 @@ export const HomeNews = () => {
       title: t("article2Title", {
         fallback: "How to Secure Your Website from Common Cyber Threats",
       }),
-      href: "#",
+      href: "/blog/how-to-secure-your-website-from-common-cyber-threats",
       large: false,
     },
     {
@@ -63,7 +63,7 @@ export const HomeNews = () => {
         fallback:
           "Scaling Your Website: When to Move from Shared Hosting to VPS",
       }),
-      href: "#",
+      href: "/blog/scaling-your-website-when-to-move-from-shared-hosting-to-vps",
       large: false,
     },
   ];

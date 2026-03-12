@@ -42,7 +42,7 @@
   font-weight: 500;
   line-height: 28.6px;
   letter-spacing: -1.1px;
-  margin: 0;
+  margin: 0 0 14px 0;
 
   @include mobile {
     font-size: 16px;
@@ -57,7 +57,7 @@
 }
 
 .list {
-  margin: 0;
+  margin: 0 0 14px 0;
   padding-left: 27px;
   color: rgba(12, 12, 12, 0.6);
 }

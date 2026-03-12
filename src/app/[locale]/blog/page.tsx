@@ -1,6 +1,23 @@
 import type { Metadata } from 'next';
 
-import { ArticlesLoop } from '@/features/articles/ui/ArticlesLoop/ArticlesLoop';
+import { getArticles } from '@/features/articles/api/get-articles';
+
+import { HomeRequest } from '../(home)/components';
+import { BlogHero, BlogPageContent } from './components';
+
+type RawArticle = {
+  id?: number | string;
+  title?: string;
+  slug?: string;
+  excerpt?: string;
+  featured?: boolean;
+  category?: string;
+  read_time?: string;
+  image?: {
+    url?: string;
+    alt?: string;
+  } | null;
+};
 
 export const metadata: Metadata = {
   title: 'articles | Insigmark Business Insights & Articles',
@@ -14,10 +31,38 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const articles = (await getArticles({ locale })) as RawArticle[];
+  const normalizedArticles = (articles ?? [])
+    .filter((article): article is RawArticle & { title: string; slug: string } => {
+      return Boolean(article?.title && article?.slug);
+    })
+    .map((article) => ({
+      id: article.id,
+      title: article.title,
+      slug: article.slug,
+      excerpt: article.excerpt,
+      featured: article.featured,
+      category: article.category,
+      read_time: article.read_time,
+      image: article.image
+        ? {
+            url: article.image.url,
+            alt: article.image.alt,
+          }
+        : null,
+    }));
+
   return (
     <>
-      <ArticlesLoop />
+      <BlogHero />
+      <BlogPageContent articles={normalizedArticles} />
+      <HomeRequest />
     </>
   );
 }

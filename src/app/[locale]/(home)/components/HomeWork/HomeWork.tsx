@@ -31,6 +31,7 @@ export const HomeWork = () => {
         fallback:
           "Discover the trends transforming websites into faster, smarter, and more dynamic digital experiences.",
       }),
+      link: "/blog//blog/2026-web-development-trends-that-will-shape-the-next-generation-of-websites",
     },
     {
       id: "2",
@@ -44,6 +45,7 @@ export const HomeWork = () => {
         fallback:
           "Optimize loading speed, layout stability, and responsiveness to enhance user experience and search visibility.",
       }),
+      link: "/blog/how-fast-hosting-impacts-website-performance",
     },
     {
       id: "3",
@@ -57,6 +59,7 @@ export const HomeWork = () => {
         fallback:
           "Learn how optimized hosting and caching directly improve page load, user experience, and search visibility.",
       }),
+      link: "/blog/core-web-vitals-explained-why-google-performance-metrics-matter",
     },
   ] as const;
 
@@ -95,7 +98,7 @@ export const HomeWork = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <Link href="#" className={styles.home_work__card_large}>
+          <Link href={CASES[0].link} className={styles.home_work__card_large}>
             <div className={styles.home_work__corner} />
             <div className={styles.home_work__img_wrap}>
               <Image
@@ -126,7 +129,7 @@ export const HomeWork = () => {
           variants={staggerContainer}
               >
           <motion.div variants={staggerItem} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <Link href="#" className={styles.home_work__card}>
+            <Link href={CASES[1].link} className={styles.home_work__card}>
               <div className={styles.home_work__corner} />
               <div className={styles.home_work__img_wrap}>
                 <Image
@@ -149,7 +152,7 @@ export const HomeWork = () => {
           </motion.div>
 
           <motion.div variants={staggerItem} viewport={{ once: true, amount: 0.1 }} initial="hidden" whileInView="visible">
-          <Link href="#" className={styles.home_work__card}>
+          <Link href={CASES[2].link} className={styles.home_work__card}>
             <div className={styles.home_work__corner} />
             <div className={styles.home_work__img_wrap}>
               <Image
@@ -181,7 +184,7 @@ export const HomeWork = () => {
           whileInView="visible"
           >
           <div className={styles.home_work__fade} />
-          <Link href="#" className={styles.home_work__link}>
+          <Link href="/blog" className={styles.home_work__link}>
             <span className={styles.home_work__link_icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

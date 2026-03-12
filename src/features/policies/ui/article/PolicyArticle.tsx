@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
+import { refreshLenis } from '@/shared/ui/components/smooth-scroll/lenis-refresh';
+
 import type { Children } from '../../model/types';
 import { PolicyContent } from '../content/PolicyContent';
 import st from './PolicyArticle.module.scss';
@@ -65,6 +67,10 @@ export const PolicyArticle = ({ title, content }: PolicyArticleProps) => {
   const [activeId, setActiveId] = useState(headings[0]?.id ?? '');
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
+  useEffect(() => {
+    refreshLenis();
+  }, []);
+
   const setSectionRef = useCallback(
     (id: string) => (el: HTMLDivElement | null) => {
       if (el) sectionRefs.current.set(id, el);
@@ -102,7 +108,7 @@ export const PolicyArticle = ({ title, content }: PolicyArticleProps) => {
 
   return (
     <div className={st.article}>
-      <nav className={st.toc}>
+      <nav className={st.toc} data-lenis-prevent>
         {headings.map((h) => (
           <button
             key={h.id}
