@@ -86,144 +86,106 @@ export async function POST(request: Request): Promise<NextResponse> {
         };
 
         const safeFirstName = escapeHtml(firstName);
-        const safeEmail = escapeHtml(email);
-        const safePassword = escapeHtml(password);
+        const appOrigin = new URL(request.url).origin;
 
         const welcomeEmailHtml = `
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Received - insigmark </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Insigmark</title>
 </head>
-
 <body
-    style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0a0a0a; color: #ffffff;">
-    <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #121212;">
-
-        <tr>
-            <td align="center" style="padding: 40px 20px;">
-                <table role="presentation"
-                    style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #121212;overflow: hidden;">
-                    <!-- Header -->
-                    <tr>
-                        <td style="padding: 0;height: 100px;">
-
-                            <img style="width: 100%;height: auto;" src="https://insigmark .com/images/mail-header.png"
-                                alt="insigmark  Logo">
-                        </td>
-                    </tr>
-
-                    <!-- Content -->
-                    <tr>
-                        <td style="padding: 32px;background: #000;">
-                            <p style="margin: 0 0 32px; color: rgba(204, 204, 204, 0.40);
-                            font-size: 42px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: normal;">
-                                Dear ${safeFirstName},
-                            </p>
-
-                            <p style="margin: 0 0 24px; 
-                            color: #CCC;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 300;
-                            line-height: normal;">
-                                Congratulations! You have successfully registered an account with <b>insigmark </b>.
-                            </p>
-
-                            <p style="margin: 0 0 24px; 
-                            color: #CCC;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 300;
-                            line-height: normal;">
-                                Here are your account credentials for reference:
-                            </p>
-
-                            <p style="margin: 0 0 12px; 
-                            background: rgba(255, 255, 255, 0.05);
-                            padding: 12px;
-                            color: #CCC;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 300;
-                            line-height: normal;
-                            width: fit-content;">
-                                Email:&nbsp;&nbsp;
-                                <span style="color: #FFF;font-weight: 400;">${safeEmail}</span>
-                            </p>
-                            <p style="margin: 0 0 24px; 
-                            background: rgba(255, 255, 255, 0.05);
-                            padding: 12px;
-                            color: #CCC;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 300;
-                            line-height: normal;
-                            width: fit-content;">
-                                Password:&nbsp;&nbsp;
-                                <span style="color: #FFF;font-weight: 400;">${safePassword}</span>
-                            </p>
-
-                            <p style="margin: 0 0 24px; 
-                            color: #CCC;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 300;
-                            line-height: normal;">
-                                You can now log in and start exploring our real estate consulting services.
-                            </p>
-
-                            <p style="margin: 0 0 24px; 
-                            color: #CCC;
-                            font-size: 14px;
-                            font-style: normal;
-                            font-weight: 300;
-                            line-height: normal;">
-                                We’re excited to help you make informed property decisions.
-                            </p>
-
-                            <p style="margin: 0; color: #FFF;
-                            font-size: 20px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: normal;">
-                                Happy real estate consulting!<br>
-                                <strong style="color: #ffffff;">The insigmark  Team</strong>
-                            </p>
-                        </td>
-                    </tr>
-
-                    <!-- Footer -->
-                    <tr>
-                        <td style="border-top: 1px solid #222; padding: 24px 30px; background: #000;">
-                            <a href="mailto:info@insigmark .com" style="color: #FFF;
-                            font-size: 10px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: normal;
-                            text-transform: uppercase;
-                            float: left;
-                            text-decoration: none;">
-                                <img style="margin-right: 8px;margin-bottom: -2px;" width="14" height="14"
-                                    src="https://insigmark .com/images/mail-icon.png" alt="insigmark  Mail Icon">
-                                info@insigmark .com
-                            </a>
-                            <img style="width: 124.695px;height: 20px; float: right;"
-                                src="https://insigmark .com/images/mail-logo.png" alt="insigmark  Mail Icon">
-                        </td>
-                    </tr>
-                </table>
+  style="margin: 0; padding: 0; background-color: #160b11; color: #ffffff; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+  <table role="presentation" cellpadding="0" cellspacing="0"
+    style="width: 100%; border-collapse: collapse; background-color: #160b11;">
+    <tr>
+      <td align="center" style="padding: 24px 12px;">
+        <table role="presentation" cellpadding="0" cellspacing="0"
+          style="width: 100%; max-width: 593px; border-collapse: collapse; background-color: #2b1018; background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.55)), url('${appOrigin}/images/emails/register/bg.png'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
+          <tr>
+            <td style="padding: 24px 40px 22px 40px;">
+              <img src="${appOrigin}/images/emails/register/logo-mark-header.svg" alt="Insigmark"
+                style="display: inline-block; width: 33px; height: 38px; vertical-align: middle; margin-right: 10px;">
+              <img src="${appOrigin}/images/emails/register/logo-wordmark.svg" alt="Insigmark"
+                style="display: inline-block; width: 99px; height: 25px; vertical-align: middle;">
             </td>
-        </tr>
+          </tr>
+          <tr>
+            <td style="padding: 0 20px;">
+              <table role="presentation" cellpadding="0" cellspacing="0"
+                style="width: 100%; border-collapse: collapse; background: #e4e4e4;">
+                <tr>
+                  <td style="padding: 40px;">
+                    <h1
+                      style="margin: 0 0 24px 0; color: #0f0f19; font-size: 40px; font-weight: 600; line-height: 1.1; letter-spacing: -2.5px;">
+                      Hello ${safeFirstName},
+                    </h1>
+                    <p
+                      style="margin: 0 0 20px 0; color: #0f0f19; font-size: 14px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px;">
+                      Thank you for joining Insigmark! Your account has been successfully created, and you are now
+                      ready to manage your orders, track service status, and access invoices effortlessly.
+                    </p>
+                    <p
+                      style="margin: 0 0 6px 0; color: #0f0f19; font-size: 14px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px;">
+                      Next Steps:
+                    </p>
+                    <ul
+                      style="margin: 0 0 18px 20px; padding: 0; color: #0f0f19; font-size: 14px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px;">
+                      <li style="margin: 0 0 4px 0;">Sign in to your account</li>
+                      <li style="margin: 0 0 4px 0;">Update your profile and personal information</li>
+                      <li style="margin: 0;">Explore your dashboard and start managing your services</li>
+                    </ul>
+                    <p style="margin: 0 0 24px 0;">
+                      <a href="${appOrigin}/sign-in"
+                        style="display: inline-block; padding: 12px 18px; background-color: #0f0f19; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 2px;">
+                        Sign In
+                      </a>
+                    </p>
+                    <p
+                      style="margin: 0 0 20px 0; color: #0f0f19; font-size: 14px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px;">
+                      If you did not create this account, please contact our support immediately at
+                      <a href="mailto:info@theinsigmark.com" style="color: #0f0f19; text-decoration: none;">info@theinsigmark.com</a>.
+                    </p>
+                    <p
+                      style="margin: 0 0 26px 0; color: #0f0f19; font-size: 18px; font-weight: 600; line-height: 1.2; letter-spacing: -1px;">
+                      We are excited to have you with us!
+                    </p>
+                    <p
+                      style="margin: 0; color: #0f0f19; font-size: 18px; font-weight: 600; line-height: 1.2; letter-spacing: -1px; text-align: right;">
+                      The Insigmark Team
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 26px 40px 28px 40px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="vertical-align: middle;">
+                    <p style="margin: 0 0 8px 0; color: #ffffff; font-size: 16px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px;">
+                      Email: <a href="mailto:info@theinsigmark.com" style="color: #ffffff; text-decoration: none;">info@theinsigmark.com</a>
+                    </p>
+                    <p style="margin: 0; color: #ffffff; font-size: 16px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px;">
+                      Phone: <a href="tel:+48732143158" style="color: #ffffff; text-decoration: none;">+48 732 143 158</a>
+                    </p>
+                  </td>
+                  <td align="right" style="vertical-align: middle;">
+                    <img src="${appOrigin}/images/emails/register/logo-mark-footer.svg" alt=""
+                      style="display: block; width: 33px; height: 38px;">
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
     </table>
 </body>
-
 </html>
         `;
 

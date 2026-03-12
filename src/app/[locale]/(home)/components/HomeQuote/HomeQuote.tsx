@@ -114,7 +114,7 @@ export const HomeQuote = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <Link href="/who" className={styles.home_quote__link}>
+            <Link href="/company" className={styles.home_quote__link}>
               <span className={styles.home_quote__link_icon}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

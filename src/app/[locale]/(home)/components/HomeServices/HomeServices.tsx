@@ -168,7 +168,7 @@ export const HomeServices = () => {
             className={styles.home_services__link_row}
             variants={staggerItem}
           >
-            <Link href="/who" className={styles.home_services__link}>
+            <Link href="/company" className={styles.home_services__link}>
               <span className={styles.home_services__link_icon}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
