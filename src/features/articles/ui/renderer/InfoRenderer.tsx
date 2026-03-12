@@ -1,7 +1,7 @@
 import type { Children } from "../../model/types";
-import { IdeaContent } from "../content/IdeaContent";
+import { IdeaContent } from "../content/ArticleContent";
 
-export const IdeaRenderer = ({ content }: { content: Children[] }) => (
+export const InfoRenderer = ({ content }: { content: Children[] }) => (
   <>
     {!Array.isArray(content) ? null : (
       <>

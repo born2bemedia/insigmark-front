@@ -5,9 +5,9 @@ import { memo } from 'react';
 import { cn } from '@/shared/lib/helpers/styles';
 
 import type { Children, Children2 } from '../../model/types';
-import st from './IdeaContent.module.scss';
+import st from './ArticleContent.module.scss';
 
-export const IdeaContent = memo(({ node, type }: { node: Children; type: string }) => {
+export const ArticleContent = memo(({ node, type }: { node: Children; type: string }) => {
   if (type === 'heading') {
     return (
       <h2 key={`${node.type}-${type}`} className={cn(node.tag === 'h2' ? st.heading : st.heading2)}>
@@ -75,7 +75,7 @@ export const IdeaContent = memo(({ node, type }: { node: Children; type: string 
   return null;
 });
 
-IdeaContent.displayName = 'IdeaContent';
+ArticleContent.displayName = 'ArticleContent';
 
 const ListItem = ({ value }: { value?: Children2[] }) => {
   if (!value) return null;

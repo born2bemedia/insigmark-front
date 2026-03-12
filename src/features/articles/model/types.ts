@@ -1,4 +1,4 @@
-export type Idea = {
+export type Article = {
   title: string;
   slug: string;
   excerpt: string;

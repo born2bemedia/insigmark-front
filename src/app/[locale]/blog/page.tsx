@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { articlesHero, articlesLoop } from './components';
+import { ArticlesLoop } from '@/features/articles/ui/ArticlesLoop/ArticlesLoop';
 
 export const metadata: Metadata = {
   title: 'articles | Insigmark Business Insights & Articles',
@@ -17,8 +17,7 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <>
-      <articlesHero />
-      <articlesLoop />
+      <ArticlesLoop />
     </>
   );
 }

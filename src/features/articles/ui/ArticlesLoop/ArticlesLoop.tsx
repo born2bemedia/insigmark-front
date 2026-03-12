@@ -6,16 +6,16 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 
-import { getarticles } from '@/features/articles/api/get-articles';
-import { Idea } from '@/features/articles/model/types';
+import { getArticles } from '@/features/articles/api/get-articles';
+import { Article } from '@/features/articles/model/types';
 
 import { fadeInUp } from '@/shared/lib/helpers/animations';
 import { Button } from '@/shared/ui/kit/button/Button';
 
 import styles from './articlesLoop.module.scss';
 
-export const articlesLoop = ({ title }: { title?: string }) => {
-  const [articles, setarticles] = useState<Idea[]>([]);
+export const ArticlesLoop = ({ title }: { title?: string }) => {
+  const [articles, setArticle] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const t = useTranslations('articlesLoop');
   const locale = useLocale();
@@ -26,10 +26,10 @@ export const articlesLoop = ({ title }: { title?: string }) => {
 
     setLoading(true);
     try {
-      const fetchedarticles = await getarticles({ locale: locale });
+      const fetchedarticles = await getArticles({ locale: locale });
       if (isMountedRef.current) {
         console.log(fetchedarticles[0].image.url);
-        setarticles(fetchedarticles);
+        setArticle(fetchedarticles);
         setLoading(false);
       }
     } catch (error) {

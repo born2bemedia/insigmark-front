@@ -2,13 +2,13 @@
 
 const SERVER_URL = process.env.SERVER_URL;
 
-export const getarticles = async ({ locale = "en" }: { locale?: string }) => {
+export const getArticles = async ({ locale = "en" }: { locale?: string }) => {
   const res = await fetch(`${SERVER_URL}/api/articles?locale=${locale}`);
   const data = await res.json();
   return data.docs.reverse();
 };
 
-export const getIdea = async ({
+export const getArticle = async ({
   slug,
   locale = "en",
 }: {
