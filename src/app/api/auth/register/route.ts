@@ -86,7 +86,6 @@ export async function POST(request: Request): Promise<NextResponse> {
         };
 
         const safeFirstName = escapeHtml(firstName);
-        const appOrigin = new URL(request.url).origin;
 
         const welcomeEmailHtml = `
 <!DOCTYPE html>
@@ -103,12 +102,12 @@ export async function POST(request: Request): Promise<NextResponse> {
     <tr>
       <td align="center" style="padding: 24px 12px;">
         <table role="presentation" cellpadding="0" cellspacing="0"
-          style="width: 100%; max-width: 593px; border-collapse: collapse; background-color: #2b1018; background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.55)), url('${appOrigin}/images/emails/register/bg.png'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
+          style="width: 100%; max-width: 593px; border-collapse: collapse; background-color: #2b1018; background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.55)), url('https://theinsigmark.com/images/emails/register/bg.png'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
           <tr>
             <td style="padding: 24px 40px 22px 40px;">
-              <img src="${appOrigin}/images/emails/register/logo-mark-header.svg" alt="Insigmark"
+              <img src="https://theinsigmark.com/images/emails/register/logo-mark-header.svg" alt="Insigmark"
                 style="display: inline-block; width: 33px; height: 38px; vertical-align: middle; margin-right: 10px;">
-              <img src="${appOrigin}/images/emails/register/logo-wordmark.svg" alt="Insigmark"
+              <img src="https://theinsigmark.com/images/emails/register/logo-wordmark.svg" alt="Insigmark"
                 style="display: inline-block; width: 99px; height: 25px; vertical-align: middle;">
             </td>
           </tr>
@@ -138,7 +137,7 @@ export async function POST(request: Request): Promise<NextResponse> {
                       <li style="margin: 0;">Explore your dashboard and start managing your services</li>
                     </ul>
                     <p style="margin: 0 0 24px 0;">
-                      <a href="${appOrigin}/sign-in"
+                      <a href="https://theinsigmark.com/sign-in"
                         style="display: inline-block; padding: 12px 18px; background-color: #0f0f19; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 2px;">
                         Sign In
                       </a>
@@ -174,7 +173,7 @@ export async function POST(request: Request): Promise<NextResponse> {
                     </p>
                   </td>
                   <td align="right" style="vertical-align: middle;">
-                    <img src="${appOrigin}/images/emails/register/logo-mark-footer.svg" alt=""
+                    <img src="https://theinsigmark.com//images/emails/register/logo-mark-footer.svg" alt=""
                       style="display: block; width: 33px; height: 38px;">
                   </td>
                 </tr>
