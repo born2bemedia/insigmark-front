@@ -12,7 +12,7 @@ import countryList from 'react-select-country-list';
 
 import { useAuthStore } from '@/features/account';
 import { createOrder } from '@/features/cart/api/createOrder';
-import { type CheckoutFormSchema, checkoutFormSchema } from '@/features/cart/model/checkout.schema';
+import { type CheckoutFormSchema, createCheckoutFormSchema } from '@/features/cart/model/checkout.schema';
 import { useCartStore } from '@/features/cart/store/cart';
 
 import { excludedCountries } from '@/shared/lib/helpers/excludedCountries';
@@ -79,7 +79,7 @@ export const CheckoutForm = () => {
     control,
     formState: { errors, isSubmitting },
   } = useForm<CheckoutFormSchema>({
-    resolver: zodResolver(checkoutFormSchema),
+    resolver: zodResolver(createCheckoutFormSchema(t)),
     defaultValues,
   });
 

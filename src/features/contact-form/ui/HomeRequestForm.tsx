@@ -11,8 +11,8 @@ import PhoneInput from "react-phone-input-2";
 import { excludedCountries } from "@/shared/lib/helpers/excludedCountries";
 
 import {
+  createHomeFaqRequestFormSchema,
   type HomeFaqRequestFormSchema,
-  homeFaqRequestFormSchema,
 } from "../model/ContactForm.schema";
 import { ContactFormSuccess } from "./ContactFormSuccess";
 import styles from "./HomeRequestForm.module.scss";
@@ -37,7 +37,7 @@ export const HomeRequestForm = () => {
     reset,
     formState: { errors },
   } = useForm<HomeFaqRequestFormSchema>({
-    resolver: zodResolver(homeFaqRequestFormSchema),
+    resolver: zodResolver(createHomeFaqRequestFormSchema(t)),
     defaultValues: {
       fullName: "",
       email: "",

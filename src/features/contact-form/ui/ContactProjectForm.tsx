@@ -66,7 +66,7 @@ export const ContactProjectForm = () => {
     reset,
     formState: { errors },
   } = useForm<ContactProjectFormSchema>({
-    resolver: zodResolver(createContactProjectFormSchema()),
+    resolver: zodResolver(createContactProjectFormSchema(t)),
     defaultValues: {
       projectType: [],
       fullName: '',

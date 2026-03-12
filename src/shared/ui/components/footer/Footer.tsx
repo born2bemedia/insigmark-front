@@ -22,10 +22,10 @@ export const Footer = () => {
   const [email, setEmail] = useState("");
 
   const NAV_COL_1 = [
-    { text: "Web Development", href: "/web-development" },
-    { text: "Hosting Solutions", href: "/hosting-solutions" },
+    { text: t("footer-web-development", { fallback: "Web Development" }), href: "/web-development" },
+    { text: t("footer-hosting-solutions", { fallback: "Hosting Solutions" }), href: "/hosting-solutions" },
     {
-      text: "Security, Audit & Maintenance",
+      text: t("footer-security-audit-maintenance", { fallback: "Security, Audit & Maintenance" }),
       href: "/security-audit-maintenance",
     },
   ];
@@ -33,7 +33,7 @@ export const Footer = () => {
   const NAV_COL_2 = [
     { text: t("footer-pricing", { fallback: "Pricing" }), href: "#" },
     { text: t("footer-articles", { fallback: "Blog" }), href: "#" },
-    { text: "FAQ", href: "/faq" },
+    { text: t("footer-faq", { fallback: "FAQ" }), href: "/faq" },
     { text: t("footer-who", { fallback: "Company" }), href: "#" },
     { text: t("footer-connect", { fallback: "Contact" }), href: "#" },
   ];

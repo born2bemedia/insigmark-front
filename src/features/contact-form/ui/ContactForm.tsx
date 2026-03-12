@@ -47,7 +47,7 @@ export const ContactForm = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(createContactFormSchema()),
+    resolver: zodResolver(createContactFormSchema(t)),
     defaultValues: {
       fullName: '',
       email: '',

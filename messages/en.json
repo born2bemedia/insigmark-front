@@ -505,7 +505,21 @@
     "yourZipPlaceholder": "Enter your postal code",
     "dataUpdated": "Data updated successfully!",
     "dataUpdatedDescription": "Your personal information has been updated successfully.",
-    "close": "Close"
+    "close": "Close",
+    "validation": {
+      "nameRequired": "Name is required",
+      "lastNameRequired": "Last name is required",
+      "emailRequired": "Email is required",
+      "invalidEmail": "Invalid email",
+      "addressRequired": "Address is required",
+      "cityRequired": "City is required",
+      "countryRequired": "Country is required",
+      "zipRequired": "Zip is required",
+      "currentPasswordRequired": "Current password is required",
+      "newPasswordRequired": "New password is required",
+      "repeatNewPasswordRequired": "Repeat new password",
+      "passwordsDoNotMatch": "The passwords do not match."
+    }
   },
   "forgotPasswordPage": {
     "titleLong": "Forgot your password? ",
@@ -542,7 +556,16 @@
     "repeatPassword": "Confirm password",
     "repeatPasswordLabel": "Confirm password:",
     "registering": "Registering...",
-    "registerCta": "Register"
+    "registerCta": "Register",
+    "validation": {
+      "firstNameRequired": "Please enter your first name.",
+      "lastNameRequired": "Please enter your last name.",
+      "emailRequired": "Please enter your email address.",
+      "invalidEmail": "Please enter a valid email address.",
+      "passwordRequired": "Please create a password.",
+      "repeatPasswordRequired": "Please repeat your password",
+      "passwordsDoNotMatch": "Passwords don't match"
+    }
   },
   "setPasswordPage": {
     "titleLong": "Set a new password",
@@ -593,7 +616,20 @@
     "termsOfUse": "I have read and agree to the website's Terms of Use.",
     "refundPolicy": "I have read and agree to the Refund Policy.",
     "submitting": "Submitting...",
-    "submitOrder": "Submit Order"
+    "submitOrder": "Submit Order",
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "address1Required": "Address Line 1 is required",
+      "cityRequired": "City is required",
+      "countryRequired": "Country is required",
+      "zipRequired": "ZIP Code is required",
+      "emailRequired": "Email is required",
+      "invalidEmail": "Invalid email",
+      "termsAcceptedRequired": "You must accept the Terms of Use",
+      "refundPolicyAcceptedRequired": "You must accept the Refund Policy",
+      "recaptchaRequired": "Please complete the reCAPTCHA verification"
+    }
   },
   "emptyCart": {
     "heading": "Your Cart Is Empty",
@@ -635,7 +671,12 @@
     "acceptedFormats": "Accepted formats: PDF, JPG, PNG • Max file size: 10 MB per file",
     "loading": "Loading...",
     "submit": "REQUEST ANALYSIS",
-    "formNote": "All enquiries are confidential. We respond within one business day."
+    "formNote": "All enquiries are confidential. We respond within one business day.",
+    "validation": {
+      "requiredField": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "recaptchaRequired": "Please complete the reCAPTCHA verification"
+    }
   },
   "contactFormNew": {
     "fullName": "Full name",
@@ -646,7 +687,12 @@
     "messagePlaceholder": "Please describe the property, your objective, and any known concerns (pricing, risk, timing, legal, financing, etc.).",
     "loading": "Loading...",
     "submit": "Submit",
-    "formNote": "All enquiries are confidential. We respond within one business day."
+    "formNote": "All enquiries are confidential. We respond within one business day.",
+    "validation": {
+      "requiredField": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "recaptchaRequired": "Please complete the reCAPTCHA verification"
+    }
   },
   "forms": {
     "requestForm": {
@@ -713,14 +759,28 @@
     "submit": "Send request",
     "successTitle": "Thank you!",
     "successDescription": "Your request has been submitted successfully. Our team will review your message and get back to you shortly.",
-    "gotIt": "Got it"
+    "gotIt": "Got it",
+    "validation": {
+      "checkboxRequired": "This checkbox is required.",
+      "requiredField": "This field is required.",
+      "invalidEmail": "Please check this field and provide the correct email address.",
+      "invalidPhone": "Please provide a valid phone number."
+    }
   },
   "HomeRequestForm": {
     "namePlaceholder": "Name *",
     "emailPlaceholder": "E-mail *",
     "messagePlaceholder": "Message (Tell us about your project)",
     "sending": "Sending...",
-    "getInTouch": "Get in touch"
+    "getInTouch": "Get in touch",
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "phoneRequired": "Phone is required",
+      "invalidEmail": "Please enter a valid email",
+      "invalidPhone": "Please enter a valid phone number",
+      "recaptchaRequired": "Please complete the reCAPTCHA verification"
+    }
   },
   "notFound": {
     "title": "404 — Page Not Found",
@@ -1098,6 +1158,10 @@
     "decline": "Decline"
   },
   "footer": {
+    "footer-web-development": "Web Development",
+    "footer-hosting-solutions": "Hosting Solutions",
+    "footer-security-audit-maintenance": "Security, Audit & Maintenance",
+    "footer-faq": "FAQ",
     "footer-pricing": "Pricing",
     "footer-articles": "Blog",
     "footer-who": "Company",

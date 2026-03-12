@@ -5,8 +5,8 @@ import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 
 import {
+  createRegistrationSchema,
   type RegistrationSchema,
-  registrationSchema,
 } from '@/features/account/model/account-settings.schema';
 import { useAuthStore } from '@/features/account/store/auth';
 
@@ -44,7 +44,7 @@ export const RegistrationForm = () => {
     setError,
     formState: { errors },
   } = useForm<RegistrationSchema>({
-    resolver: zodResolver(registrationSchema),
+    resolver: zodResolver(createRegistrationSchema(t)),
     defaultValues: {
       firstName: '',
       lastName: '',

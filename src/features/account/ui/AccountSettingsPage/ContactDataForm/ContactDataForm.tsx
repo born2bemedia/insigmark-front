@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 
 import {
   type ContactDataSchema,
-  contactDataSchema,
+  createContactDataSchema,
 } from '@/features/account/model/account-settings.schema';
 import type { AuthUser } from '@/features/account/model/auth.types';
 import { useAuthStore } from '@/features/account/store/auth';
@@ -32,7 +32,7 @@ export const ContactDataForm = ({ user }: ContactDataFormProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const form = useForm<ContactDataSchema>({
-    resolver: zodResolver(contactDataSchema),
+    resolver: zodResolver(createContactDataSchema(t)),
     defaultValues: {
       firstName: '',
       lastName: '',

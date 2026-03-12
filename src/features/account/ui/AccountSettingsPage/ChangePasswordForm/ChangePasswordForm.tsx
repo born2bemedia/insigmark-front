@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 
 import {
   type ChangePasswordSchema,
-  changePasswordSchema,
+  createChangePasswordSchema,
 } from '@/features/account/model/account-settings.schema';
 
 import { EyeIcon, EyeOffIcon } from '@/shared/ui/icons';
@@ -28,7 +28,7 @@ export const ChangePasswordForm = () => {
   const [showConfirmNewPassword, setShowConfirmNewPassword] = useState(false);
 
   const form = useForm<ChangePasswordSchema>({
-    resolver: zodResolver(changePasswordSchema),
+    resolver: zodResolver(createChangePasswordSchema(t)),
     defaultValues: {
       currentPassword: '',
       newPassword: '',
