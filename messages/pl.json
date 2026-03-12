@@ -1,7 +1,7 @@
 {
   "homeBenefits": {
-    "title": "Our Approach to Your articles",
-    "subtitle": "A complete process for your articles: research, development, optimization, and hosting to make them accessible to the world.",
+    "title": "Our Approach to Your ideas",
+    "subtitle": "A complete process for your ideas: research, development, optimization, and hosting to make them accessible to the world.",
     "card1Title": "Research & Alignment",
     "card1Desc": "Study the market, competitors, and user expectations while working closely with you to clarify goals, priorities, and success criteria before development begins.",
     "card2Title": "Evolving Tech Stack",
@@ -14,7 +14,7 @@
   "homeDescription": {
     "line1": "From idea",
     "line2": "to impact",
-    "slogan": "Make your articles visible, shareable, and alive online.",
+    "slogan": "Make your ideas visible, shareable, and alive online.",
     "brand": "Insigmark"
   },
   "homeFaq": {
@@ -33,7 +33,7 @@
     "exploreAll": "Explore all FAQ"
   },
   "homeHero": {
-    "title_top": "Where articles",
+    "title_top": "Where Ideas",
     "subtitle": "We provide individuals with complete web solutions — from custom development to reliable hosting, everything handled for you so your website works seamlessly from start to finish.",
     "title_bottom": "Go Live",
     "list1": "Web Development",
@@ -128,7 +128,7 @@
   },
   "homeTeam": {
     "title": "Meet Our Experts",
-    "subtitle": "A team of thinkers and builders who turn articles into original, fully realized digital experiences."
+    "subtitle": "A team of thinkers and builders who turn ideas into original, fully realized digital experiences."
   },
   "homeTestimonials": {
     "col1Title": "How We Drive\nSuccess",
@@ -151,6 +151,11 @@
     "title1": "Market trends,",
     "title2": "expert analysis",
     "allReports": "All reports"
+  },
+  "blog": {
+    "back-to-articles": "Back",
+    "button": "Read Article",
+    "empty": "No articles found"
   },
   "company": {
     "clientCase1": "Personal websites and portfolios",
@@ -328,28 +333,6 @@
     "vpsCloudTitle": "VPS/Cloud Hosting",
     "dedicatedPlansTitle": "Dedicated Plans"
   },
-  "articlesCta": {
-    "title1": "Ready to build a scalable business",
-    "title2": "with clarity and purpose?",
-    "subtitle1": "Start with a conversation today.",
-    "title1_1": "Ready to create a structured path",
-    "title2_1": "for your business?",
-    "subtitle1_1": "Start with a conversation today.",
-    "title1_2": "Ready to embrace the power of focus",
-    "title2_2": "and take your business to the next level?",
-    "subtitle1_2": "Start with a conversation today.",
-    "title1_3": "Ready to take the next step",
-    "title2_3": "in scaling your business?",
-    "subtitle1_3": "Start with a conversation today.",
-    "button": "Submit a request"
-  },
-  "articlesHero": {
-    "title1": "Strategic insights for entrepreneurs.",
-    "description": "A modern, action-oriented title that emphasizes strategic thinking and growth. Combines insightful and sharp articles, perfect for entrepreneurs looking to fine-tune their approach."
-  },
-  "common": {
-    "back-to-articles": "Back"
-  },
   "pricing": {
     "approachLabel": "APPROACH",
     "approachTitle": "We believe in transparent and fair pricing. The more comprehensive the solution you choose, the more value you get — complex projects come with built-in discounts.",
@@ -410,7 +393,7 @@
   },
   "webDev": {
     "heroTitle": "Web Development",
-    "heroSubtitle": "We transform articles into fully functional websites that are ready for the world.",
+    "heroSubtitle": "We transform ideas into fully functional websites that are ready for the world.",
     "tabPreDevelopment": "Pre-Development Research",
     "tabWebsiteDevelopment": "Website Development",
     "tabTechnicalOptimization": "Technical Optimization",
@@ -712,10 +695,6 @@
     "messagePlaceholder": "Message (Tell us about your project)",
     "sending": "Sending...",
     "getInTouch": "Get in touch"
-  },
-  "articlesLoop": {
-    "button": "Read Article",
-    "empty": "No guides found"
   },
   "notFound": {
     "title": "404 — Page Not Found",
@@ -1109,7 +1088,7 @@
     "footer-company-desc": "Complex web development, hosting and maintenance solutions.",
     "footer-all-rights": "All rights reserved.",
     "footer-web-development-hosting-and-digital-infrastructure-solutions": "Web development, hosting, and digital infrastructure solutions.",
-    "termsOfUse": "Terms of Use",
+    "termsAndConditions": "Terms and Conditions",
     "privacyPolicy": "Privacy Policy",
     "cookiePolicy": "Cookie Policy",
     "refundPolicy": "Refund Policy"

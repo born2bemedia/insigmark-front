@@ -230,7 +230,7 @@ export async function POST(request: Request): Promise<NextResponse> {
         const welcomeMsg = {
           to: email,
           from: FROM_EMAIL,
-          subject: 'Welcome to insigmark  – Your Account is Ready',
+          subject: 'Welcome to Insigmark! Your account is ready',
           html: welcomeEmailHtml,
         };
 
