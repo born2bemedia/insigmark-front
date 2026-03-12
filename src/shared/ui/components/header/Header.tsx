@@ -34,10 +34,10 @@ export const Header = () => {
   }
 
   const NAV_ITEMS = [
-    { text: t("company", { fallback: "Company" }), href: "/company" },
+    { text: t("company", { fallback: "Company" }), href: "#" },
     { text: t("pricing", { fallback: "Pricing" }), href: "/pricing" },
-    { text: t("faq", { fallback: "FAQ" }), href: "/faq" },
-    { text: t("signin", { fallback: "Sign In" }), href: "/sign-in" },
+    { text: t("faq", { fallback: "FAQ" }), href: "#" },
+    { text: t("signin", { fallback: "Sign In" }), href: "#" },
   ] as const;
 
   useEffect(() => {
