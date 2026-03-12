@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import { useTranslations } from "next-intl";
 
-import { Button } from "@/shared/ui/kit/button/Button";
-
 import styles from "./CookiePopup.module.scss";
 
 import { Link } from "@/i18n/navigation";
@@ -52,12 +50,16 @@ export const CookiePopup = () => {
         .
       </p>
       <div className={styles.buttons}>
-        <Button type="button" variant="blue" onClick={handleAccept}>
+        <button type="button" className={styles.accept} onClick={handleAccept}>
           {t("accept", { fallback: "Accept" })}
-        </Button>
-        <Button type="button" variant="bordered" onClick={handleDecline}>
+        </button>
+        <button
+          type="button"
+          className={styles.decline}
+          onClick={handleDecline}
+        >
           {t("decline", { fallback: "Decline" })}
-        </Button>
+        </button>
       </div>
     </div>
   );
