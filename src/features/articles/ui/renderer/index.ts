@@ -1,1 +1,1 @@
-export * from './IdeaRenderer';
+export * from './ArticleRenderer';

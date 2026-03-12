@@ -62,9 +62,9 @@ export const ArticlesLoop = ({ title }: { title?: string }) => {
               <div key={index} className={styles.articles_loop__skeleton_item} />
             ))
           ) : articles.length > 0 ? (
-            articles.map((idea) => (
+            articles.map((article) => (
               <motion.div
-                key={idea.title}
+                key={article.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -74,20 +74,20 @@ export const ArticlesLoop = ({ title }: { title?: string }) => {
                 <div
                   className={styles.articles_loop__image}
                   style={{
-                    backgroundImage: `url(${SERVER_URL}${idea?.image?.url || ''})`,
+                    backgroundImage: `url(${SERVER_URL}${article?.image?.url || ''})`,
                   }}
                 >
                   <Image
-                    src={SERVER_URL + idea?.image?.url || `/images/articles/${idea.slug}.png`}
-                    alt={idea.title}
+                    src={SERVER_URL + article?.image?.url || `/images/articles/${article.slug}.png`}
+                    alt={article.title}
                     width={760}
                     height={400}
                   />
                 </div>
                 <div className={styles.articles_loop__details}>
-                  <h3>{idea.title}</h3>
-                  <p>{idea.excerpt}</p>
-                  <Button variant="black" url={`/articles/${idea.slug}`} type="link">
+                  <h3>{article.title}</h3>
+                  <p>{article.excerpt}</p>
+                  <Button variant="black" url={`/articles/${article.slug}`} type="link">
                     {t('button', { fallback: 'Read Article' })}
                   </Button>
                 </div>
@@ -95,7 +95,7 @@ export const ArticlesLoop = ({ title }: { title?: string }) => {
             ))
           ) : (
             <div className={styles.articles_loop__empty}>
-              <p>{t('empty', { fallback: 'No guides found' })}</p>
+              <p>{t('empty', { fallback: 'No articles found' })}</p>
             </div>
           )}
         </div>

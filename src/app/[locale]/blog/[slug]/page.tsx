@@ -17,13 +17,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const awaitedParams = await params;
   const { locale, slug } = awaitedParams;
-  const idea = await getArticle({ slug: slug, locale });
+  const article = await getArticle({ slug: slug, locale });
   return {
-    title: idea.title,
-    description: idea.seo_description,
+    title: article.title,
+    description: article.seo_description,
     openGraph: {
-      title: idea.title,
-      description: idea.seo_description,
+      title: article.title,
+      description: article.seo_description,
       images: "",
     },
   };
@@ -37,8 +37,8 @@ export default async function PostPage({
   const t = await getTranslations("blog");
   const awaitedParams = await params;
   const { locale, slug } = awaitedParams;
-  const idea = await getArticle({ slug: slug, locale });
-  console.log(idea.content.root.children);
+  const article = await getArticle({ slug: slug, locale });
+  console.log(article.content.root.children);
 
   const SERVER_URL = process.env.SERVER_URL;
 
@@ -50,17 +50,17 @@ export default async function PostPage({
             <Link href="/blog">
               {t("back-to-articles", { fallback: "Back" })}
             </Link>
-            <h1>{idea.title}</h1>
+            <h1>{article.title}</h1>
             <div className={st.postTitle__info}>
-              <InfoRenderer content={idea.info.root.children} />
+              <InfoRenderer content={article.info.root.children} />
             </div>
           </div>
         </div>
       </section>
-      {idea.content && (
+      {article.content && (
         <section className={st.postContent}>
           <div className="container">
-            <Article content={idea.content.root.children} />
+            <Article content={article.content.root.children} />
           </div>
         </section>
       )}

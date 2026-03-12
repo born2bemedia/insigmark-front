@@ -1,12 +1,12 @@
 import type { Children } from "../../model/types";
-import { IdeaContent } from "../content/ArticleContent";
+import { ArticleContent } from "../content/ArticleContent";
 
-export const IdeaRenderer = ({ content }: { content: Children[] }) => (
+export const ArticleRenderer = ({ content }: { content: Children[] }) => (
   <>
     {!Array.isArray(content) ? null : (
       <>
         {content.map((node, i) => (
-          <IdeaContent
+          <ArticleContent
             key={String(`node-${i}`)}
             node={node}
             type={node.type}
