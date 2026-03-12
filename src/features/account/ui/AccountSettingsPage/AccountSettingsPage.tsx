@@ -27,7 +27,7 @@ export const AccountSettingsPage = () => {
   useEffect(() => {
     if (!isInitialized) return;
     if (!user) {
-      router.replace("/log-in");
+      router.replace("/sign-in");
     }
   }, [isInitialized, user, router]);
 

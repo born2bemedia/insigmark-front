@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 
 import sgMail from '@sendgrid/mail';
 
+import { getHomeRequestConfirmationEmail } from '@/shared/lib/emails/formTemplates';
+
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const FROM_EMAIL = process.env.FROM_EMAIL;
@@ -94,68 +96,11 @@ export async function POST(request: Request): Promise<NextResponse> {
       attachments,
     };
 
-    const safeFirstName = escapeHtml(fullName.split(' ')[0] || fullName);
-
     const userMsg = {
       to: email,
       from: FROM_EMAIL,
       subject: "We've Received Your Request",
-      html: `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request Received - Insigmark</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #fff; color: #333;">
-  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #fff;">
-    <tr>
-      <td align="center" style="padding: 40px 20px;">
-        <table role="presentation" style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #fff; overflow: hidden;">
-          <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://insigmark.com/images/email-header.png" alt="Insigmark Logo">
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 32px; background: #fff;">
-              <p style="margin: 0 0 32px; color: #333;font-size: 24px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Dear ${safeFirstName},
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Thank you for contacting <b>Insigmark</b>. We have received your inquiry, and our team is currently reviewing your request.
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                We understand that timely communication is critical to your business objectives. One of our consultants will reach out to you within <b>24–48 hours</b> to discuss how we can best support your goals.
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                In the meantime, feel free to explore our latest insights at <a href="https://insigmark.com" style="color: #333;font-weight: 700;text-decoration: underline;" target="_blank">insigmark.com</a>.
-              </p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Best regards,<br>
-                <strong style="color: #333;">The Insigmark Team</strong><br>
-                <span style="font-size:16px;">
-                  Strategic Solutions for Modern Business
-                </span>
-              </p>
-              <p style="margin: 0; color: #333;font-size: 18px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <a href="https://insigmark.com" target="_blank" style="color: #333;font-weight: 400;text-decoration: underline;">insigmark.com</a>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://insigmark.com/images/email-footer.png" alt="Insigmark Logo">
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
-      `,
+      html: getHomeRequestConfirmationEmail(fullName),
     };
 
     await sgMail.send(adminMsg);

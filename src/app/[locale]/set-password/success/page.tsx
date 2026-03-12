@@ -13,7 +13,7 @@ export default function SetPasswordSuccessPage() {
           title={t('title', { fallback: 'Password updated' })}
           description={t('description', { fallback: 'Your password has been changed successfully. You can now log in with your new password.' })}
           primaryCtaLabel={t('primaryCtaLabel', { fallback: 'Got it' })}
-          primaryCtaHref="/log-in"
+          primaryCtaHref="/sign-in"
           closeHref="/"
         />
       </div>

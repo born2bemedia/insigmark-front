@@ -1,7 +1,7 @@
 {
   "homeBenefits": {
-    "title": "Our Approach to Your ideas",
-    "subtitle": "A complete process for your ideas: research, development, optimization, and hosting to make them accessible to the world.",
+    "title": "Our Approach to Your articles",
+    "subtitle": "A complete process for your articles: research, development, optimization, and hosting to make them accessible to the world.",
     "card1Title": "Research & Alignment",
     "card1Desc": "Study the market, competitors, and user expectations while working closely with you to clarify goals, priorities, and success criteria before development begins.",
     "card2Title": "Evolving Tech Stack",
@@ -14,7 +14,7 @@
   "homeDescription": {
     "line1": "From idea",
     "line2": "to impact",
-    "slogan": "Make your ideas visible, shareable, and alive online.",
+    "slogan": "Make your articles visible, shareable, and alive online.",
     "brand": "Insigmark"
   },
   "homeFaq": {
@@ -128,7 +128,7 @@
   },
   "homeTeam": {
     "title": "Meet Our Experts",
-    "subtitle": "A team of thinkers and builders who turn ideas into original, fully realized digital experiences."
+    "subtitle": "A team of thinkers and builders who turn articles into original, fully realized digital experiences."
   },
   "homeTestimonials": {
     "col1Title": "How We Drive\nSuccess",
@@ -393,7 +393,7 @@
   },
   "webDev": {
     "heroTitle": "Web Development",
-    "heroSubtitle": "We transform ideas into fully functional websites that are ready for the world.",
+    "heroSubtitle": "We transform articles into fully functional websites that are ready for the world.",
     "tabPreDevelopment": "Pre-Development Research",
     "tabWebsiteDevelopment": "Website Development",
     "tabTechnicalOptimization": "Technical Optimization",
@@ -445,7 +445,7 @@
     "forgotSomething": "Forgot something?",
     "noWorries": "No worries! ",
     "resetYourPassword": "Reset your password",
-    "andYouWillBeBackInActionInNoTime": "and you&apos;ll be back in action in no time."
+    "andYouWillBeBackInActionInNoTime": "and you'll be back in action in no time."
   },
   "accountSettingsPage": {
     "loading": "Loading...",
@@ -648,9 +648,9 @@
       "title": "Insigmark Call Request",
       "callMe": "Call me!"
     },
+    "optional": "(optional)",
     "returnHome": "Return to home page",
     "companyName": "Company name",
-    "optional": "(optional)",
     "companyNamePlaceholder": "Enter your company name",
     "website": "Your website",
     "websitePlaceholder": "Enter your website URL",

@@ -12,7 +12,7 @@ export default function SignUpSuccessPage() {
             title="Welcome to Insigmark!"
             description="Your account has been created. Check your email to verify your address and get started."
             primaryCtaLabel="Got it"
-            primaryCtaHref="/log-in"
+            primaryCtaHref="/sign-in"
             closeHref="/"
           />
         </div>

@@ -51,10 +51,11 @@ export const assistanceRequestFormSchema = z.object({
 
 export type AssistanceRequestFormSchema = z.infer<typeof assistanceRequestFormSchema>;
 
-// 3. Call Request (Name, Phone, Message - no E-mail)
+// 3. Call Request (Name, Phone, Message - optional Email for confirmation)
 export const callRequestFormSchema = z.object({
   fullName: fullNameSchema,
   phone: phoneSchema,
+  email: z.union([z.string().email(), z.literal('')]).optional(),
   message: messageSchema,
   recaptcha: recaptchaSchema,
 });

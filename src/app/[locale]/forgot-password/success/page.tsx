@@ -16,7 +16,7 @@ export default function ForgotPasswordSuccessPage() {
               "Check your inbox – we just sent a password reset link. Can’t find the email? Make sure to check your spam or promotions folder.",
           })}
           primaryCtaLabel={t("primaryCtaLabel", { fallback: "Got it" })}
-          primaryCtaHref="/log-in"
+          primaryCtaHref="/sign-in"
           closeHref="/"
         />
       </div>

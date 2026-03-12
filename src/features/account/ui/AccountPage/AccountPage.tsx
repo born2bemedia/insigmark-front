@@ -179,7 +179,7 @@ export const AccountPage = () => {
   useEffect(() => {
     if (!isInitialized) return;
     if (!user) {
-      router.replace("/log-in");
+      router.replace("/sign-in");
     }
   }, [isInitialized, user, router]);
 
@@ -205,7 +205,7 @@ export const AccountPage = () => {
 
   const handleLogout = async () => {
     await logout();
-    router.push("/log-in");
+    router.push("/sign-in");
   };
 
   const onPersonalSubmit = async (data: PersonalDataSchema) => {

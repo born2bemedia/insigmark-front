@@ -40,5 +40,9 @@ export async function submitAssistanceRequestForm(
 }
 
 export async function submitCallRequestForm(data: CallRequestFormSchema): Promise<void> {
-  return submitForm('call', data);
+  const payload = { ...data };
+  if (!payload.email || !String(payload.email).trim()) {
+    delete (payload as Record<string, unknown>).email;
+  }
+  return submitForm('call', payload);
 }

@@ -124,8 +124,8 @@ export const LoginForm = () => {
           {t('noWorries', { fallback: 'No worries! ' })}
           <Link href="/forgot-password" className={styles.login_form__forgot_link}>
             {t('resetYourPassword', { fallback: 'Reset your password' })}
-          </Link>
-          {t('andYouWillBeBackInActionInNoTime', { fallback: 'and you&apos;ll be back in action in no time.' })}
+          </Link>{' '}
+          {t('andYouWillBeBackInActionInNoTime', { fallback: 'and you\'ll be back in action in no time.' })}
         </p>
       </div>
     </form>

@@ -29,13 +29,13 @@ export const AccountNavigation = () => {
   useEffect(() => {
     if (!isInitialized || isLoading) return;
     if (!user) {
-      router.replace("/log-in");
+      router.replace("/sign-in");
     }
   }, [isInitialized, isLoading, user, router]);
   
   const handleLogout = async () => {
     await logout();
-    router.push("/log-in");
+    router.push("/sign-in");
   };
 
   const displayName = [user?.firstName, user?.lastName].filter(Boolean).join(" ") || "there";

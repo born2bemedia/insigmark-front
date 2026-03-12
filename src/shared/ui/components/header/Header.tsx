@@ -130,7 +130,7 @@ export const Header = () => {
               <Link href="/sign-up" className={styles.header__btn_signin}>
                 {t("sign-up", { fallback: "Sign up" })}
               </Link>
-              <Link href="/log-in" className={styles.header__btn_login}>
+              <Link href="/sign-in" className={styles.header__btn_login}>
                 {t("login", { fallback: "Login" })}
               </Link>
             </>

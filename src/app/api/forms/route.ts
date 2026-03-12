@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server';
 
 import sgMail from '@sendgrid/mail';
 
+import {
+  getAssistanceRequestConfirmationEmail,
+  getCallRequestConfirmationEmail,
+  getServiceRequestConfirmationEmail,
+} from '@/shared/lib/emails/formTemplates';
 import { verifyRecaptcha } from '@/shared/lib/recaptcha';
 
 const ENABLE_RECAPTCHA = true;
@@ -98,76 +103,11 @@ export async function POST(request: Request): Promise<NextResponse> {
         html,
       };
 
-      const safeFirstName = escapeHtml(d.fullName.split(' ')[0] || d.fullName);
-
       const userMsg = {
         to: d.email,
         from: fromEmail,
         subject: "We've Received Your Request",
-        html: `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request Received - Insigmark</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #fff; color: #333;">
-  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #fff;">
-    <tr>
-      <td align="center" style="padding: 40px 20px;">
-        <table role="presentation" style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #fff; overflow: hidden;">
-          <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://insigmark.com/images/email-header.png" alt="Insigmark Logo">
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 32px; background: #fff;">
-              <p style="margin: 0 0 32px; color: #333;font-size: 24px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Dear ${safeFirstName},
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Thank you for choosing Insigmark as your strategic partner. We have successfully received your request and are pleased to confirm your engagement.<br>
-                Our team is currently reviewing your requirements to ensure our resources align with your business objectives.
-              </p>
-              <span style="display: block;padding: 20px;background:#384CE3;margin: 32px 0;color: #FFF;font-size: 14px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Engagement Summary:<br><br>
-                <ul style="margin: 0;padding-left: 16px;">
-                  <li>
-                    Service: <strong>${escapeHtml(d.service)}</strong>
-                  </li>
-                </ul>
-              </span>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <b>What Happens Next?</b><br>
-                You will receive an email shortly containing payment instructions. Once those details are finalized, we will move forward with the next phase of your project.<br>
-                We look forward to a successful collaboration.
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Best regards,<br>
-                <strong style="color: #333;">The Insigmark Team</strong><br>
-                <span style="font-size:16px;">
-                  Strategic Solutions for Modern Business
-                </span>
-              </p>
-              <p style="margin: 0; color: #333;font-size: 18px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <a href="https://insigmark.com" target="_blank" style="color: #333;font-weight: 400;text-decoration: underline;">insigmark.com</a>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://insigmark.com/images/email-footer.png" alt="Insigmark Logo">
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
-      `,
+        html: getServiceRequestConfirmationEmail(d.fullName, d.service),
       };
 
       await sgMail.send(msg);
@@ -187,48 +127,41 @@ export async function POST(request: Request): Promise<NextResponse> {
       `;
 
       const msg = { to: adminEmail, from: fromEmail, subject, html };
-      const safeFirstName = escapeHtml(d.fullName.split(' ')[0] || d.fullName);
       const userMsg = {
         to: d.email,
         from: fromEmail,
         subject: "We've Received Your Assistance Request",
-        html: `
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Assistance Request - Insigmark</title></head>
-<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#333;">
-  <table role="presentation" style="width:100%;border-collapse:collapse;">
-    <tr><td align="center" style="padding:40px 20px;">
-      <table role="presentation" style="max-width:640px;width:100%;border-collapse:collapse;">
-        <tr><td style="padding:0;height:100px;"><img style="width:100%;height:auto;" src="https://insigmark.com/images/email-header.png" alt="Insigmark"></td></tr>
-        <tr><td style="padding:32px;">
-          <p style="margin:0 0 32px;font-size:24px;">Dear ${safeFirstName},</p>
-          <p style="margin:0 0 24px;font-size:16px;">Your assistance request has been received! Our team will contact you soon. Please check your inbox for details.</p>
-          <p style="margin:0;font-size:16px;">Best regards,<br><strong>The Insigmark Team</strong></p>
-        </td></tr>
-        <tr><td style="padding:0;height:100px;"><img style="width:100%;height:auto;" src="https://insigmark.com/images/email-footer.png" alt="Insigmark"></td></tr>
-      </table>
-    </td></tr>
-  </table>
-</body>
-</html>`,
+        html: getAssistanceRequestConfirmationEmail(d.fullName),
       };
       await sgMail.send(msg);
       await sgMail.send(userMsg);
       console.log(`Assistance request sent to ${userEmail}`);
     } else if (formType === 'call') {
-      const d = data as { fullName: string; phone: string; message?: string };
+      const d = data as { fullName: string; phone: string; message?: string; email?: string };
       subject = 'Call Request';
       html = `
         <h2>Call Request</h2>
         <p><strong>Full name:</strong> ${escapeHtml(d.fullName)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(d.phone)}</p>
         <p><strong>Message:</strong> ${escapeHtml(d.message ?? '')}</p>
+        ${d.email ? `<p><strong>Email:</strong> ${escapeHtml(d.email)}</p>` : ''}
       `;
 
       const msg = { to: adminEmail, from: fromEmail, subject, html };
       await sgMail.send(msg);
-      console.log('Call request sent');
+
+      if (d.email) {
+        const userMsg = {
+          to: d.email,
+          from: fromEmail,
+          subject: "We've Received Your Call Request",
+          html: getCallRequestConfirmationEmail(d.fullName),
+        };
+        await sgMail.send(userMsg);
+        console.log(`Call request confirmation sent to ${d.email}`);
+      } else {
+        console.log('Call request sent');
+      }
     }
   } catch (error) {
     console.error('Error submitting request:', error);

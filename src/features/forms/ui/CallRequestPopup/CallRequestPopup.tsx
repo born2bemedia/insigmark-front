@@ -74,6 +74,7 @@ export const CallRequestPopup = ({
     defaultValues: {
       fullName: "",
       phone: "",
+      email: "",
       message: "",
       recaptcha: "",
     },
@@ -221,6 +222,28 @@ export const CallRequestPopup = ({
                 {form.formState.errors.phone && (
                   <span className={styles.error}>
                     {form.formState.errors.phone.message}
+                  </span>
+                )}
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="call-email">
+                  {t("email", { fallback: "Email" })} ({t("optional", { fallback: "optional" })})
+                </label>
+                <input
+                  id="call-email"
+                  type="email"
+                  className={`${styles.input} ${
+                    form.formState.errors.email ? styles.inputError : ""
+                  }`}
+                  placeholder={t("emailPlaceholder", {
+                    fallback: "For confirmation email",
+                  })}
+                  {...form.register("email")}
+                />
+                {form.formState.errors.email && (
+                  <span className={styles.error}>
+                    {form.formState.errors.email.message}
                   </span>
                 )}
               </div>
