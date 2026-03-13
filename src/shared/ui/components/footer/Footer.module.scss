@@ -3,6 +3,7 @@
 $navy: #023d65;
 $grey-bg: #f5f5f5;
 $text-dark: #060606;
+$yellow-accent: #d2ff37;
 
 .footer {
   position: relative;
@@ -132,6 +133,7 @@ $text-dark: #060606;
   &__newsletter_form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
   }
 
   &__newsletter_input_wrap {
@@ -158,6 +160,14 @@ $text-dark: #060606;
     }
   }
 
+  &__newsletter_input_error {
+    color: #8f1d1d;
+
+    &::placeholder {
+      color: rgba(143, 29, 29, 0.5);
+    }
+  }
+
   &__newsletter_btn {
     position: absolute;
     right: 0;
@@ -177,6 +187,28 @@ $text-dark: #060606;
     &:hover {
       opacity: 0.8;
     }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &__newsletter_error,
+  &__newsletter_status {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+  }
+
+  &__newsletter_error {
+    color: #8f1d1d;
+  }
+
+  &__newsletter_status {
+    color: rgba($text-dark, 0.6);
   }
 
   // ─── NAV ─────────────────────────────────────────────────────────────────────
@@ -361,6 +393,79 @@ $text-dark: #060606;
 
     @include tablet {
       display: none;
+    }
+  }
+
+  &__popup_panel {
+    width: 100%;
+    max-width: 948px;
+    max-height: 95vh;
+    background: #d6d6d6;
+    padding: 40px;
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    @include mobile {
+      padding: 24px;
+      gap: 32px;
+    }
+  }
+
+  &__popup_success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  &__popup_title {
+    margin: 0;
+    font-family: var(--font-inter, Inter), sans-serif;
+    font-size: 100px;
+    font-weight: 600;
+    line-height: 0.97;
+    color: $text-dark;
+
+    @include tablet {
+      font-size: 48px;
+    }
+  }
+
+  &__popup_desc {
+    margin: 0;
+    font-family: var(--font-inter, Inter), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: $text-dark;
+    max-width: 686px;
+  }
+
+  &__popup_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 21px 24px;
+    border: none;
+    border-radius: 50px;
+    background: $yellow-accent;
+    color: $text-dark;
+    font-family: var(--font-inter, Inter), sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.86;
     }
   }
 }
