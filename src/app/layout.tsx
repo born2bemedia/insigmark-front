@@ -1,5 +1,6 @@
 import { Bebas_Neue,Inter } from 'next/font/google';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
@@ -47,6 +48,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <GoogleAnalytics gaId="G-CRPCJYVNG6" />
       <body className={cn(bebasNeue.variable, inter.variable)}>
         <NextIntlClientProvider>
           <SmoothScroll />
