@@ -49,6 +49,22 @@ body {
   button {
     //cursor: none !important;
   }
+
+  > section {
+    @include xlargeDesktop {
+      padding-left: 100px !important;
+      padding-right: 100px !important;
+    }
+  }
+
+  > main {
+    > section {
+      @include xlargeDesktop {
+        padding-left: 100px !important;
+        padding-right: 100px !important;
+      }
+    }
+  }
 }
 
 font {
@@ -300,7 +316,7 @@ img {
 }
 
 .custom_checkbox_input:checked + .custom_checkbox_element::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 4px;
   top: 1px;

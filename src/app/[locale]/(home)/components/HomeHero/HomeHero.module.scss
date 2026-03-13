@@ -23,6 +23,9 @@
   @include largeDesktop {
     height: 1000px;
   }
+  @include xlargeDesktop {
+    height: 1200px;
+  }
 
   > div {
     display: flex;
