@@ -47,6 +47,7 @@
     "title": "Nasze wiadomości",
     "subtitle": "Bądź na bieżąco z naszymi najnowszymi usługami, ofertami specjalnymi i wskazówkami, dzięki którym Twoja witryna będzie działać mądrzej i szybciej.",
     "scheduleCall": "Zaplanuj rozmowę",
+    "exploreAllNews": "Przeglądaj wszystkie wiadomości",
     "readMore": "Przeczytaj więcej"
   },
   "homeNumbers": {
@@ -444,9 +445,9 @@
     "passwordUpdated": "Hasło zostało pomyślnie zaktualizowane!",
     "loading": "Załadunek...",
     "heroGreeting": "Cześć",
-    "heroDescription": "Witamy ponownie na swoim koncie. Zarządzaj swoimi danymi osobowymi, przeglądaj status zamówienia i pobieraj faktury.",
+    "heroDescription": "Witamy ponownie na swoim koncie. Zarządzaj swoimi danymi osobowymi, przeglądaj zlecenia i śledź postęp.",
     "personalDataTitle": "Twoje dane osobowe",
-    "ordersTitle": "Twoje zamówienia",
+    "ordersTitle": "Twoje zlecenia",
     "logOutLinkTitle": "Wyloguj się",
     "fieldYourName": "Twoje imię",
     "editField": "Redagować",
@@ -533,15 +534,15 @@
     "button": "Skontaktuj się z pomocą techniczną Estanory"
   },
   "myOrdersPage": {
-    "orderId": "Identyfikator zamówienia",
+    "orderId": "Identyfikator zlecenia",
     "serviceOrdered": "Praca",
     "total": "Cena",
-    "date": "Data zamówienia",
-    "status": "Stan zamówienia",
+    "date": "Data zlecenia",
+    "status": "Stan zlecenia",
     "invoice": "Faktura",
     "download": "Pobierać",
-    "loading": "Ładowanie zamówień...",
-    "noOrders": "Nie masz jeszcze żadnych zamówień."
+    "loading": "Ładowanie zleceń...",
+    "noOrders": "Nie masz jeszcze żadnych zleceń."
   },
   "registration": {
     "titleSignUp": "Dołącz do Insigmark",
@@ -758,7 +759,8 @@
     "sending": "Przesyłka...",
     "submit": "Wyślij prośbę",
     "successTitle": "Dziękuję!",
-    "successDescription": "Twoje żądanie zostało pomyślnie przesłane. Nasz zespół sprawdzi Twoją wiadomość i wkrótce się z Tobą skontaktuje.",
+    "successDescription": "Twoje żądanie zostało pomyślnie przesłane. ",
+    "successDescription2": "Nasz zespół sprawdzi Twoją wiadomość i wkrótce się z Tobą skontaktuje.",
     "gotIt": "Rozumiem",
     "validation": {
       "checkboxRequired": "To pole wyboru jest wymagane.",
@@ -1191,7 +1193,14 @@
     "account": "Konto",
     "sign-up": "Zapisać się",
     "login": "Login",
-    "cart": "Wózek"
+    "cart": "Wózek",
+    "webDevelopment": "Tworzenie stron",
+    "hosting": "Hosting",
+    "maintenance": "Utrzymanie",
+    "contactProposal": "Kontakt + Zapytanie o ofertę",
+    "phoneLabel": "Telefon:",
+    "emailLabel": "E-mail:",
+    "closeMenu": "Zamknij menu"
   },
   "pricelist": {
     "title": "Potrzebujesz pełnego cennika?",

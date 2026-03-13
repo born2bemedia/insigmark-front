@@ -47,6 +47,7 @@
     "title": "Unsere Neuigkeiten",
     "subtitle": "Bleiben Sie über unsere neuesten Services, Sonderangebote und Tipps auf dem Laufenden, damit Ihre Website intelligenter und schneller funktioniert.",
     "scheduleCall": "Vereinbaren Sie einen Anruf",
+    "exploreAllNews": "Entdecken Sie alle Neuigkeiten",
     "readMore": "Mehr lesen"
   },
   "homeNumbers": {
@@ -67,7 +68,7 @@
     "perPage": "/pro Seite",
     "monthForMaintenance": "/Monat für Wartung",
     "perCustomFeature": "/pro benutzerdefinierte Funktion",
-    "forHandoverDocs": "/zur Übergabe & Unterlagen",
+    "forHandoverDocs": "/zur Übergabe \u0026 Unterlagen",
     "yearSharedHosting": "/Jahr – Shared Hosting",
     "yearManagedWordPress": "/Jahr – verwaltetes WordPress",
     "yearEntryVPS": "/Jahr – Eintritt VPS",
@@ -153,7 +154,7 @@
     "allReports": "Alle Berichte"
   },
   "blog": {
-    "heroTitle": "Blog & Einblicke",
+    "heroTitle": "Blog \u0026 Einblicke",
     "heroDescription": "Markttrends, technische Leitfäden und praktische Einblicke in Webentwicklung, Hosting, Sicherheit und digitale Infrastruktur. Bleiben Sie über die Technologien informiert, die das Web prägen, und entdecken Sie Strategien, um Ihre Website schneller, sicherer und effektiver zu machen.",
     "exploreArticles": "Entdecken Sie Artikel",
     "categoryWebDevelopment": "Webentwicklung",
@@ -444,9 +445,9 @@
     "passwordUpdated": "Passwort erfolgreich aktualisiert!",
     "loading": "Laden...",
     "heroGreeting": "Hallo",
-    "heroDescription": "Willkommen zurück in Ihrem Konto. Verwalten Sie Ihre persönlichen Daten, überprüfen Sie den Bestellstatus und laden Sie Ihre Rechnungen herunter.",
+    "heroDescription": "Willkommen zurück in Ihrem Konto. Verwalten Sie Ihre persönlichen Daten, prüfen Sie Anfragen und verfolgen Sie den Fortschritt.",
     "personalDataTitle": "Ihre persönlichen Daten",
-    "ordersTitle": "Ihre Bestellungen",
+    "ordersTitle": "Ihre Anfragen",
     "logOutLinkTitle": "Abmelden",
     "fieldYourName": "Ihr Name",
     "editField": "Bearbeiten",
@@ -533,7 +534,7 @@
     "button": "Kontaktieren Sie den Estanora-Support"
   },
   "myOrdersPage": {
-    "orderId": "Bestell-ID",
+    "orderId": "Anfrage-ID",
     "serviceOrdered": "Service",
     "total": "Preis",
     "date": "Bestelldatum",
@@ -758,7 +759,8 @@
     "sending": "Senden...",
     "submit": "Anfrage senden",
     "successTitle": "Danke schön!",
-    "successDescription": "Ihre Anfrage wurde erfolgreich übermittelt. Unser Team wird Ihre Nachricht prüfen und sich in Kürze bei Ihnen melden.",
+    "successDescription": "Ihre Anfrage wurde erfolgreich übermittelt. ",
+    "successDescription2": "Unser Team wird Ihre Nachricht prüfen und sich in Kürze bei Ihnen melden.",
     "gotIt": "Habe es",
     "validation": {
       "checkboxRequired": "Dieses Kontrollkästchen ist erforderlich.",
@@ -1191,7 +1193,14 @@
     "account": "Konto",
     "sign-up": "Melden Sie sich an",
     "login": "Login",
-    "cart": "Warenkorb"
+    "cart": "Warenkorb",
+    "webDevelopment": "Webentwicklung",
+    "hosting": "Hosting",
+    "maintenance": "Wartung",
+    "contactProposal": "Kontakt + Projektanfrage",
+    "phoneLabel": "Telefon:",
+    "emailLabel": "E-Mail:",
+    "closeMenu": "Menü schließen"
   },
   "pricelist": {
     "title": "Benötigen Sie eine vollständige Preisliste?",

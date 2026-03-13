@@ -367,7 +367,7 @@ export const AccountPage = () => {
             <p className={styles.hero__description}>
               {settingsT("heroDescription", {
                 fallback:
-                  "Welcome back to your account. Manage your personal details, review order status, and download your invoices.",
+                  "Welcome back to your account. Manage your personal details, review requests, and track progress.",
               })}
             </p>
           </div>
@@ -400,7 +400,7 @@ export const AccountPage = () => {
             >
               <LinkArrowIcon />
               <span>
-                {settingsT("ordersTitle", { fallback: "Your orders" })}
+                {settingsT("ordersTitle", { fallback: "Your requests" })}
               </span>
             </button>
             <button

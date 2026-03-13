@@ -10,11 +10,11 @@ export const createContactDataSchema = (t: Translate) =>
       .string()
       .email(t('validation.invalidEmail', { fallback: 'Invalid email' }))
       .min(1, t('validation.emailRequired', { fallback: 'Email is required' })),
-    address1: z.string().min(1, t('validation.addressRequired', { fallback: 'Address is required' })),
-    address2: z.string().min(1, t('validation.addressRequired', { fallback: 'Address is required' })),
-    city: z.string().min(1, t('validation.cityRequired', { fallback: 'City is required' })),
-    country: z.string().min(1, t('validation.countryRequired', { fallback: 'Country is required' })),
-    zip: z.string().min(1, t('validation.zipRequired', { fallback: 'Zip is required' })),
+    address1: z.string().min(1, t('validation.addressRequired', { fallback: 'Address is required' })).optional(),
+    address2: z.string().min(1, t('validation.addressRequired', { fallback: 'Address is required' })).optional(),
+    city: z.string().min(1, t('validation.cityRequired', { fallback: 'City is required' })).optional(),
+    country: z.string().min(1, t('validation.countryRequired', { fallback: 'Country is required' })).optional(),
+    zip: z.string().min(1, t('validation.zipRequired', { fallback: 'Zip is required' })).optional(),
   });
 
 export const createChangePasswordSchema = (t: Translate) =>

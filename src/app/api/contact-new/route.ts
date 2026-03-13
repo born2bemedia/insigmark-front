@@ -20,11 +20,13 @@ export async function POST(request: Request): Promise<NextResponse> {
     // Verify reCAPTCHA token (only if enabled)
     if (ENABLE_RECAPTCHA) {
       if (!recaptcha || recaptcha === 'disabled') {
+        console.log('[contact-new] 400: reCAPTCHA missing or disabled');
         return NextResponse.json({ message: 'reCAPTCHA verification is required.' }, { status: 400 });
       }
 
       const isRecaptchaValid = await verifyRecaptcha(recaptcha);
       if (!isRecaptchaValid) {
+        console.log('[contact-new] 400: reCAPTCHA verification failed');
         return NextResponse.json(
           { message: 'reCAPTCHA verification failed. Please try again.' },
           { status: 400 }

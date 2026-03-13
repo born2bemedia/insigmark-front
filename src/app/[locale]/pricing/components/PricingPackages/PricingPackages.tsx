@@ -20,7 +20,7 @@ const STAR_ICON = (
     <path
       d="M1.42969 5.71442H10.0011M5.7154 1.42871V10.0001M8.09635 3.33347L3.33445 8.09538M3.33445 3.33347L8.09635 8.09538"
       stroke="#878787"
-      stroke-width="1.42857"
+      strokeWidth="1.42857"
       strokeLinejoin="round"
     />
   </svg>

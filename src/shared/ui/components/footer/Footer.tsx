@@ -31,11 +31,11 @@ export const Footer = () => {
   ];
 
   const NAV_COL_2 = [
-    { text: t("footer-pricing", { fallback: "Pricing" }), href: "#" },
-    { text: t("footer-articles", { fallback: "Blog" }), href: "#" },
+    { text: t("footer-pricing", { fallback: "Pricing" }), href: "/pricing" },
+    { text: t("footer-articles", { fallback: "Blog" }), href: "/blog" },
     { text: t("footer-faq", { fallback: "FAQ" }), href: "/faq" },
-    { text: t("footer-who", { fallback: "Company" }), href: "#" },
-    { text: t("footer-connect", { fallback: "Contact" }), href: "#" },
+    { text: t("footer-who", { fallback: "Company" }), href: "/company" },
+    { text: t("footer-connect", { fallback: "Contact" }), href: "/contact" },
   ];
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {

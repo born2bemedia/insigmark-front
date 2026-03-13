@@ -94,9 +94,9 @@ export const HomeNews = () => {
                   "Stay updated on our latest services, special offers, and tips to make your website work smarter and faster.",
               })}
             </p>
-            <Link href="/contact" className={styles.home_news__link}>
+            <Link href="/blog" className={styles.home_news__link}>
               <span className={styles.home_news__link_icon}>{ARROW_ICON}</span>
-              <span>{t("scheduleCall", { fallback: "Schedule a call" })}</span>
+              <span>{t("exploreAllNews", { fallback: "Explore all news" })}</span>
             </Link>
           </div>
         </motion.div>

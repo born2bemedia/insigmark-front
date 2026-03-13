@@ -47,6 +47,7 @@
     "title": "Le nostre notizie",
     "subtitle": "Rimani aggiornato sui nostri ultimi servizi, offerte speciali e suggerimenti per far funzionare il tuo sito web in modo più intelligente e veloce.",
     "scheduleCall": "Pianifica una chiamata",
+    "exploreAllNews": "Esplora tutte le notizie",
     "readMore": "Per saperne di più"
   },
   "homeNumbers": {
@@ -444,9 +445,9 @@
     "passwordUpdated": "Password aggiornata con successo!",
     "loading": "Caricamento...",
     "heroGreeting": "Ciao",
-    "heroDescription": "Bentornato nel tuo account. Gestisci i tuoi dati personali, controlla lo stato degli ordini e scarica le tue fatture.",
+    "heroDescription": "Bentornato nel tuo account. Gestisci i tuoi dati personali, controlla le richieste e segui il progresso.",
     "personalDataTitle": "I tuoi dati personali",
-    "ordersTitle": "I tuoi ordini",
+    "ordersTitle": "I tuoi richieste",
     "logOutLinkTitle": "Esci",
     "fieldYourName": "Il tuo nome",
     "editField": "Modificare",
@@ -533,15 +534,15 @@
     "button": "Contatta l'assistenza Estanora"
   },
   "myOrdersPage": {
-    "orderId": "ID dell'ordine",
+    "orderId": "ID della richiesta",
     "serviceOrdered": "Servizio",
     "total": "Prezzo",
-    "date": "Data dell'ordine",
-    "status": "Stato dell'ordine",
+    "date": "Data della richiesta",
+    "status": "Stato della richiesta",
     "invoice": "Fattura",
     "download": "Scaricamento",
-    "loading": "Caricamento ordini...",
-    "noOrders": "Non hai ancora ordini."
+    "loading": "Caricamento richieste...",
+    "noOrders": "Non hai ancora richieste."
   },
   "registration": {
     "titleSignUp": "Unisciti a Insigmark",
@@ -648,7 +649,7 @@
     "orderDetails": "Dettagli del tuo ordine:",
     "service": "Servizio:",
     "quantity": "Quantità:",
-    "orderId": "ID ordine:",
+    "orderId": "ID richiesta:",
     "totalAmount": "Importo totale",
     "text2": "Il tuo ordine è in fase di elaborazione e a breve riceverai i dettagli del pagamento via e-mail. Assicurati che le tue informazioni di contatto siano aggiornate, così possiamo inviarti tutto direttamente.",
     "text3": "Se hai domande o vuoi semplicemente parlare dei passaggi successivi, non esitare a contattarci all'indirizzo",
@@ -758,7 +759,8 @@
     "sending": "Invio...",
     "submit": "Invia richiesta",
     "successTitle": "Grazie!",
-    "successDescription": "La tua richiesta è stata inviata con successo. Il nostro team esaminerà il tuo messaggio e ti ricontatterà a breve.",
+    "successDescription": "La tua richiesta è stata inviata con successo. ",
+    "successDescription2": "Il nostro team esaminerà il tuo messaggio e ti ricontatterà a breve.",
     "gotIt": "Fatto",
     "validation": {
       "checkboxRequired": "Questa casella di controllo è obbligatoria.",
@@ -1191,7 +1193,14 @@
     "account": "Account",
     "sign-up": "Iscrizione",
     "login": "Login",
-    "cart": "Carrello"
+    "cart": "Carrello",
+    "webDevelopment": "Sviluppo web",
+    "hosting": "Hosting",
+    "maintenance": "Manutenzione",
+    "contactProposal": "Contatto + Richiesta di proposta",
+    "phoneLabel": "Telefono:",
+    "emailLabel": "E-mail:",
+    "closeMenu": "Chiudi menu"
   },
   "pricelist": {
     "title": "Hai bisogno di un listino prezzi completo?",

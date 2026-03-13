@@ -108,21 +108,21 @@ export const MyOrdersPage = () => {
   });
 
   const labels = {
-    orderId: t('orderId', { fallback: 'Order ID' }),
+    orderId: t('orderId', { fallback: 'Request ID' }),
     serviceOrdered: t('serviceOrdered', { fallback: 'Service' }),
     total: t('total', { fallback: 'Price' }),
-    orderDate: t('date', { fallback: 'Order Date' }),
-    status: t('status', { fallback: 'Order Status' }),
+    orderDate: t('date', { fallback: 'Request Date' }),
+    status: t('status', { fallback: 'Request Status' }),
     invoice: t('invoice', { fallback: 'Invoice' }),
     download: t('download', { fallback: 'Download' }),
   };
 
   if (loading) {
-    return <p className={styles.loadingText}>{t('loading', { fallback: 'Loading orders...' })}</p>;
+    return <p className={styles.loadingText}>{t('loading', { fallback: 'Loading requests...' })}</p>;
   }
 
   if (rows.length === 0) {
-    return <p className={styles.empty}>{t('noOrders', { fallback: 'You have no orders yet.' })}</p>;
+    return <p className={styles.empty}>{t('noOrders', { fallback: 'You have no requests yet.' })}</p>;
   }
 
   return (

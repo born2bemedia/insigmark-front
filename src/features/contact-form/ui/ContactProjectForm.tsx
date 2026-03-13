@@ -1,15 +1,23 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { useForm } from 'react-hook-form';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { Controller, useForm } from 'react-hook-form';
+import PhoneInput from 'react-phone-input-2';
+
+import { excludedCountries } from '@/shared/lib/helpers/excludedCountries';
 
 import { submitContactProjectForm } from '../api/submitContactProjectForm';
 import { type ContactProjectFormSchema, createContactProjectFormSchema } from '../model/ContactForm.schema';
 import styles from './ContactProjectForm.module.scss';
 import { ContactProjectFormSuccess } from './ContactProjectFormSuccess';
+
+import 'react-phone-input-2/lib/style.css';
+
+const ENABLE_RECAPTCHA = true;
 
 const ArrowIcon = () => (
   <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,6 +33,9 @@ const ArrowIcon = () => (
 export const ContactProjectForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [recaptchaKey, setRecaptchaKey] = useState(0);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const phoneContainerRef = useRef<HTMLDivElement>(null);
   const t = useTranslations('contactProjectForm');
 
 
@@ -60,12 +71,7 @@ export const ContactProjectForm = () => {
     [PROJECT_SCOPE_TEXTS],
   );
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ContactProjectFormSchema>({
+  const form = useForm<ContactProjectFormSchema>({
     resolver: zodResolver(createContactProjectFormSchema(t)),
     defaultValues: {
       projectType: [],
@@ -75,8 +81,44 @@ export const ContactProjectForm = () => {
       companyName: '',
       projectScope: [],
       message: '',
+      recaptcha: '',
     },
   });
+
+  const {
+    register,
+    control,
+    setValue,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = form;
+
+  const handleRecaptchaChange = useCallback(
+    (token: string | null) => {
+      if (ENABLE_RECAPTCHA) {
+        setValue('recaptcha', token ?? '', { shouldValidate: true });
+      } else {
+        setValue('recaptcha', 'disabled', { shouldValidate: false });
+      }
+    },
+    [setValue],
+  );
+
+  useEffect(() => {
+    const container = phoneContainerRef.current;
+    if (!container) return;
+    const observer = new MutationObserver(() => {
+      const list = container.querySelector('.country-list');
+      if (list && !list.hasAttribute('data-lenis-prevent')) {
+        list.setAttribute('data-lenis-prevent', '');
+      }
+    });
+    observer.observe(container, { childList: true, subtree: true });
+    const list = container.querySelector('.country-list');
+    if (list) list.setAttribute('data-lenis-prevent', '');
+    return () => observer.disconnect();
+  }, []);
 
   const onSubmit = async (formData: ContactProjectFormSchema) => {
     try {
@@ -89,9 +131,13 @@ export const ContactProjectForm = () => {
       });
 
       reset();
+      recaptchaRef.current?.reset();
+      setRecaptchaKey((k) => k + 1);
       setIsSuccess(true);
     } catch (error) {
       console.error(error);
+      recaptchaRef.current?.reset();
+      setRecaptchaKey((k) => k + 1);
     } finally {
       setIsLoading(false);
     }
@@ -158,12 +204,27 @@ export const ContactProjectForm = () => {
               />
               {errors.email && <p className={styles.error}>{errors.email.message}</p>}
             </div>
-            <div className={styles.field}>
-              <input
-                type="tel"
-                placeholder={t('phoneLabel', { fallback: 'Phone:' })}
-                aria-label={t('phoneLabel', { fallback: 'Phone:' })}
-                {...register('phone')}
+            <div className={`${styles.field} ${errors.phone ? styles.field_error : ''}`} ref={phoneContainerRef}>
+              <Controller
+                name="phone"
+                control={control}
+                render={({ field }) => (
+                  <PhoneInput
+                    country="gb"
+                    value={field.value}
+                    onChange={field.onChange}
+                    excludeCountries={[...new Set(excludedCountries)]}
+                    inputProps={{
+                      id: 'contact-project-phone',
+                      'aria-invalid': !!errors.phone,
+                      'aria-label': t('phoneLabel', { fallback: 'Phone:' }),
+                    }}
+                    containerClass={styles.phoneContainer}
+                    inputClass={styles.phoneInput}
+                    enableSearch
+                    preferredCountries={['gb']}
+                  />
+                )}
               />
               {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
             </div>
@@ -197,6 +258,8 @@ export const ContactProjectForm = () => {
           </div>
         </div>
 
+        
+
         <div className={`${styles.sectionRow} ${styles.messageSection}`}>
           <div className={styles.sectionHeading}>
             <h3>{t('messageTitle', { fallback: 'Message' })}</h3>
@@ -213,6 +276,23 @@ export const ContactProjectForm = () => {
             </div>
           </div>
         </div>
+
+        {ENABLE_RECAPTCHA && (
+          <div className={`${styles.sectionRow} ${styles.recaptchaSection}`}>
+            <div className={styles.sectionContent}>
+              <div className={`${styles.field}`}>
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  key={recaptchaKey}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}
+                  onChange={handleRecaptchaChange}
+                  theme="light"
+                />
+                {errors.recaptcha && <p className={styles.error}>{errors.recaptcha.message}</p>}
+              </div>
+            </div>
+          </div>
+        )}
 
         <button type="submit" className={styles.submitButton} disabled={isLoading}>
           <ArrowIcon />

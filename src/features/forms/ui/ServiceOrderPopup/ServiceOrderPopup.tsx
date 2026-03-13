@@ -8,7 +8,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, useForm } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
 
-import { submitRequestForm } from "@/features/forms/api/submitForm";
+import { useAuthStore } from "@/features/account/store/auth";
+import { createOrder } from "@/features/cart/api/createOrder";
 import { type RequestFormSchema, requestFormSchema } from "@/features/forms/model/schemas";
 import type { ServiceOrderData } from "@/features/forms/model/store";
 
@@ -21,6 +22,32 @@ import styles from "./ServiceOrderPopup.module.scss";
 import "react-phone-input-2/lib/style.css";
 
 const ENABLE_RECAPTCHA = true;
+
+const getDefaultValues = (user?: {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+} | null): RequestFormSchema => ({
+  fullName: [user?.firstName, user?.lastName].filter(Boolean).join(" ").trim(),
+  email: user?.email ?? "",
+  phone: user?.phone ?? "",
+  companyName: "",
+  website: "",
+  message: "",
+  recaptcha: "",
+});
+
+const splitFullName = (fullName: string) => {
+  const parts = fullName.trim().split(/\s+/).filter(Boolean);
+  const [firstName = "", ...rest] = parts;
+  const lastName = rest.join(" ").trim() || firstName;
+
+  return {
+    firstName,
+    lastName,
+  };
+};
 
 const CloseIcon = () => (
   <svg
@@ -68,18 +95,13 @@ export const ServiceOrderPopup = ({
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const user = useAuthStore((state) => state.user);
+  const isInitialized = useAuthStore((state) => state.isInitialized);
+  const fetchUser = useAuthStore((state) => state.fetchUser);
 
   const form = useForm<RequestFormSchema>({
     resolver: zodResolver(requestFormSchema),
-    defaultValues: {
-      fullName: "",
-      email: "",
-      phone: "",
-      companyName: "",
-      website: "",
-      message: "",
-      recaptcha: "",
-    },
+    defaultValues: getDefaultValues(user),
   });
 
   const handleRecaptchaChange = (token: string | null) => {
@@ -94,9 +116,39 @@ export const ServiceOrderPopup = ({
     setError(null);
     setIsLoading(true);
     try {
-      await submitRequestForm(data, service.title);
+      const { firstName, lastName } = splitFullName(data.fullName);
+      const normalizedEmail = data.email.trim().toLowerCase();
+      const normalizedUserEmail = user?.email?.trim().toLowerCase();
+
+      await createOrder({
+        billing: {
+          firstName,
+          lastName,
+        },
+        contact: {
+          email: normalizedEmail,
+          phone: data.phone,
+        },
+        orderNotes: data.message,
+        items: [
+          {
+            id: service.id,
+            title: service.title,
+            price: service.price,
+            quantity: 1,
+          },
+        ],
+        total: service.price,
+        recaptcha: data.recaptcha,
+        userId:
+          user?.id && normalizedUserEmail === normalizedEmail
+            ? user.id
+            : undefined,
+      });
+
+      await fetchUser();
       setIsSuccess(true);
-      form.reset();
+      form.reset(getDefaultValues(user));
       recaptchaRef.current?.reset();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Submission failed");
@@ -111,6 +163,20 @@ export const ServiceOrderPopup = ({
     startLenis();
     onClose();
   };
+
+  useEffect(() => {
+    if (!isInitialized) {
+      void fetchUser();
+    }
+  }, [fetchUser, isInitialized]);
+
+  useEffect(() => {
+    if (!isInitialized) {
+      return;
+    }
+
+    form.reset(getDefaultValues(user));
+  }, [form, isInitialized, user]);
 
   useEffect(() => {
     if (isOpen) {

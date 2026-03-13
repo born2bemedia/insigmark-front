@@ -47,6 +47,7 @@
     "title": "Our News",
     "subtitle": "Stay updated on our latest services, special offers, and tips to make your website work smarter and faster.",
     "scheduleCall": "Schedule a call",
+    "exploreAllNews": "Explore all news",
     "readMore": "Read more"
   },
   "homeNumbers": {
@@ -444,9 +445,9 @@
     "passwordUpdated": "Password updated successfully!",
     "loading": "Loading...",
     "heroGreeting": "Hello",
-    "heroDescription": "Welcome back to your account. Manage your personal details, review order status, and download your invoices.",
+    "heroDescription": "Welcome back to your account. Manage your personal details, review requests, and track progress.",
     "personalDataTitle": "Your personal data",
-    "ordersTitle": "Your orders",
+    "ordersTitle": "Your requests",
     "logOutLinkTitle": "Log out",
     "fieldYourName": "Your name",
     "editField": "Edit",
@@ -533,15 +534,15 @@
     "button": "Contact Estanora support"
   },
   "myOrdersPage": {
-    "orderId": "Order ID",
+    "orderId": "Request ID",
     "serviceOrdered": "Service",
     "total": "Price",
-    "date": "Order Date",
-    "status": "Order Status",
+    "date": "Request Date",
+    "status": "Request Status",
     "invoice": "Invoice",
     "download": "Download",
-    "loading": "Loading orders...",
-    "noOrders": "You have no orders yet."
+    "loading": "Loading requests...",
+    "noOrders": "You have no requests yet."
   },
   "registration": {
     "titleSignUp": "Join Insigmark",
@@ -758,7 +759,8 @@
     "sending": "Sending...",
     "submit": "Send request",
     "successTitle": "Thank you!",
-    "successDescription": "Your request has been submitted successfully. Our team will review your message and get back to you shortly.",
+    "successDescription": "Your request has been submitted successfully. ",
+    "successDescription2": "Our team will review your message and get back to you shortly.",
     "gotIt": "Got it",
     "validation": {
       "checkboxRequired": "This checkbox is required.",
@@ -1191,7 +1193,14 @@
     "account": "Account",
     "sign-up": "Sign up",
     "login": "Login",
-    "cart": "Cart"
+    "cart": "Cart",
+    "webDevelopment": "Web Development",
+    "hosting": "Hosting",
+    "maintenance": "Maintenance",
+    "contactProposal": "Contact + Request Proposal",
+    "phoneLabel": "Phone:",
+    "emailLabel": "Email:",
+    "closeMenu": "Close menu"
   },
   "pricelist": {
     "title": "Need a full pricing list?",

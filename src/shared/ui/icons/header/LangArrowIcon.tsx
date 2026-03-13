@@ -1,16 +1,15 @@
 export const LangArrowIcon = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
       <path
-        d="M9.95998 4.47498L6.69998 7.73498C6.31498 8.11998 5.68498 8.11998 5.29998 7.73498L2.03998 4.47498"
-        fill="currentColor"
-      />
-      <path
-        d="M9.95998 4.47498L6.69998 7.73498C6.31498 8.11998 5.68498 8.11998 5.29998 7.73498L2.03998 4.47498"
-        stroke="#171717"
-        strokeMiterlimit="10"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M16.29 8.29016L12 12.5902L7.70996 8.29016L6.28996 9.71016L12 15.4102L17.71 9.71016L16.29 8.29016Z"
+        fill="black"
       />
     </svg>
   );

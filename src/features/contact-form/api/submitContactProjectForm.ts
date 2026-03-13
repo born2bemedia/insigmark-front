@@ -21,7 +21,7 @@ export const submitContactProjectForm = async (data: ContactProjectFormSchema) =
   ].join('\n');
 
   formData.append('message', message);
-  formData.append('recaptcha', 'disabled');
+  formData.append('recaptcha', data.recaptcha ?? 'disabled');
 
   const res = await fetch('/api/contact-new', {
     method: 'POST',

@@ -106,12 +106,15 @@ export const createContactProjectFormSchema = (t: Translate) =>
       .trim()
       .optional()
       .refine(
-        (value) => !value || /^[+]?[\d\s\-()]{7,}$/.test(value),
+        (value) => !value || /^[+]?[\d\s\-()]{7,}$/.test(value.replace(/\s/g, '')),
         t('validation.invalidPhone', { fallback: 'Please provide a valid phone number.' }),
       ),
     companyName: z.string().trim().optional(),
     projectScope: z.array(z.string()).min(1, t('validation.checkboxRequired', { fallback: 'This checkbox is required.' })),
     message: z.string().trim().min(1, t('validation.requiredField', { fallback: 'This field is required.' })),
+    recaptcha: ENABLE_RECAPTCHA
+      ? z.string().min(1, t('validation.recaptchaRequired', { fallback: 'Please complete the reCAPTCHA verification' }))
+      : z.string().optional(),
   });
 
 export type ContactProjectFormSchema = z.infer<ReturnType<typeof createContactProjectFormSchema>>;

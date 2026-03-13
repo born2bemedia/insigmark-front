@@ -9,6 +9,7 @@ import { FormsPopupRenderer } from '@/features/forms';
 
 import { cn } from '@/shared/lib/helpers/styles';
 import { CookiePopup, Footer, Header, SmoothScroll } from '@/shared/ui/components';
+import { PreloaderGif } from '@/shared/ui/components/preloader-gif/PreloaderGif';
 
 import 'react-toastify/dist/ReactToastify.css';
 import '@/shared/lib/styles/null.scss';
@@ -49,6 +50,7 @@ export default async function RootLayout({
       <body className={cn(bebasNeue.variable, inter.variable)}>
         <NextIntlClientProvider>
           <SmoothScroll />
+          <PreloaderGif />
           <Header />
           {children}
           <Footer />

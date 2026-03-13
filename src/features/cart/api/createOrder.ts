@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 
 import sgMail from '@sendgrid/mail';
 
+import { getOrderConfirmationEmail } from '@/shared/lib/emails/orderTemplates';
 import { verifyRecaptcha } from '@/shared/lib/recaptcha';
 
 import type { CheckoutFormSchema } from '../model/checkout.schema';
@@ -26,11 +27,11 @@ export type CreateOrderPayload = {
   billing: {
     firstName: string;
     lastName: string;
-    address1: string;
+    address1?: string;
     address2?: string;
-    city: string;
-    country: string;
-    zip: string;
+    city?: string;
+    country?: string;
+    zip?: string;
   };
   contact: {
     email: string;
@@ -171,6 +172,16 @@ const postOrder = async (
   // Send emails if SendGrid is configured
   if (SENDGRID_API_KEY && FROM_EMAIL && ADMIN_EMAIL) {
     try {
+      const billingAddressText = [
+        data.address1,
+        data.address2,
+        data.city,
+        data.zip,
+        data.country,
+      ]
+        .filter((part) => part && String(part).trim().length > 0)
+        .join(', ');
+
       const adminMsg = {
         to: ADMIN_EMAIL,
         from: FROM_EMAIL,
@@ -180,9 +191,7 @@ const postOrder = async (
           <p><strong>User:</strong> ${data.firstName} ${data.lastName}</p>
           <p><strong>Email:</strong> ${data.email}</p>
           <p><strong>Phone:</strong> ${data.phone ?? ''}</p>
-          <p><strong>Address:</strong> ${data.address1}${
-            data.address2 ? `, ${data.address2}` : ''
-          }, ${data.city}, ${data.zip}, ${data.country}</p>
+          <p><strong>Address:</strong> ${billingAddressText || 'Not provided'}</p>
           ${data.orderNotes ? `<p><strong>Order Notes:</strong> ${data.orderNotes}</p>` : ''}
           <p><strong>Total:</strong> €${total.toFixed(2)}</p>
           <p><strong>Items:</strong></p>
@@ -199,107 +208,21 @@ const postOrder = async (
         `,
       };
 
-      // Escape HTML to prevent XSS
-      const escapeHtml = (text: string) => {
-        return text
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#039;');
-      };
-
-      const safeFirstName = escapeHtml(data.firstName);
-
       const userMsg = {
         to: data.email,
         from: FROM_EMAIL,
         subject: "We've received your Insigmark order",
-        html: `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Received - Insigmark</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #fff; color: #333;">
-  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #fff;">
-    <tr>
-      <td align="center" style="padding: 40px 20px;">
-        <table role="presentation" style="max-width: 640px; width: 100%; border-collapse: collapse; background-color: #fff; overflow: hidden;">
-          <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://insigmark.com/images/email-header.png" alt="Insigmark Logo">
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 32px; background: #fff;">
-              <p style="margin: 0 0 32px; color: #333;font-size: 24px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Dear ${safeFirstName},
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Thank you for choosing Insigmark as your strategic partner. We have successfully received your request and are pleased to confirm your engagement.<br>
-                Our team is currently reviewing your requirements to ensure our resources align with your business objectives.
-              </p>
-              <span style="display: block;padding: 20px;background:#384CE3;margin: 32px 0;color: #FFF;font-size: 14px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Engagement Summary:<br><br>
-
-                ${cart
-                  .map(
-                    (item) => `
-                  <ul>
-                    <li>
-                      Service: <strong>${escapeHtml(item.title)}</strong>
-                    </li>
-                    <li>
-                      Quantity: <strong>${item.quantity}</strong>
-                    </li>
-                    <li>
-                      Order ID: <strong>${createdOrderNumber}</strong>
-                    </li>
-                    <li>
-                      Date: <strong>${new Date().toLocaleDateString()}</strong>
-                    </li>
-                    <li>
-                      Total Amount: <strong>${escapeHtml(
-                        (item.price * item.quantity).toFixed(2)
-                      )}</strong>
-                    </li>
-                  </ul>
-                  `
-                  )
-                  .join('')}
-              </span>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <b>What Happens Next?</b><br>
-                You will receive an email shortly containing payment instructions. Once those details are finalized, we will move forward with the next phase of your project.<br>
-                We look forward to a successful collaboration.
-              </p>
-              <p style="margin: 0 0 24px; color: #333;font-size: 16px;font-style: normal;font-weight: 400;line-height: 140%;">
-                Best regards,<br>
-                <strong style="color: #333;">The Insigmark Team</strong><br>
-                <span style="font-size:16px;">
-                  Strategic Solutions for Modern Business
-                </span>
-              </p>
-              <p style="margin: 0; color: #333;font-size: 18px;font-style: normal;font-weight: 400;line-height: 140%;">
-                <a href="https://insigmark.com" target="_blank" style="color: #333;font-weight: 400;text-decoration: underline;">insigmark.com</a>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 0; height: 100px;">
-              <img style="width: 100%; height: auto;" src="https://insigmark.com/images/email-footer.png" alt="Insigmark Logo">
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
-        `,
+        html: getOrderConfirmationEmail({
+          fullName: `${data.firstName} ${data.lastName}`.trim(),
+          orderNumber: createdOrderNumber,
+          orderDate: new Date().toLocaleDateString(),
+          total,
+          items: cart.map((item) => ({
+            title: item.title,
+            quantity: item.quantity,
+            price: item.price,
+          })),
+        }),
       };
 
       await sgMail.send(adminMsg);
@@ -328,11 +251,11 @@ export const createOrder = async (payload: CreateOrderPayload) => {
   const formData: CheckoutFormSchema = {
     firstName: payload.billing.firstName,
     lastName: payload.billing.lastName,
-    address1: payload.billing.address1,
+    address1: payload.billing.address1 ?? '',
     address2: payload.billing.address2,
-    city: payload.billing.city,
-    country: payload.billing.country,
-    zip: payload.billing.zip,
+    city: payload.billing.city ?? '',
+    country: payload.billing.country ?? '',
+    zip: payload.billing.zip ?? '',
     email: payload.contact.email,
     phone: payload.contact.phone ?? '',
     orderNotes: payload.orderNotes,

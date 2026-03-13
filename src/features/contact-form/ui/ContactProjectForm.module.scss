@@ -63,6 +63,19 @@
     gap: 40px;
   }
 
+  &.recaptchaSection {
+    grid-template-columns: 1fr;
+    gap: 0px;
+    
+    
+    .field {
+      border-bottom: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+
   @include tablet {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -157,6 +170,10 @@
   flex-direction: column;
   gap: 2px;
 
+  &.field_error .phoneContainer :global(.form-control) {
+    border-bottom-color: #f74c4c !important;
+  }
+
   input,
   textarea {
     width: 100%;
@@ -187,6 +204,90 @@
     min-height: 70px;
     line-height: 1.2;
   }
+}
+
+// PhoneInput (react-phone-input-2)
+.phoneContainer {
+  width: 100%;
+
+  :global(.form-control) {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    background: none !important;
+    border: none !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 0 !important;
+    padding: 2px 0 10px 52px !important;
+    color: #0c0c0c !important;
+    font-family: var(--font-inter), sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.8px !important;
+    outline: none !important;
+
+    &::placeholder {
+      color: rgba(12, 12, 12, 0.4) !important;
+    }
+
+    &:focus {
+      border-bottom-color: rgba(0, 0, 0, 0.3) !important;
+    }
+
+    @include tablet {
+      font-size: 20px !important;
+    }
+  }
+
+  :global(.flag-dropdown) {
+    background: none !important;
+    border: none !important;
+    border-right: none !important;
+    padding-bottom: 10px !important;
+
+    .selected-flag {
+      background: none !important;
+    }
+
+    .arrow {
+      border-top-color: rgba(12, 12, 12, 0.5) !important;
+    }
+
+    .country-list {
+      background: #f5f5f5 !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+
+      .country {
+        color: #0c0c0c !important;
+
+        .dial-code {
+          color: rgba(12, 12, 12, 0.6) !important;
+        }
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05) !important;
+        }
+
+        &.highlight {
+          background: rgba(0, 0, 0, 0.08) !important;
+        }
+      }
+
+      .search {
+        background: #fff !important;
+        color: #0c0c0c !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+
+        &::placeholder {
+          color: rgba(12, 12, 12, 0.4) !important;
+        }
+      }
+    }
+  }
+}
+
+.phoneInput {
+  min-width: 0; // flex overflow fix
 }
 
 .error {
