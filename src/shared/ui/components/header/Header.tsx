@@ -27,7 +27,7 @@ export const Header = () => {
   const t = useTranslations("header");
 
   let color = "black";
-  if (pathname === "/ " || pathname === "/de" || pathname === "/it" || pathname === "/pl") {
+  if (pathname === "/" || pathname === "/de" || pathname === "/it" || pathname === "/pl") {
     color = "navy";
   }
 
