@@ -41,6 +41,7 @@ export const Header = () => {
         : t("signin", { fallback: "Sign In" }),
       href: user ? "/account" : "/sign-in",
     },
+    ...(user ? [] : [{text: t("sign-up", { fallback: "Sign Up" }), href: "/sign-up"}]),
   ];
 
   const serviceItems = [

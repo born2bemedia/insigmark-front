@@ -22,7 +22,7 @@ export type OrderPayload = {
   id: string;
   createdAt: string;
   orderNumber?: string;
-  user: string | { id: string };
+  user: string | { id?: string; email?: string };
   items: OrderItemPayload[];
   total: number;
   status: string;
@@ -30,6 +30,10 @@ export type OrderPayload = {
 };
 
 export type OrderFileWithUrl = { name: string; url: string };
+
+function normalizeEmail(email: string | undefined): string {
+  return (email ?? "").trim().toLowerCase();
+}
 
 export async function GET(): Promise<NextResponse> {
   try {
@@ -57,14 +61,14 @@ export async function GET(): Promise<NextResponse> {
       return NextResponse.json({ orders: [] }, { status: 200 });
     }
 
-    const meData = (await meRes.json()) as { user?: { id: string } };
-    const userId = meData.user?.id;
-    if (!userId) {
+    const meData = (await meRes.json()) as { user?: { email?: string } };
+    const userEmail = normalizeEmail(meData.user?.email);
+    if (!userEmail) {
       return NextResponse.json({ orders: [] }, { status: 200 });
     }
 
-    const ordersRes = await fetch(
-      `${SERVER_URL}/api/orders?where[user][equals]=${userId}&sort=-createdAt&limit=100&depth=2`,
+    const ordersByEmailRes = await fetch(
+      `${SERVER_URL}/api/orders?where[user.email][equals]=${encodeURIComponent(userEmail)}&sort=-createdAt&limit=100&depth=2`,
       {
         method: "GET",
         headers: {
@@ -74,13 +78,41 @@ export async function GET(): Promise<NextResponse> {
       },
     );
 
-    if (!ordersRes.ok) {
-      console.error("Orders fetch failed:", ordersRes.status, await ordersRes.text());
-      return NextResponse.json({ orders: [] }, { status: 200 });
+    let rawOrders: OrderPayload[] = [];
+
+    if (ordersByEmailRes.ok) {
+      const ordersData = (await ordersByEmailRes.json()) as { docs?: OrderPayload[] };
+      rawOrders = ordersData.docs ?? [];
+    } else {
+      console.error("Orders fetch by email failed:", ordersByEmailRes.status, await ordersByEmailRes.text());
     }
 
-    const ordersData = (await ordersRes.json()) as { docs?: OrderPayload[] };
-    const rawOrders = ordersData.docs ?? [];
+    if (rawOrders.length === 0) {
+      const fallbackOrdersRes = await fetch(
+        `${SERVER_URL}/api/orders?sort=-createdAt&limit=300&depth=2`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            Authorization: `JWT ${token}`,
+          },
+        },
+      );
+
+      if (fallbackOrdersRes.ok) {
+        const fallbackOrdersData = (await fallbackOrdersRes.json()) as { docs?: OrderPayload[] };
+        rawOrders = (fallbackOrdersData.docs ?? []).filter((order) => {
+          if (typeof order.user !== "object" || !order.user) {
+            return false;
+          }
+
+          return normalizeEmail(order.user.email) === userEmail;
+        });
+      } else {
+        console.error("Orders fallback fetch failed:", fallbackOrdersRes.status, await fallbackOrdersRes.text());
+      }
+    }
+
     const resolveItemFiles = (files: FilePayload[] | undefined): OrderFileWithUrl[] =>
       (files ?? []).map((f, i) => {
         const fileObj = typeof f.file === "object" && f.file && "url" in f.file ? f.file : null;

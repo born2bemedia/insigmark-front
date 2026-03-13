@@ -128,7 +128,8 @@ export async function createUser(userData: UserData): Promise<{ user: User; pass
       throw new Error(`Failed to create user: ${response.status} - ${errorText}`);
     }
 
-    const user = (await response.json()) as User;
+    const result = (await response.json()) as { doc: User };
+    const user = result.doc;
 
     // Відправляємо email з credentials
     if (SENDGRID_API_KEY && FROM_EMAIL) {
