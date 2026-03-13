@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Insigmark – Web Development Services',
     description: 'Build a fully functional website from concept to launch. Start your web project with Insigmark today!',
-    //images: 'https://theinsigmark.com/images/meta.png',
+    images: 'https://theinsigmark.com/images/meta.png',
   },
 };
 

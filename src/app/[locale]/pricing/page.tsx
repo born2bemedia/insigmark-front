@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Insigmark – Pricing Approach',
     description: 'Understand exactly how Insigmark calculates costs for web development, hosting, and maintenance. Explore our transparent pricing approach!',
-    //images: 'https://theinsigmark.com/images/meta.png',
+    images: 'https://theinsigmark.com/images/meta.png',
   },
 };
 

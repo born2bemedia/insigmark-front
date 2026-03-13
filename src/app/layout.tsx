@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'Insigmark – Personal Web Development, Hosting & Maintenance',
     description:
       'Bring your articles online with Insigmark! Get custom website development, reliable hosting, and ongoing support — start your project today.',
-    //images: 'https://theinsigmark.com/images/meta.png',
+    images: 'https://theinsigmark.com/images/meta.png',
   },
 };
 

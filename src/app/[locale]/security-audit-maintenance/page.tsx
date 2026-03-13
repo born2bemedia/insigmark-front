@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Insigmark – Website Security, Audit & Maintenance',
     description: 'Protect your website and ensure peak performance with Insigmark’s security audits and maintenance services. Secure your site now!',
-    //images: 'https://theinsigmark.com/images/meta.png',
+    images: 'https://theinsigmark.com/images/meta.png',
   },
 };
 

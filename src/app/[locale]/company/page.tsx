@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Insigmark',
     description: 'Learn how Insigmark transforms articles into fully functional websites with expert development, hosting, and ongoing support.',
-    //images: 'https://theinsigmark.com/images/meta.png',
+    images: 'https://theinsigmark.com/images/meta.png',
   },
 };
 
