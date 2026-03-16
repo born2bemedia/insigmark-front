@@ -45,7 +45,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 500px;
     z-index: 2;
 
     @include tablet {
