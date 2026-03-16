@@ -7,7 +7,7 @@ export const INSTAGRAM_URL = '#';
 export const X_URL = '#';
 
 export const WEBSITE_REGISTERED_ADDRESS = 'ul. Juliana Smulikowskiego 4a, lok. 45a, 00-389 Warsaw, Poland';
-export const WEBSITE_OFFICE_ADDRESS = '-';
+export const WEBSITE_OFFICE_ADDRESS = 'Office 34, 6 floor, Konstruktorska 13, 02-673, Warsaw, Poland';
 
 export const WEBSITE_REGISTERED_ADDRESS_MAP = '';
 export const WEBSITE_OFFICE_ADDRESS_MAP = '';
