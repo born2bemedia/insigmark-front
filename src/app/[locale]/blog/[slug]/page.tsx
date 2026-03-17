@@ -10,6 +10,7 @@ import { ArticleContent } from "@/features/articles/ui/content/ArticleContent";
 import { LenisRefreshOnMount } from "@/shared/ui/components";
 
 import st from "./page.module.scss";
+import { TableOfContents } from "./TableOfContents";
 
 import { Link } from "@/i18n/navigation";
 
@@ -311,17 +312,12 @@ export default async function PostPage({
                         fallback: "Article content",
                       })}
                     </p>
-                    <nav className={st.chapterList}>
-                      {headingSections.map((section) => (
-                        <a
-                          key={section.id}
-                          href={`#${section.id}`}
-                          className={st.chapterItem}
-                        >
-                          {section.title}
-                        </a>
-                      ))}
-                    </nav>
+                    <TableOfContents
+                      items={headingSections.map((s) => ({
+                        id: s.id,
+                        title: s.title,
+                      }))}
+                    />
                   </div>
                 )}
 

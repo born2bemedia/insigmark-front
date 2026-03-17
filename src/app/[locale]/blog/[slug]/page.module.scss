@@ -198,10 +198,11 @@ $text-muted: rgba(12, 12, 12, 0.6);
   line-height: 11px;
   letter-spacing: -0.33px;
   text-transform: uppercase;
-}
 
-.categoryItem--active {
-  background: $yellow;
+  &--active {
+    background: $yellow;
+    color: $navy;
+  }
 }
 
 // ─── ARTICLES LIST ────────────────────────────────────────────────────────────
@@ -286,12 +287,16 @@ $text-muted: rgba(12, 12, 12, 0.6);
     width: 9px;
     height: 9px;
     border-right: 2px solid $navy;
-    border-bottom: 2px solid $navy;
+    border-top: 2px solid $navy;
   }
 
   &:hover {
     color: $navy;
   }
+}
+
+.chapterItem--active {
+  background: $yellow;
 }
 
 // ─── CONTENT ──────────────────────────────────────────────────────────────────
