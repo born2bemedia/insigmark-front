@@ -1,7 +1,7 @@
 {
   "homeBenefits": {
-    "title": "Unser Ansatz für Ihre Artikel",
-    "subtitle": "Ein vollständiger Prozess für Ihre Artikel: Recherche, Entwicklung, Optimierung und Hosting, um sie der Welt zugänglich zu machen.",
+    "title": "Unser Ansatz für Ihre Ideen",
+    "subtitle": "Ein vollständiger Prozess für Ihre Ideen: Recherche, Entwicklung, Optimierung und Hosting, um sie der Welt zugänglich zu machen.",
     "card1Title": "Forschung und Ausrichtung",
     "card1Desc": "Studieren Sie den Markt, die Wettbewerber und die Erwartungen der Benutzer und arbeiten Sie dabei eng mit Ihnen zusammen, um Ziele, Prioritäten und Erfolgskriterien zu klären, bevor mit der Entwicklung begonnen wird.",
     "card2Title": "Sich weiterentwickelnder Tech-Stack",
@@ -14,7 +14,7 @@
   "homeDescription": {
     "line1": "Aus der Idee",
     "line2": "beeinflussen",
-    "slogan": "Machen Sie Ihre Artikel online sichtbar, teilbar und lebendig.",
+    "slogan": "Machen Sie Ihre Ideen online sichtbar, teilbar und lebendig.",
     "brand": "Insigmark"
   },
   "homeFaq": {
@@ -241,7 +241,7 @@
     "servicesSubtitle": "Komplexe Webentwicklung, Hosting und Wartung",
     "servicesDesc": "Insigmark bietet End-to-End-Weblösungen für Personen, die zuverlässige Ergebnisse benötigen, ohne mit mehreren Anbietern jonglieren zu müssen.",
     "servicesPricingLink": "Siehe Preisansatz",
-    "servicesWorkLabel": "Unsere Arbeit umfasst typischerweise:",
+    "servicesWorkLabel": "Unsere Arbeit umfasst:",
     "techTitle": "Technologie-Stack",
     "techSubtitleBold": "Werkzeuge, mit denen wir bauen",
     "techSubtitleDesc": "Wir verwenden moderne Frameworks und Infrastrukturtools, die hinsichtlich Stabilität, Skalierbarkeit und Leistung ausgewählt wurden."
@@ -420,7 +420,7 @@
   },
   "webDev": {
     "heroTitle": "Webentwicklung",
-    "heroSubtitle": "Wir verwandeln Artikel in voll funktionsfähige Websites, die für die Welt bereit sind.",
+    "heroSubtitle": "Wir verwandeln Ideen in voll funktionsfähige Websites, die für die Welt bereit sind.",
     "tabPreDevelopment": "Vorentwicklungsforschung",
     "tabWebsiteDevelopment": "Website-Entwicklung",
     "tabTechnicalOptimization": "Technische Optimierung",
@@ -1203,7 +1203,7 @@
     "webDevelopment": "Webentwicklung",
     "hosting": "Hosting",
     "maintenance": "Wartung",
-    "contactProposal": "Kontakt + Projektanfrage",
+    "contactProposal": "Kontakt",
     "phoneLabel": "Telefon:",
     "emailLabel": "E-Mail:",
     "closeMenu": "Menü schließen"

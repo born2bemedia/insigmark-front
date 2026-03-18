@@ -1,7 +1,7 @@
 {
   "homeBenefits": {
-    "title": "Il nostro approccio ai tuoi articoli",
-    "subtitle": "Un processo completo per i tuoi articoli: ricerca, sviluppo, ottimizzazione e hosting per renderli accessibili al mondo.",
+    "title": "Il nostro approccio ai tuoi idee",
+    "subtitle": "Un processo completo per i tuoi idee: ricerca, sviluppo, ottimizzazione e hosting per renderli accessibili al mondo.",
     "card1Title": "Ricerca e allineamento",
     "card1Desc": "Studia il mercato, i concorrenti e le aspettative degli utenti lavorando a stretto contatto con te per chiarire obiettivi, priorità e criteri di successo prima dell'inizio dello sviluppo.",
     "card2Title": "Stack tecnologico in evoluzione",
@@ -14,7 +14,7 @@
   "homeDescription": {
     "line1": "Dall'idea",
     "line2": "impattare",
-    "slogan": "Rendi i tuoi articoli visibili, condivisibili e vivi online.",
+    "slogan": "Rendi i tuoi idee visibili, condivisibili e vivi online.",
     "brand": "Insigmark"
   },
   "homeFaq": {
@@ -74,7 +74,7 @@
     "yearEntryVPS": "/anno – ingresso VPS",
     "yearProVPS": "/anno – VPS professionale",
     "yearDedicatedServer": "/anno – server dedicato",
-    "title": "Prezzi flessibili",
+    "title": "Prezzi Flessibili",
     "approach": "Approccio",
     "desc": "Il tuo progetto non è limitato da schemi preimpostati: offriamo sviluppo web e hosting completamente personalizzabili su misura per le tue esigenze.",
     "tabDevelopment": "Sviluppo",
@@ -241,7 +241,7 @@
     "servicesSubtitle": "Sviluppo web complesso, hosting e manutenzione",
     "servicesDesc": "Insigmark fornisce soluzioni web end-to-end progettate per le persone che necessitano di risultati affidabili senza destreggiarsi tra più fornitori.",
     "servicesPricingLink": "Vedi l'approccio dei prezzi",
-    "servicesWorkLabel": "Il nostro lavoro tipicamente include:",
+    "servicesWorkLabel": "Il nostro lavoro include:",
     "techTitle": "Pila tecnologica",
     "techSubtitleBold": "Strumenti con cui costruiamo",
     "techSubtitleDesc": "Utilizziamo framework moderni e strumenti infrastrutturali selezionati per stabilità, scalabilità e prestazioni."
@@ -420,7 +420,7 @@
   },
   "webDev": {
     "heroTitle": "Sviluppo Web",
-    "heroSubtitle": "Trasformiamo articoli in siti web perfettamente funzionanti e pronti per il mondo.",
+    "heroSubtitle": "Trasformiamo idee in siti web perfettamente funzionanti e pronti per il mondo.",
     "tabPreDevelopment": "Ricerca pre-sviluppo",
     "tabWebsiteDevelopment": "Sviluppo del sito web",
     "tabTechnicalOptimization": "Ottimizzazione tecnica",
@@ -1203,7 +1203,7 @@
     "webDevelopment": "Sviluppo web",
     "hosting": "Hosting",
     "maintenance": "Manutenzione",
-    "contactProposal": "Contatto + Richiesta di proposta",
+    "contactProposal": "Contatto",
     "phoneLabel": "Telefono:",
     "emailLabel": "E-mail:",
     "closeMenu": "Chiudi menu"

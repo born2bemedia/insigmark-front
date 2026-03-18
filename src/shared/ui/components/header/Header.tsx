@@ -55,7 +55,7 @@ export const Header = () => {
       href: "/security-audit-maintenance",
     },
     {
-      text: t("contactProposal", { fallback: "Contact + Request Proposal" }),
+      text: t("contactProposal", { fallback: "Contact" }),
       href: "/contact",
     },
   ];

@@ -108,7 +108,7 @@ export const CompanyServices = () => {
         >
           <p className={styles.company_services__right_label}>
             {t("servicesWorkLabel", {
-              fallback: "Our work typically includes:",
+              fallback: "Our work includes:",
             })}
           </p>
           <div className={styles.company_services__grid}>

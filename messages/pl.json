@@ -1,7 +1,7 @@
 {
   "homeBenefits": {
-    "title": "Nasze podejście do Twoich artykułów",
-    "subtitle": "Kompletny proces dotyczący Twoich artykułów: badania, rozwój, optymalizacja i hosting, aby udostępnić je światu.",
+    "title": "Nasze podejście do Twoich pomysłów",
+    "subtitle": "Kompletny proces dotyczący Twoich pomysłów: badania, rozwój, optymalizacja i hosting, aby udostępnić je światu.",
     "card1Title": "Badania i dostosowanie",
     "card1Desc": "Zbadaj rynek, konkurencję i oczekiwania użytkowników, ściśle współpracując z Tobą, aby wyjaśnić cele, priorytety i kryteria sukcesu przed rozpoczęciem programowania.",
     "card2Title": "Ewoluujący stos technologii",
@@ -14,7 +14,7 @@
   "homeDescription": {
     "line1": "Od pomysłu",
     "line2": "oddziaływać",
-    "slogan": "Spraw, aby Twoje artykuły były widoczne, udostępniane i żywe w Internecie.",
+    "slogan": "Spraw, aby Twoje pomysły były widoczne, udostępniane i żywe w Internecie.",
     "brand": "Insigmark"
   },
   "homeFaq": {
@@ -74,7 +74,7 @@
     "yearEntryVPS": "/rok – wpis VPS",
     "yearProVPS": "/rok – profesjonalny VPS",
     "yearDedicatedServer": "/rok – serwer dedykowany",
-    "title": "Elastyczne ceny",
+    "title": "Elastyczne Ceny",
     "approach": "Podejście",
     "desc": "Twój projekt nie jest ograniczony gotowymi wzorcami: oferujemy w pełni konfigurowalne tworzenie stron internetowych i hosting dostosowany do Twoich potrzeb.",
     "tabDevelopment": "Rozwój",
@@ -241,7 +241,7 @@
     "servicesSubtitle": "Kompleksowe tworzenie stron internetowych, hosting i utrzymanie",
     "servicesDesc": "Insigmark zapewnia kompleksowe rozwiązania internetowe przeznaczone dla osób, które potrzebują niezawodnych wyników bez konieczności żonglowania wieloma dostawcami.",
     "servicesPricingLink": "Zobacz podejście cenowe",
-    "servicesWorkLabel": "Nasza praca zazwyczaj obejmuje:",
+    "servicesWorkLabel": "Nasza praca obejmuje:",
     "techTitle": "Stos technologii",
     "techSubtitleBold": "Narzędzia, za pomocą których budujemy",
     "techSubtitleDesc": "Korzystamy z nowoczesnych frameworków i narzędzi infrastrukturalnych dobranych pod kątem stabilności, skalowalności i wydajności."
@@ -420,7 +420,7 @@
   },
   "webDev": {
     "heroTitle": "Tworzenie stron internetowych",
-    "heroSubtitle": "Przekształcamy artykuły w w pełni funkcjonalne strony internetowe, gotowe na świat.",
+    "heroSubtitle": "Przekształcamy pomysły w w pełni funkcjonalne strony internetowe, gotowe na świat.",
     "tabPreDevelopment": "Badania przedrozwojowe",
     "tabWebsiteDevelopment": "Rozwój strony internetowej",
     "tabTechnicalOptimization": "Optymalizacja techniczna",
@@ -1203,7 +1203,7 @@
     "webDevelopment": "Tworzenie stron",
     "hosting": "Hosting",
     "maintenance": "Utrzymanie",
-    "contactProposal": "Kontakt + Zapytanie o ofertę",
+    "contactProposal": "Kontakt",
     "phoneLabel": "Telefon:",
     "emailLabel": "E-mail:",
     "closeMenu": "Zamknij menu"

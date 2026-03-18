@@ -109,7 +109,7 @@ export const HomePricing = () => {
           variants={staggerItem}
         >
           <h2 className={styles.home_pricing__title}>
-            {t("title", { fallback: "Flexible pricing" })}
+            {t("title", { fallback: "Flexible Pricing" })}
           </h2>
           <div className={styles.home_pricing__subtitle_block}>
             <p className={styles.home_pricing__approach}>
