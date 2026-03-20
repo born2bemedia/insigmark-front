@@ -75,7 +75,7 @@ export const CompanyPricing = () => {
                   <span className={styles.company_pricing__card_link_icon}>{ARROW_ICON_WHITE}</span>
                   <span>{t("pricingViewLink", { fallback: "See pricing" })}</span>
                 </Link>
-                <Link href="/pricing" className={styles.company_pricing__card_link}>
+                <Link href="/pricing_theinsigmark.pdf" className={styles.company_pricing__card_link}>
                   <span className={styles.company_pricing__card_link_icon}>{ARROW_ICON_WHITE}</span>
                   <span>{t("pricingDownloadLink", { fallback: "Download full pricing list" })}</span>
                 </Link>
